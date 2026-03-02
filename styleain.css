@@ -1,0 +1,103 @@
+/* General Body Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Navigation Menu */
+nav {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    border-bottom: 1px solid #ddd;
+}
+
+nav ul li:last-child {
+    border-bottom: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Main Section */
+main {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* About Section */
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-bottom: 10px;
+}
+
+section p {
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Image Style */
+section figure {
+    text-align: center;
+    margin: 10px 0;
+}
+
+section img {
+    border-radius: 8px;
+}
+
+/* Aside Section */
+aside {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}

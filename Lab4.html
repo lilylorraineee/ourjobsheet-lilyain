@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 CSS3 - Teddy Bear Shop</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    /* Top header row links rapat ke kanan */
+    #topHeaderRow {
+        display: flex;             
+        justify-content: flex-end; 
+        gap: 15px;                 
+        padding: 5px 50px;         
+    }
+
+    #topHeaderRow a {
+        text-decoration: none;     
+        color: rgb(196, 191, 191); 
+        font-size: 14px;
+    }
+
+    /* Product Section - gambar & teks selari */
+    section {
+        display: flex;       
+        gap: 20px;           
+        padding: 20px 50px;
+        align-items: flex-start; 
+    }
+
+    #info {
+        max-width: 600px;    
+    }
+
+    /* Teddy Bear Classic tajuk bold */
+    figure h2 {
+        font-weight: bold;  
+        font-size: 24px;    
+    }
+
+    /* Buttons styling */
+    #buttons button {
+        padding: 8px 12px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    /* Product Details bawah buttons */
+    #productDetails {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    #productDetails p {
+        margin: 3px 0;
+    }
+
+    /* Tajuk Product Detail bold + garis pemisah */
+    .detail-title {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .detail-line {
+        border: none;
+        border-top: 2px solid #000; /* garis hitam tebal */
+        margin: 0 0 10px 0; /* jarak bawah garisan */
+    }
+
+    /* Similar Products */
+    #similar {
+        display: flex;
+        gap: 20px;
+        padding: 20px 50px;
+    }
+
+    .box {
+        text-align: center;
+    }
+
+    .box-buttons button {
+        margin: 5px 3px;
+        padding: 5px 8px;
+        cursor: pointer;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #ddd;
+        margin-top: 30px;
+    }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Top Header Row -->
+    <div id="topHeaderRow">
+        <a href="Lab5.html">My Account</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Shopping Cart</a>
+        <a href="#">Checkout</a>
+    </div>
+
+    <h1>Teddy Bear Shop</h1>
+
+    <!-- Main Navigation -->
+    <div id="mainNavigationRow">
+        <ul>
+            <li><a href="Lab4.html">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="Lab5.html">Art Works</a></li>
+            <li><a href="#">Artist</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <!-- Product Section -->
+    <section>
+        <figure>
+            <h2>Teddy Bear Classic</h2>
+            <a>By&nbsp;</a><a href="https://en.wikipedia.org/wiki/Cat">Lily</a>
+            <img src="gmbr1lab4.jpeg" alt="Teddy Bear 1" width="300" height="340">
+        </figure>
+        <div id="info">
+            <br>
+            <p>This adorable teddy bear is made from premium soft plush material, providing a gentle and comforting touch. Designed with high-quality stitching and durable fabric, it is perfect as a gift for loved ones or as a cozy companion for children and adults alike.</p>
+            <p>The teddy bear features a charming design with a cute expression and fluffy texture, making it ideal for birthdays, anniversaries, Valentine’s Day, or special occasions. It is lightweight, easy to carry, and safe for all ages.</p>
+            <p>Whether placed in a bedroom, living room, or given as a heartfelt present, this teddy bear brings warmth, comfort, and happiness to everyone.</p>
+
+            <p class="price">RM25.00</p>
+
+            <!-- Buttons -->
+            <div id="buttons">
+                <button class="wishlist">Add to Wishlist</button>
+                <button class="cart">Add to Shopping Cart</button>
+            </div>
+
+            <!-- Product Details -->
+            <div id="productDetails">
+                <p class="detail-title">Product Detail</p>
+                <hr class="detail-line">
+                <p><strong>Release Date:</strong> 11 Feb 2026</p>
+                <p><strong>Saiz:</strong> Medium</p>
+                <p><strong>Color:</strong> White</p>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+
+    <!-- Similar Products -->
+    <h3>Similar Products</h3>
+    <hr class="detail-line">
+    <div id="similar">
+        <div class="box">
+            <img src="gmbr2lab4.jpeg" alt="Teddy Bear Brown" width="150">
+            <a  href="https://en.wikipedia.org/wiki/Cat">Teddy Bear Pink</a>
+            <div class="box-buttons">
+                <button>View</button>
+                <button>Wishlist</button>
+                <button>Cart</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="gmbr3lab4.jpeg" alt="Teddy Bear White" width="150">
+            <a href="https://en.wikipedia.org/wiki/Cat">Teddy Bear Brown</a>
+            <div class="box-buttons">
+                <button>View</button>
+                <button>Wishlist</button>
+                <button>Cart</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="gmbr4lab4.jpeg" alt="Teddy Bear Pink" width="150">
+            <a href="https://en.wikipedia.org/wiki/Cat">Teddy Bear Blue</a>
+            <div class="box-buttons">
+                <button>View</button>
+                <button>Wishlist</button>
+                <button>Cart</button>
+            </div>
+
+            
+        </div>
+        <div class="box">
+            <img src="gmbr5lab4.jpeg" alt="Teddy Bear Police" width="130">
+            <a  href="https://en.wikipedia.org/wiki/Cat">Teddy Bear Police</a>
+            <div class="box-buttons">
+                <button>View</button>
+                <button>Wishlist</button>
+                <button>Cart</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+     All images are copyright to their owners. This is just ahypothetical site © 2026 Copyright Art Store.
+</footer>
+
+</body>
+</html>

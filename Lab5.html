@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teddy Bear Shop - Customer Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* ===== TOP TASK BAR ===== */
+        .top-bar {
+            background-color: #333;
+            padding: 8px 20px;
+            text-align: right;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== SHOP TITLE ===== */
+        .shop-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            padding: 20px 0;
+            background-color: #f5f5f5;
+        }
+
+        /* ===== MAIN NAV BAR ===== */
+        .main-nav {
+            background-color: #bddbfa;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            margin: 0 20px;
+            font-size: 16px;
+        }
+
+        .main-nav a:hover {
+            color: #0056b3;
+        }
+
+        /* ===== FORM STYLE ===== */
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        select {
+            width: calc(50% - 10px);
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+
+        .half {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        input[type=range] {
+            width: 60%;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        .submitBtn {
+            background-color: #bddbfa;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #000;
+            margin: 10px 0 15px 0;
+        }
+
+        /* ===== SIGN ME UP BOX ===== */
+        .signup-box {
+            border: 2px solid green;
+            padding: 10px;
+            width: 250px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+
+        .signup-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: green;
+        }
+
+        .signup-label input[type="checkbox"] {
+            accent-color: green;
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- TOP TASK BAR -->
+<div class="top-bar">
+    <a href="#">My Account</a>
+    <a href="#">Wish List</a>
+    <a href="#">Shopping Cart</a>
+    <a href="#">Checkout</a>
+</div>
+
+<!-- SHOP TITLE -->
+<div class="shop-title">
+    Teddy Bear Shop
+</div>
+
+<!-- NAV BAR -->
+<nav class="main-nav">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Art Works</a>
+    <a href="#">Artist</a>
+</nav>
+
+<h1>Customer Registration</h1>
+
+<form action="#" method="post">
+
+    <!-- 1. User Info -->
+    <fieldset>
+        <legend>1. User Info</legend>
+        <hr>
+
+        <div class="half">
+            <label>First Name</label>
+            <input type="text">
+        </div>
+
+        <div class="half">
+            <label>Last Name</label>
+            <input type="text">
+        </div>
+
+        <label>Email</label>
+        <input type="email" style="width:100%;">
+
+        <div class="half">
+            <label>Password</label>
+            <input type="password">
+        </div>
+
+        <div class="half">
+            <label>Repeat Password</label>
+            <input type="password">
+        </div>
+    </fieldset>
+
+    <!-- 2. Location -->
+    <fieldset>
+        <legend>2. Location</legend>
+        <hr>
+
+        <label>Address</label>
+        <input type="text" style="width:100%;">
+
+        <div class="half">
+            <label>City</label>
+            <input type="text">
+        </div>
+
+        <div class="half">
+            <label>State</label>
+            <input type="text">
+        </div>
+
+        <div class="half">
+            <label>ZIP</label>
+            <input type="text">
+        </div>
+
+        <div class="half">
+            <label>Country</label>
+            <select>
+                <option>Malaysia</option>
+                <option>USA</option>
+                <option>UK</option>
+            </select>
+        </div>
+    </fieldset>
+
+    <!-- 3. Personal Details -->
+    <fieldset>
+        <legend>3. Personal Details</legend>
+        <hr>
+
+        <div class="half">
+            <label>Birthday</label>
+            <input type="date">
+        </div>
+
+        <div class="half">
+            <label>Favorite Color</label>
+            <input type="color">
+        </div>
+
+        <label>Interest in Art</label>
+        <textarea rows="3"></textarea>
+
+        <label>How much do you love it?</label>
+        <input type="range" min="0" max="10">
+    </fieldset>
+
+    <!-- 4. All Done -->
+    <fieldset>
+        <legend>4. All Done</legend>
+        <hr>
+
+        <p>
+            <input type="checkbox"> I agree to the terms of the site
+        </p>
+
+        <div class="signup-box">
+            <label class="signup-label">
+                <span>Sign me up</span>
+                <input type="checkbox">
+            </label>
+        </div>
+
+        <button class="submitBtn">Register</button>
+    </fieldset>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6ec4, #7873f5);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animated Gradient */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Blur Circles */
+.bg-blur1, .bg-blur2 {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+}
+
+.bg-blur1 {
+    width: 300px;
+    height: 300px;
+    background: #ff6ec4;
+    top: 10%;
+    left: 10%;
+}
+
+.bg-blur2 {
+    width: 300px;
+    height: 300px;
+    background: #00f2fe;
+    bottom: 10%;
+    right: 10%;
+}
+
+/* Main Container */
+.main-container {
+    width: 90%;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 40px;
+    color: white;
+}
+
+/* About Title */
+.about-title {
+    font-size: 45px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #830b0b, #36337a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Left Section */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 200px;
+}
+
+.left-section p {
+    line-height: 1.6;
+    font: size 50px;
+}
+
+/* Right Section */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Heading Box (CENTERED) */
+.section-heading {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid #fff;
+    border-radius: 15px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.click-text {
+    text-align: center;
+    color: #1d1d0c;
+    margin-bottom: 25px;
+}
+
+/* BIG BOX FOR BOTH PROFILES */
+.team-box {
+    width: 100%;
+    padding: 50px;
+    min-height: 500px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Team Layout */
+.team-container {
+    display: flex;
+    width: 100%;
+}
+
+.lily {
+    margin-left: 150px;
+}
+
+/* Flip Card */
+.flip-card {
+    width: 400px;
+    height: 600px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.active .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    text-align: center;
+    color:inherit;
+}
+
+.flip-front img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wa {
+    width: 40px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.wa:hover {
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 100px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+
+    .ain-name {
+   color: #000000 !important;       /* hitam pekat */
+    font-size: 22px;                 /* besarkan nama */
+    font-weight: bold;
+    text-transform: uppercase;       /* huruf besar semua */
+    background: rgba(255,255,255,0.8); /* kotak solid supaya nampak */
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3); /* optional */
+}
+
+ .lily-name {
+   color: #000000 !important;       /* hitam pekat */
+    font-size: 22px;                 /* besarkan nama */
+    font-weight: bold;
+    text-transform: uppercase;       /* huruf besar semua */
+    background: rgba(255,255,255,0.8); /* kotak solid supaya nampak */
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3); /* optional */
+}
+.ain-name, .lily-name {
+    color: #000 !important;                /* warna teks hitam */
+    font-size: 24px;                        /* saiz font lebih besar */
+    font-weight: bold;                       /* huruf tebal */
+    text-transform: uppercase;              /* semua huruf besar */
+    background: rgba(255, 255, 255, 0.85); /* kotak putih sedikit transparent */
+    padding: 12px 25px;                     /* ruang dalam kotak */
+    border-radius: 15px;                     /* bucu bulat */
+    display: inline-block;                   /* supaya kotak ikut teks */
+    text-align: center;                      /* teks tengah */
+    margin-top: 15px;                        /* jarak dari gambar */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* bayang-bayang lembut */
+}
+}

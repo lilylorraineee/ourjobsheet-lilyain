@@ -1,0 +1,188 @@
+html, body, header, footer, h1, h2, h3, ul, li, div, p, img, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* BODY */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    background-image: url("stucco.png");
+    line-height: 1.428571429;
+}
+
+/* TOP FULL WIDTH BAR */
+#topBarWrapper {
+    background-color: #222222;
+    width: 100%;
+}
+
+#topHeaderRow {
+    width: 900px;
+    margin: auto;
+    height: 3em;
+    line-height: 3em;
+    text-align: right;
+    font-size: 0.9em;
+    padding-right: 1em;
+}
+
+#topHeaderRow ul {
+    list-style: none;
+}
+
+#topHeaderRow li {
+    display: inline;
+}
+
+#topHeaderRow a {
+    color: #999999;
+    text-decoration: none;
+    margin-left: 2em;
+}
+
+/* HEADER */
+header {
+    width: 900px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+/* NAVIGATION */
+#mainNavigationRow {
+    background-color: #f8f8f8;
+    height: 3em;
+    line-height: 3em;
+    border: 1pt solid #e7e7e7;
+}
+
+#mainNavigationRow ul {
+    list-style: none;
+}
+
+#mainNavigationRow li {
+    display: inline;
+}
+
+#mainNavigationRow a {
+    color: #777777;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 2em;
+}
+
+/* MAIN */
+main {
+    width: 880px;
+    margin: 1em auto;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1pt solid #e7e7e7;
+}
+
+/* PRODUCT IMAGE */
+figure {
+    width: 300px;
+    float: left;
+    margin-top: 1em;
+}
+
+figure img {
+    width: 100%;
+}
+
+/* PRODUCT INFO */
+#info {
+    margin-left: 310px;
+    margin-top: 1em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.25em;
+    border-bottom: 1pt solid #e7e7e7;
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+}
+
+#price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: red;
+    margin-top: 1em;
+}
+
+/* BUTTONS */
+#buttons {
+    border: 1pt solid #e7e7e7;
+    margin-top: 1em;
+    padding: 10px;
+}
+
+#buttons button {
+    width: 250px;
+    height: 3em;
+    line-height: 3em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #444;
+    color: white;
+}
+
+/* TABLE */
+th {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+}
+
+/* SIMILAR */
+#similar {
+    clear: left;
+    margin-top: 2em;
+    height: 250px;
+}
+
+.box {
+    width: 180px;
+    padding: 0.5em;
+    border: 1pt solid #e7e7e7;
+    margin-right: 1em;
+    float: left;
+    text-align: center;
+}
+
+.box img {
+    display: block;
+    margin: auto;
+    width: 150px;
+}
+
+/* FOOTER */
+footer {
+    clear: left;
+    width: 900px;
+    height: 3em;
+    margin: 1em auto;
+    border: 1pt solid #e7e7e7;
+    background-color: #222222;
+    color: #999999;
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 3em;
+}

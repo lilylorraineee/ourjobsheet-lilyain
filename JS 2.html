@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Latest Gadgets</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 1100px;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        th.video { width: 400px; }
+        th.spec  { width: 250px; }
+        th.info  { width: 450px; }
+
+        .video-cell {
+            text-align: center;
+        }
+
+        video {
+            width: 360px;
+            height: 215px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>My Pick of the Latest Gadgets</h2>
+
+<table>
+    <tr>
+        <th class="video">VIDEO</th>
+        <th class="spec">SPECIFICATION</th>
+        <th class="info">INFORMATION</th>
+    </tr>
+
+    <!-- ================= MACBOOK ================= -->
+    <tr>
+        <td class="video-cell" rowspan="2">
+            <video autoplay loop muted>
+                <source src="macbook.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </td>
+        <td>
+            <b>MacBook Pro</b><br><br>
+            Model: 14” / 16”<br>
+            Display: Liquid Retina XDR<br>
+            Processor: Apple M3 / M3 Pro / M3 Max<br>
+            RAM: 16GB – 128GB
+        </td>
+        <td>
+            Official website:<br>
+            <a href="https://www.apple.com/my/macbook-pro/" target="_blank">Apple</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            Suitable for professionals and developers
+        </td>
+    </tr>
+
+    <!-- ================= IPAD ================= -->
+    <tr>
+        <td class="video-cell" rowspan="2">
+            <video autoplay loop muted>
+                <source src="ipad.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </td>
+        <td>
+            <b>iPad Pro M4</b><br><br>
+            Display: OLED ProMotion<br>
+            Processor: Apple M4
+        </td>
+        <td>
+            Official website:<br>
+            <a href="https://www.apple.com/my/ipad-pro/" target="_blank">Apple</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            Apple Pencil Pro & Magic Keyboard support<br>
+            Suitable for students & creatives
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
