@@ -1,78 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ABOUT US</title>
-    <link rel="stylesheet" href="styleaboutus.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styleaboutus.css">
 </head>
-
 <body>
 
-    <div class="bg-blur1"></div>
-    <div class="bg-blur2"></div>
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <div class="main-container">
-
-        <!-- LEFT -->
-        <section class="left-section">
-            <h1 class="about-title">ABOUT US</h1>
-
-            <h2>
-                We are a creative and dedicated team passionate about designing and developing innovative digital experiences.
-                Our goal is to combine creativity with technical skills to produce modern, user-friendly, and impactful projects.
-                Together, we believe in teamwork, continuous learning, and delivering our best in every work we create.
-            </h2>
-        </section>
-
-        <!-- RIGHT -->
-        <section class="right-section">
-
-            <h2 class="section-heading">Meet Our Team</h2>
-            <h3 class="click-text">Click our profile to contact us</h3>
-
-            <div class="team-box">
-                <div class="team-container">
-
-                    <!-- Nur Ain -->
-<div class="flip-card" onclick="this.classList.toggle('active')">
-    <div class="flip-inner">
-        <div class="flip-front">
-            <img src="ainabt.jpeg" alt="NUR AIN SOLEHAH">
-            <h3 class="ain-name" style="color: rgb(8, 1, 14); font-size: 30px;">NUR AIN SOLEHAH</h3>
-        </div>
-        <div class="flip-back">
-            <h3>About Us Designer</h3>
-            <a href="https://wa.me/601111147629" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="wa">
-            </a>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">lily<span>ain</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
     </div>
-</div>
+  </nav>
 
-<!-- Lily -->
-<div class="flip-card lily" onclick="this.classList.toggle('active')">
-    <div class="flip-inner">
-        <div class="flip-front">
-            <img src="lilyabt.jpeg" alt="LILY LIYANA LORRAINE">
-            <h3 class="lily-name" style="color: rgb(12, 0, 12); font-size: 30px;">LILY LIYANA LORRAINE</h3>
-        </div>
-        <div class="flip-back">
-            <h3>Jobsheet Page Designer</h3>
-            <a href="https://wa.me/601111512135" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="wa">
-            </a>
-        </div>
+  <!-- PAGE DOTS -->
+  <div class="page-dots">
+    <div class="dot active" onclick="goTo(0)"></div>
+    <div class="dot" onclick="goTo(1)"></div>
+  </div>
+
+  <!-- ========== SLIDE 1 ========== -->
+  <div class="slide active" id="slide1">
+
+    <!-- Background effects -->
+    <div class="mesh"></div>
+    <div class="noise"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="deco-lines">
+      <svg viewBox="0 0 400 800" preserveAspectRatio="none">
+        <line x1="50"  y1="0" x2="50"  y2="800" stroke="white" stroke-width="1"/>
+        <line x1="150" y1="0" x2="150" y2="800" stroke="white" stroke-width="1"/>
+        <line x1="250" y1="0" x2="250" y2="800" stroke="white" stroke-width="1"/>
+        <line x1="350" y1="0" x2="350" y2="800" stroke="white" stroke-width="1"/>
+      </svg>
     </div>
-</div>
-                        </div>
-                    </div>
 
-                </div>
+    <div class="s1-content">
+
+      <!-- LEFT: Text -->
+      <div class="s1-left" style="animation: fadeInUp 0.8s ease both;">
+        <div class="tag">About Us</div>
+        <h1 class="s1-title">
+          We craft<br>
+          <span class="highlight">digital magic</span><br>
+          together.
+        </h1>
+        <p class="s1-desc">
+          A passionate team blending creativity with code to build modern,
+          impactful digital experiences. We believe great design is where
+          art meets purpose.
+        </p>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Creators</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Ideas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1</div>
+            <div class="stat-label">Vision</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Team cartoon photo -->
+      <div class="team-photo-wrap">
+        <div class="photo-glow"></div>
+        <img src="lilyain.jpeg" alt="Our Team" class="team-photo">
+        <div class="photo-badge">✨ The Dream Team</div>
+      </div>
+
+    </div>
+
+    <!-- Next button -->
+    <button class="next-btn" onclick="goTo(1)">
+      <div class="arrow-circle">
+        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+      </div>
+      Meet The Team
+    </button>
+
+  </div>
+
+  <!-- ========== SLIDE 2 ========== -->
+  <div class="slide" id="slide2">
+
+    <!-- Background effects -->
+    <div class="mesh" style="opacity:0.6;"></div>
+    <div class="noise"></div>
+    <div class="orb orb1" style="opacity:0.5;"></div>
+    <div class="orb orb2" style="opacity:0.5;"></div>
+
+    <div class="s2-content">
+
+      <div class="s2-header">
+        <h2>Meet Our <span style="background: linear-gradient(90deg,var(--blush),var(--violet)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Team</span></h2>
+        <p>Click on a card to connect with us</p>
+      </div>
+
+      <div class="team-row">
+
+        <!-- CARD: NUR AIN -->
+        <div class="member-card" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <div class="card-img-wrap">
+                <img src="ainabt.jpeg" alt="Nur Ain Solehah"
+                  onerror="this.style.background='linear-gradient(135deg,#7c3aed,#ff6b9d)';this.style.objectFit='fill'">
+                <div class="img-overlay"></div>
+              </div>
+              <div class="card-info">
+                <div class="card-role">About Us Designer</div>
+                <div class="card-name">Nur Ain Solehah</div>
+                <div class="flip-hint"><span>↺</span> Flip to contact</div>
+              </div>
             </div>
+            <div class="card-face card-back">
+              <img src="ainabt.jpeg" class="back-avatar" alt="Nur Ain"
+                onerror="this.style.display='none'">
+              <div class="back-name">Nur Ain Solehah</div>
+              <div class="back-role">About Us Designer</div>
+              <div class="back-divider"></div>
+              <a class="contact-btn" href="https://wa.me/601111147629" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                WhatsApp Me
+              </a>
+              <p class="back-quote">"Design is not just what it looks like — it's how it works."</p>
+            </div>
+          </div>
+        </div>
 
-        </section>
+        <!-- CARD: LILY -->
+        <div class="member-card" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <div class="card-img-wrap">
+                <img src="lilyabt.jpeg" alt="Lily Liyana Lorraine"
+                  onerror="this.style.background='linear-gradient(135deg,#38bdf8,#7c3aed)';this.style.objectFit='fill'">
+                <div class="img-overlay"></div>
+              </div>
+              <div class="card-info">
+                <div class="card-role">Jobsheet Page Designer</div>
+                <div class="card-name">Lily Liyana Lorraine</div>
+                <div class="flip-hint"><span>↺</span> Flip to contact</div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <img src="lilyabt.jpeg" class="back-avatar" alt="Lily"
+                onerror="this.style.display='none'">
+              <div class="back-name">Lily Liyana Lorraine</div>
+              <div class="back-role">Jobsheet Page Designer</div>
+              <div class="back-divider"></div>
+              <a class="contact-btn" href="https://wa.me/601111512135" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                WhatsApp Me
+              </a>
+              <p class="back-quote">"Every pixel has a purpose. Every layout tells a story."</p>
+            </div>
+          </div>
+        </div>
 
+      </div>
     </div>
+
+    <!-- Back button -->
+    <button class="back-btn" onclick="goTo(0)">
+      <div class="arrow-circle">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor">
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+        </svg>
+      </div>
+      Back
+    </button>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">© 2026 lilyainwebsite. All rights reserved.</footer>
+
+  <script>
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      dot.style.left  = e.clientX + 'px';
+      dot.style.top   = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px';
+      ring.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .member-card, .dot').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width       = '56px';
+        ring.style.height      = '56px';
+        ring.style.borderColor = 'rgba(255,107,157,0.8)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width       = '36px';
+        ring.style.height      = '36px';
+        ring.style.borderColor = 'rgba(255,107,157,0.5)';
+      });
+    });
+
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots   = document.querySelectorAll('.dot');
+
+    function goTo(idx) {
+      if (idx === current) return;
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = idx;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(Math.min(current + 1, slides.length - 1));
+      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(Math.max(current - 1, 0));
+    });
+
+    let scrollCooldown = false;
+    document.addEventListener('wheel', e => {
+      if (scrollCooldown) return;
+      scrollCooldown = true;
+      if (e.deltaY > 0) goTo(Math.min(current + 1, slides.length - 1));
+      else              goTo(Math.max(current - 1, 0));
+      setTimeout(() => scrollCooldown = false, 900);
+    });
+
+    let touchStartY = 0;
+    document.addEventListener('touchstart', e => touchStartY = e.touches[0].clientY);
+    document.addEventListener('touchend', e => {
+      const diff = touchStartY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goTo(Math.min(current + 1, slides.length - 1));
+        else          goTo(Math.max(current - 1, 0));
+      }
+    });
+  </script>
 
 </body>
 </html>
