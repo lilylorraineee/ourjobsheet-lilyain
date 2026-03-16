@@ -15,12 +15,16 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">lily<span>ain</span></div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About Us</a>
-    </div>
-  </nav>
+  <div class="nav-logo">
+    <img src="ikmlogo.png" alt="IKM Logo">
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About Us</a>
+    <a href="dashboard.html" class="nav-item">Home</a>
+  </div>
+</nav>
 
   <!-- PAGE DOTS -->
   <div class="page-dots">
@@ -81,7 +85,7 @@
       <div class="team-photo-wrap">
         <div class="photo-glow"></div>
         <img src="lilyain.jpeg" alt="Our Team" class="team-photo">
-        <div class="photo-badge">✨ The Dream Team</div>
+        <div class="photo-badge">✨ Our Team ✨</div>
       </div>
 
     </div>
@@ -251,6 +255,37 @@
       }
     });
   </script>
+<audio id="bgMusic" loop>
+  <source src="sound.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
+<div class="music-control" onclick="toggleMusic()">
+  <span id="musicIcon">🎵</span>
+</div>
+<script>
+  // 1. Isytihar pemboleh ubah kat luar supaya semua function boleh guna
+  const audio = document.getElementById('bgMusic');
+  const icon = document.getElementById('musicIcon');
+
+  // 2. Fungsi untuk On/Off (Toggle)
+  function toggleMusic() {
+    if (audio.paused) {
+      audio.play();
+      icon.innerText = '🔊'; // Tukar gambar jadi speaker kuat
+    } else {
+      audio.pause();
+      icon.innerText = '🔇'; // Tukar gambar jadi mute
+    }
+  }
+
+  // 3. Kod asal kau (Auto-play bila user klik mana-mana buat kali pertama)
+  document.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.play().catch(error => console.log("Lagu kena block:", error));
+      icon.innerText = '🔊';
+    }
+  }, { once: true });
+</script>
 </body>
 </html>
