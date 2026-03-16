@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8 Gallery - Share Your Perak Travels</title>
+    <style>
+        /* CSS UNTUK RUPA PARAS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #eef2f7;
+            text-align: center;
+        }
+
+        /* Header Biru */
+        .main-header {
+            background: #3b5998;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .main-header h1 {
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        /* Container Gambar Besar */
+        #featured {
+            position: relative; /* Penting untuk kedudukan caption */
+            display: inline-block;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        #featured img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Caption Gaya "Battle" (Lutsinar) */
+        #featured figcaption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.8); /* Warna kelabu/putih lutsinar */
+            color: #333;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0; /* Sembunyi asalnya */
+            transition: opacity 0.5s ease; /* Kesan fade-in */
+            pointer-events: none;
+        }
+
+        /* Efek Hover untuk munculkan caption */
+        #featured:hover figcaption {
+            opacity: 1;
+        }
+
+        /* Gaya Thumbnails */
+        #thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-bottom: 50px;
+        }
+
+        #thumbnails img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            padding: 4px;
+            background: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #thumbnails img:hover {
+            transform: scale(1.1);
+            border-color: #3b5998;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Share Your Perak Travels</h1>
+        <div class="menu-icon">☰</div>
+    </header>
+
+    <div id="featured">
+        <img src="lab7lilygmbr1.jpeg" alt="Featured Image" title="Lost World of Tambun">
+        <figcaption>Lost World of Tambun</figcaption>
+    </div>
+
+    <div id="thumbnails">
+        
+        <img src="lab7lilygmbr2.jpg" alt="Thumbnail 2" title="Gua Tempurung">
+        <img src="lab7lilygmbr3.jpeg" alt="Thumbnail 3" title="Kellie's Castle">
+        <img src="lab7lilygmbr4.jpg" alt="Thumbnail 4" title="Pulau Pangkor">
+        <img src="lab7lilygmbr5.jpg" alt="Thumbnail 5" title="Cocubine Lane">
+        <img src="lab7lilygmbr6.jpg" alt="Thumbnail 6" title="Museum Darul Ridzuan">
+    </div>
+
+    <script src="Lab8lily.js"></script>
+
+</body>
+</html>
