@@ -3,277 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Jobsheet Page</title>
+<title>Our Jobsheet Sections</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  position: relative;
-  background-color: #000;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Background Video */
-#bgVideo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-/* Navigation */
-nav {
-  position: relative;
-  z-index: 10;
-  background-color: #FFD1E8;
-  padding: 5px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+/* ===== CSS ASAL ANDA DIKEKALKAN ===== */
+html, body { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; text-align: center; background-color: transparent; overflow: hidden; }
+#bgVideo { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 0; pointer-events: none; }
+nav { position: fixed; top: 0; width: 100%; background-color: #FFD1E8; padding: 15px; display: flex; align-items: center; justify-content: space-between; z-index: 1000; }
 nav img { height: 70px; }
 nav .nav-links { display: flex; gap: 20px; margin-right: 50px; }
 nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bold; }
-nav a:hover { text-decoration: underline; }
-
-/* Homepage */
-.homepage {
-  padding: 50px 20px;
-  position: relative;
-  z-index: 1;
-}
-.homepage h1 {
-  font-size: 3em;
-  margin: 5px 0 30px 0;
-  color: #ff26ff;
-  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-  -webkit-text-stroke: 2px black;
-}
-
-/* Content */
-.content-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 40px;
-}
-.content-section img, .profile-img {
-  max-width: 250px;
-  border: 4px solid #FFB6D9;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-}
-.content-section img:hover, .profile-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255,182,217,0.4);
-}
-.content-text {
-  background-color: rgba(255, 209, 232, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  color: #000000;
-  max-width: 400px;
-  border: 2px solid #FFB6D9;
-}
-.content-text p {
-  font-size: 1.1em;
-  line-height: 1.6;
-}
-
-/* Button */
-.btn {
-  padding: 15px 30px;
-  margin: 5px;
-  margin-bottom: 60px;
-  font-size: 1em;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #FFB6D9;
-  color: #000000;
-  font-weight: bold;
-  transition: all 0.1s ease;
-}
-.btn:hover {
-  background-color: #FFCCE6;
-  transform: scale(1.15);
-  box-shadow: 0 5px 15px rgba(255,182,217,0.5);
-}
-
-/* Footer */
-footer {
-  background-color: #FFD1E8;
-  color: #8B5A8B;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  z-index: 10;
-}
-
-/* Sound Toggle Button - bottom right */
-#soundToggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  font-size: 1.6em;
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  color: #E91E63;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.2s;
-}
-#soundToggle:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: scale(1.1);
-}
+.page-title { margin-top: 120px; font-size: 2.8em; font-weight: bold; color: #E91E63; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); display: inline-block; padding: 12px 25px; border: 3px solid #FFB6D9; border-radius: 12px; background-color: rgba(255, 255, 255, 0.8); position: relative; z-index: 1; }
+.sections-container { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; padding: 30px; height: calc(100% - 200px); box-sizing: border-box; position: relative; z-index: 1; }
+.section { width: 420px; height: 420px; position: relative; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 12px 30px rgba(0,0,0,0.25); border-radius: 15px; color: rgb(255, 255, 255); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-size: cover; background-position: center; border: 3px solid white; }
+.section::before { content: ""; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.3); border-radius: 15px; z-index:0; }
+.section h2, .section p { position: relative; z-index:1; margin: 0.5em 0; }
+#lily { background-image: url('lily.jpeg'); }
+#ain { background-image: url('ain.jpeg'); }
+.job-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vw; max-width: 1200px; max-height: 90vh; background-color: rgba(255,255,255,0.97); display: none; flex-direction: column; justify-content: flex-start; align-items: center; gap: 25px; z-index: 10000; padding: 30px; overflow-y: auto; box-shadow: 0 0 30px rgba(0,0,0,0.5); border-radius: 15px; }
+.job-popup .chapter { width: 100%; background-color: #FFE0F0; padding: 20px; border-radius: 12px; border: 2px solid #FFB6D9; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+.job-popup button { flex: 1 1 120px; min-width: 120px; max-width: 180px; padding: 14px 22px; font-size: 1em; border-radius: 6px; background-color: #f12a8e; color: #000; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+#videoOverlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 20000; }
+#videoOverlay video { width: 90%; max-height: 80vh; border: 5px solid #FFB6D9; border-radius: 15px; background: #000; }
+.close-video { position: absolute; top: 30px; right: 50px; background: #E91E63; color: white; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+footer { background-color: #FFD1E8; color: #8B5A8B; text-align: center; padding: 15px; position: fixed; bottom: 0; width: 100%; z-index: 1; }
+.cursor-dot { position: fixed; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,0,150,0.7); pointer-events: none; transform: translate(-50%, -50%); z-index: 20000; }
 </style>
 </head>
-
 <body>
 
-<!-- Background Video -->
-<video id="bgVideo" autoplay muted loop playsinline>
-  <source src="bgv2.mp4" type="video/mp4">
+<video id="bgVideo" autoplay loop muted playsinline>
+  <source src="bgvsection.mp4" type="video/mp4">
 </video>
 
-<!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
-  <source src="bgs1.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Button Click Sound -->
-<audio id="popSound" preload="auto">
+<audio id="clickSound" preload="auto">
   <source src="pop.mp3" type="audio/mpeg">
 </audio>
-
-<!-- Button Hover Riser Sound -->
-<audio id="riserSound" preload="auto">
-  <source src="riser.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Sound Toggle Button -->
-<button id="soundToggle">🔊</button>
 
 <nav>
   <img src="ikmlogo.png" alt="IKM Logo">
   <div class="nav-links">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
   </div>
 </nav>
 
-<div class="homepage">
-  <h1> Our Jobsheet Submit</h1>
+<div class="page-title">OUR JOBSHEET</div>
 
-  <div class="content-section">
-    <img src="lilyain.jpeg" alt="Shinchan" class="profile-img">
-    <div class="content-text">
-      <p style="font-size:1.4em;font-weight:bold;">Hi! We are Lily & Ain</p>
-      <p>This is our jobsheet project. It showcases our work and dedication to web development.</p>
-    </div>
+<div class="sections-container">
+  <div id="lily" class="section">
+    <h2>Lily Lorraine</h2>
+    <p>This is my jobsheet submit section</p>
   </div>
-
-  <button class="btn" id="sectionBtn">CLICK HERE TO REVIEW OUR JOBSHEETS</button>
-  <button class="btn" id="aboutBtn">ABOUT US</button>
+  <div id="ain" class="section">
+    <h2>Ain</h2>
+    <p>This is my jobsheet submit section</p>
+  </div>
 </div>
 
-<footer>
-&copy; 2026 lilyain website. All rights reserved.
-</footer>
+<div class="job-popup" id="lilyPopup">
+  <button class="close-btn" onclick="this.parentElement.style.display='none'">Close</button>
+  <div class="popup-title">Lily's Jobsheet</div>
+</div>
+
+<div class="job-popup" id="ainPopup">
+  <button class="close-btn" onclick="this.parentElement.style.display='none'">Close</button>
+  <div class="popup-title">Ain's Jobsheet</div>
+</div>
+
+<div id="videoOverlay">
+  <button class="close-video" onclick="document.getElementById('videoOverlay').style.display='none'; document.getElementById('extraVid').pause();">CLOSE VIDEO</button>
+  <video id="extraVid" controls>
+    <source src="" id="videoSource" type="video/mp4">
+  </video>
+</div>
+
+<footer>&copy; 2026 lilyain website. All rights reserved.</footer>
+<div id="cursorContainer"></div>
 
 <script>
-const popSound = document.getElementById("popSound");
-const bgMusic = document.getElementById("bgMusic");
-const riserSound = document.getElementById("riserSound");
-const startBtn = document.getElementById("sectionBtn");
-const soundToggle = document.getElementById("soundToggle");
+const clickSound = document.getElementById("clickSound");
 
-let soundOn = true;
-
-// Set background music volume
-bgMusic.volume = 0.5;
-
-// Play background music once user interacts (autoplay fix)
-document.addEventListener("click", () => { bgMusic.play(); }, { once: true });
-
-// Button click sound & redirect
-startBtn.addEventListener("click", () => {
-  if(soundOn){ popSound.currentTime = 0; popSound.play(); }
-  setTimeout(() => { window.location.href = "sections.html"; }, 350);
+// POPUP LOGIC
+const sections = [{id:"lily", pop:"lilyPopup"}, {id:"ain", pop:"ainPopup"}];
+sections.forEach(s => {
+  document.getElementById(s.id).onclick = () => {
+    clickSound.play();
+    document.getElementById(s.pop).style.display = "flex";
+  }
 });
 
-// Button hover riser sound
-startBtn.addEventListener("mouseenter", () => { if(soundOn){ riserSound.currentTime = 0; riserSound.play(); } });
-startBtn.addEventListener("mouseleave", () => { riserSound.pause(); riserSound.currentTime = 0; });
+const chapters = [
+  { chapter: 1, jobsheets: [1, 2, 3] },
+  { chapter: 2, jobsheets: [4, 5, 6] },
+  { chapter: 3, jobsheets: [7, 8, 9] },
+  { chapter: 4, jobsheets: [10, 11] },
+  { chapter: 5, jobsheets: [12, 13] },
+  { chapter: 6, jobsheets: [14] },
+  { chapter: 7, jobsheets: [15] },
+];
 
-// Nav links click sound
-document.querySelectorAll(".nav-link").forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    const url = this.href;
-    if(soundOn){ popSound.currentTime = 0; popSound.play(); }
-    setTimeout(() => { window.location.href = url; }, 300);
+function populateChapters(popup, type) {
+  chapters.forEach(ch => {
+    const chapDiv = document.createElement("div");
+    chapDiv.className = "chapter";
+    const h3 = document.createElement("h3");
+    h3.innerText = "Chapter " + ch.chapter;
+    h3.style.width = "100%";
+    chapDiv.appendChild(h3);
+
+    ch.jobsheets.forEach(jsNum => {
+      const btn = document.createElement("button");
+      btn.innerText = "JOBSHEET " + jsNum;
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        clickSound.play();
+
+        // LIVE UPDATE LOGIC
+        let completed = JSON.parse(localStorage.getItem('completedJobsheets')) || [];
+        let activities = JSON.parse(localStorage.getItem('recentActivities')) || [];
+        let jsID = type + "_" + jsNum;
+
+        if (!completed.includes(jsID)) {
+          completed.push(jsID);
+          localStorage.setItem('completedJobsheets', JSON.stringify(completed));
+          activities.push((type === 'lily' ? "Lily" : "Ain") + " viewed Jobsheet " + jsNum);
+          localStorage.setItem('recentActivities', JSON.stringify(activities));
+        }
+
+        // URL (Suaikan ikut keperluan anda)
+        window.location.href = (type === 'lily') ? "LAB" + jsNum + "_lily.html" : "JS" + jsNum + ".html";
+      };
+      chapDiv.appendChild(btn);
+
+      // Extra Jobsheet Button
+      if(jsNum === 9) {
+        const exBtn = document.createElement("button");
+        exBtn.innerText = "EXTRA JOBSHEET";
+        exBtn.style.backgroundColor = "#ff77bc";
+        exBtn.onclick = (e) => {
+          e.stopPropagation();
+          const v = document.getElementById('extraVid');
+          const s = document.getElementById('videoSource');
+          s.src = (type === 'lily') ? "extrajobsheetlily.mp4" : "extrajobsheetain.mp4";
+          v.load();
+          document.getElementById('videoOverlay').style.display = 'flex';
+          v.play();
+        };
+        chapDiv.appendChild(exBtn);
+      }
+    });
+    popup.appendChild(chapDiv);
   });
-});
+}
 
-// Cursor Trail Effect
-const positions = [];
-const numberOfParticles = 12;
-document.addEventListener("mousemove", (e) => {
-  positions.push({ x: e.clientX, y: e.clientY });
-  if (positions.length > numberOfParticles) positions.shift();
+populateChapters(document.getElementById("lilyPopup"), 'lily');
+populateChapters(document.getElementById("ainPopup"), 'ain');
 
-  positions.forEach((pos, i) => {
-    let p = document.getElementById(`cursor-${i}`);
-    if (!p) {
-      p = document.createElement("div");
-      p.id = `cursor-${i}`;
-      p.style.position = "fixed";
-      p.style.borderRadius = "50%";
-      p.style.pointerEvents = "none";
-      p.style.background = "radial-gradient(circle, #87CEEB, #4A90E2)";
-      document.body.appendChild(p);
-    }
-    const size = 4 + i;
-    p.style.width = size + "px";
-    p.style.height = size + "px";
-    p.style.left = pos.x + "px";
-    p.style.top = pos.y + "px";
-    p.style.opacity = i / numberOfParticles;
-  });
-});
-
-// Slow down background video
-document.getElementById("bgVideo").playbackRate = 0.3;
-
-// Sound Toggle Logic
-soundToggle.addEventListener("click", () => {
-  soundOn = !soundOn;
-  bgMusic.muted = !soundOn;
-  popSound.muted = !soundOn;
-  riserSound.muted = !soundOn;
-  soundToggle.textContent = soundOn ? "🔊" : "🔇";
-});
+// CURSOR TRAIL (Asal)
+const dots = [];
+for(let i=0;i<12;i++){
+  const d = document.createElement("div"); d.className="cursor-dot";
+  document.getElementById("cursorContainer").appendChild(d);
+  dots.push({el:d, x:0, y:0});
+}
+let mx=0, my=0;
+document.onmousemove = e => { mx=e.clientX; my=e.clientY; };
+function anim(){
+  let x=mx, y=my;
+  dots.forEach(d => { d.x+=(x-d.x)*0.2; d.y+=(y-d.y)*0.2; d.el.style.transform=`translate(${d.x}px,${d.y}px)`; x=d.x; y=d.y; });
+  requestAnimationFrame(anim);
+}
+anim();
 </script>
-
 </body>
 </html>
-
-
