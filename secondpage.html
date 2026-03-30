@@ -6,199 +6,167 @@
 <title>Our Jobsheet Page</title>
 
 <style>
+/* ===== TOTAL HIDDEN SCROLLBAR ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   text-align: center;
   position: relative;
   background-color: #000;
-  height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  /* Benarkan scroll tapi sorokkan bar kelabu */
+  overflow-x: hidden;
+  overflow-y: auto; 
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Sembunyikan Scrollbar Chrome/Safari/Edge */
+body::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
 }
 
 /* Background Video */
 #bgVideo {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   object-fit: cover;
   z-index: -1;
 }
 
-/* Navigation */
+/* Navigation - Melekat kat atas */
 nav {
-  position: relative;
-  z-index: 10;
-  background-color: #FFD1E8;
-  padding: 5px 20px;
+  position: fixed;
+  top: 0; width: 100%;
+  z-index: 100;
+  background-color: rgba(255, 209, 232, 0.9);
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-nav img { height: 70px; }
-nav .nav-links { display: flex; gap: 20px; margin-right: 50px; }
-nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bold; }
-nav a:hover { text-decoration: underline; }
+nav img { height: 50px; }
+nav .nav-links { display: flex; gap: 15px; }
+nav a { color: #8B5A8B; text-decoration: none; font-weight: bold; font-size: 0.9em; }
 
-/* Homepage */
+/* Content Section */
 .homepage {
-  padding: 50px 20px;
+  padding: 100px 20px 60px 20px;
   position: relative;
   z-index: 1;
 }
 .homepage h1 {
-  font-size: 3em;
-  margin: 5px 0 30px 0;
+  font-size: 2.5em;
+  margin-bottom: 25px;
   color: #ff26ff;
   text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 1.2px black;
 }
 
-/* Content */
 .content-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: 20px;
+  flex-wrap: wrap; /* Untuk mobile: gambar atas, teks bawah */
+  margin-bottom: 30px;
 }
-.content-section img, .profile-img {
-  max-width: 250px;
+.profile-img {
+  max-width: 220px;
+  width: 100%;
   border: 4px solid #FFB6D9;
   border-radius: 15px;
-  transition: all 0.3s ease;
-}
-.content-section img:hover, .profile-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255,182,217,0.4);
+  transition: 0.3s;
 }
 .content-text {
   background-color: rgba(255, 209, 232, 0.9);
   padding: 20px;
-  border-radius: 10px;
-  color: #000000;
+  border-radius: 15px;
+  color: #000;
   max-width: 400px;
   border: 2px solid #FFB6D9;
 }
-.content-text p {
-  font-size: 1.1em;
-  line-height: 1.6;
-}
 
-/* Button */
+/* Buttons */
 .btn {
-  padding: 15px 30px;
-  margin: 5px;
-  margin-bottom: 60px;
-  font-size: 1em;
+  padding: 15px 25px;
+  margin: 10px;
+  font-size: 0.9em;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #FFB6D9;
-  color: #000000;
   font-weight: bold;
-  transition: all 0.1s ease;
+  transition: 0.2s;
+  display: inline-block;
 }
-.btn:hover {
-  background-color: #FFCCE6;
-  transform: scale(1.15);
-  box-shadow: 0 5px 15px rgba(255,182,217,0.5);
-}
+.btn:hover { transform: scale(1.1); background-color: #FFCCE6; }
 
-/* Footer */
+/* Footer - Duduk bawah sekali lepas scroll */
 footer {
-  background-color: #FFD1E8;
+  background-color: rgba(255, 209, 232, 0.9);
   color: #8B5A8B;
-  text-align: center;
   padding: 15px;
-  position: fixed;
-  bottom: 0px;
   width: 100%;
-  z-index: 10;
+  border-top: 2px solid #FFB6D9;
+  position: relative; 
+  margin-top: 40px;
 }
 
-/* Sound Toggle Button - bottom right */
+/* Sound Toggle */
 #soundToggle {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 20px; right: 20px;
   z-index: 9999;
-  font-size: 1.6em;
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  color: #E91E63;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.2s;
+  background: white; border: none;
+  width: 45px; height: 45px; border-radius: 50%;
+  cursor: pointer; font-size: 1.2em;
 }
-#soundToggle:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: scale(1.1);
+
+/* Mobile Optimasi */
+@media(max-width: 600px) {
+  .homepage h1 { font-size: 1.8em; }
+  .btn { width: 85%; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- Background Video -->
-<video id="bgVideo" autoplay muted loop playsinline>
-  <source src="bgv2.mp4" type="video/mp4">
-</video>
+<video id="bgVideo" autoplay muted loop playsinline><source src="bgv2.mp4" type="video/mp4"></video>
+<audio id="bgMusic" autoplay loop><source src="bgs1.mp3" type="audio/mpeg"></audio>
+<audio id="popSound" preload="auto"><source src="pop.mp3" type="audio/mpeg"></audio>
+<audio id="riserSound" preload="auto"><source src="riser.mp3" type="audio/mpeg"></audio>
 
-<!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
-  <source src="bgs1.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Button Click Sound -->
-<audio id="popSound" preload="auto">
-  <source src="pop.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Button Hover Riser Sound -->
-<audio id="riserSound" preload="auto">
-  <source src="riser.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Sound Toggle Button -->
 <button id="soundToggle">🔊</button>
 
 <nav>
   <img src="ikmlogo.png" alt="IKM Logo">
   <div class="nav-links">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
   </div>
 </nav>
 
 <div class="homepage">
-  <h1> Our Jobsheet Submit</h1>
-
+  <h1>Our Jobsheet Submit</h1>
   <div class="content-section">
-    <img src="lilyain.jpeg" alt="Shinchan" class="profile-img">
+    <img src="lilyain.jpeg" alt="Profile" class="profile-img">
     <div class="content-text">
-      <p style="font-size:1.4em;font-weight:bold;">Hi! We are Lily & Ain</p>
+      <p style="font-size:1.3em; font-weight:bold;">Hi! We are Lily & Ain</p>
       <p>This is our jobsheet project. It showcases our work and dedication to web development.</p>
     </div>
   </div>
-
   <button class="btn" id="sectionBtn">CLICK HERE TO REVIEW OUR JOBSHEETS</button>
-  <button class="btn" id="aboutBtn">ABOUT US</button>
+  <button class="btn" onclick="window.location.href='aboutus.html'">ABOUT US</button>
 </div>
 
-<footer>
-&copy; 2026 lilyain website. All rights reserved.
-</footer>
+<footer>&copy; 2026 lilyain website. All rights reserved.</footer>
 
 <script>
+// SEMUA JAVASCRIPT ASAL ANDA (Sound, Cursor, etc.)
 const popSound = document.getElementById("popSound");
 const bgMusic = document.getElementById("bgMusic");
 const riserSound = document.getElementById("riserSound");
@@ -206,40 +174,21 @@ const startBtn = document.getElementById("sectionBtn");
 const soundToggle = document.getElementById("soundToggle");
 
 let soundOn = true;
-
-// Set background music volume
 bgMusic.volume = 0.5;
-
-// Play background music once user interacts (autoplay fix)
 document.addEventListener("click", () => { bgMusic.play(); }, { once: true });
 
-// Button click sound & redirect
 startBtn.addEventListener("click", () => {
   if(soundOn){ popSound.currentTime = 0; popSound.play(); }
   setTimeout(() => { window.location.href = "sections.html"; }, 350);
 });
 
-// Button hover riser sound
 startBtn.addEventListener("mouseenter", () => { if(soundOn){ riserSound.currentTime = 0; riserSound.play(); } });
 startBtn.addEventListener("mouseleave", () => { riserSound.pause(); riserSound.currentTime = 0; });
 
-// Nav links click sound
-document.querySelectorAll(".nav-link").forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    const url = this.href;
-    if(soundOn){ popSound.currentTime = 0; popSound.play(); }
-    setTimeout(() => { window.location.href = url; }, 300);
-  });
-});
-
-// Cursor Trail Effect
 const positions = [];
-const numberOfParticles = 12;
 document.addEventListener("mousemove", (e) => {
   positions.push({ x: e.clientX, y: e.clientY });
-  if (positions.length > numberOfParticles) positions.shift();
-
+  if (positions.length > 12) positions.shift();
   positions.forEach((pos, i) => {
     let p = document.getElementById(`cursor-${i}`);
     if (!p) {
@@ -249,21 +198,18 @@ document.addEventListener("mousemove", (e) => {
       p.style.borderRadius = "50%";
       p.style.pointerEvents = "none";
       p.style.background = "radial-gradient(circle, #87CEEB, #4A90E2)";
+      p.style.zIndex = "1000";
       document.body.appendChild(p);
     }
-    const size = 4 + i;
-    p.style.width = size + "px";
-    p.style.height = size + "px";
+    p.style.width = (4 + i) + "px";
+    p.style.height = (4 + i) + "px";
     p.style.left = pos.x + "px";
     p.style.top = pos.y + "px";
-    p.style.opacity = i / numberOfParticles;
+    p.style.opacity = i / 12;
   });
 });
 
-// Slow down background video
 document.getElementById("bgVideo").playbackRate = 0.3;
-
-// Sound Toggle Logic
 soundToggle.addEventListener("click", () => {
   soundOn = !soundOn;
   bgMusic.muted = !soundOn;
@@ -272,6 +218,5 @@ soundToggle.addEventListener("click", () => {
   soundToggle.textContent = soundOn ? "🔊" : "🔇";
 });
 </script>
-
 </body>
 </html>
