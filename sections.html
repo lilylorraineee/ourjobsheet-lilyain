@@ -6,7 +6,7 @@
 <title>Our Jobsheet Sections</title>
 
 <style>
-/* ===== RESET & FLEXBOX FOOTER LOGIC ===== */
+/* KEKALKAN SEMUA STYLE ASAL ANDA */
 html, body {
   margin: 0;
   padding: 0;
@@ -36,7 +36,6 @@ body::-webkit-scrollbar { display: none; }
   z-index: 1;
 }
 
-/* ===== BACKGROUND VIDEO ===== */
 #bgVideo {
   position: fixed;
   top: 0; left: 0;
@@ -46,7 +45,6 @@ body::-webkit-scrollbar { display: none; }
   pointer-events: none;
 }
 
-/* ===== NAVBAR ===== */
 nav {
   position: sticky; 
   top: 0; width: 100%;
@@ -62,7 +60,6 @@ nav img { height: 60px; }
 nav .nav-links { display: flex; gap: 20px; margin-right: 20px; }
 nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bold; }
 
-/* ===== PAGE TITLE ===== */
 .page-title {
   margin-top: 50px;
   font-size: 2.5em;
@@ -76,7 +73,6 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* ===== SECTIONS CONTAINER ===== */
 .sections-container {
   display: flex;
   justify-content: center;
@@ -104,7 +100,6 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   overflow: hidden;
 }
 
-/* WARNA TEKS PUTIH TERANG (Sesuai dengan image_5f881c.png) */
 .section h2 {
   color: #FFFFFF !important;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
@@ -131,13 +126,11 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   z-index:1;
 }
 
-/* GAMBAR DIKEKALKAN */
 #lily { background-image: url('lily.jpeg'); }
 #ain { background-image: url('ain.jpeg'); }
 
 .section:hover { transform: scale(1.05); border-color: #FFB6D9; }
 
-/* ===== POPUP (Sesuai dengan Video 20260330-0304-17.3906472.mp4) ===== */
 .job-popup {
   position: fixed;
   top: 50%; left: 50%;
@@ -209,7 +202,6 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border-radius: 50px;
 }
 
-/* ===== FOOTER ===== */
 footer {
   background-color: #FFD1E8;
   color: #8B5A8B;
@@ -219,12 +211,6 @@ footer {
   z-index: 1;
   font-weight: bold;
   margin-top: auto; 
-}
-
-@media(max-width:768px){
-  .section { width: 300px; height: 300px; }
-  .page-title { font-size: 1.8em; margin-top: 100px; }
-  .section h2 { font-size: 1.5em; }
 }
 
 .cursor-dot {
@@ -266,101 +252,94 @@ footer {
   </div>
 </div>
 
-<div class="job-popup" id="lilyPopup"><button class="close-btn">CLOSE</button></div>
-<div class="job-popup" id="ainPopup"><button class="close-btn">CLOSE</button></div>
+<div class="job-popup" id="lilyPopup">
+  <button class="close-btn" onclick="closePopup('lilyPopup')">CLOSE</button>
+  <h2 style="color:#E91E63; margin-bottom:20px;">Lily's Dashboard</h2>
+
+  <div class="chapter">
+    <h3>Chapter 1: HTML5 Foundation</h3>
+    <div class="btn-grid">
+      <button onclick="goTo('LAB1_HTML5.html')">JS 1</button>
+      <button onclick="goTo('LAB2_HTML5.html')">JS 2</button>
+      <button onclick="goTo('LAB3_HTML5.html')">JS 3</button>
+      <button style="background:#ff77bc" onclick="window.open('extra.html','_blank')">EXTRA</button>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <h3>Chapter 2: CSS3 Styling</h3>
+    <div class="btn-grid">
+      <button onclick="goTo('LAB4_CSS3.html')">JS 4</button>
+      <button onclick="goTo('LAB5_CSS3.html')">JS 5</button>
+      <button onclick="goTo('LAB6_CSS3.html')">JS 6</button>
+    </div>
+  </div>
+  
+  <div class="chapter">
+    <h3>Chapter 3: JavaScript Logic</h3>
+    <div class="btn-grid">
+      <button onclick="goTo('LAB7_JS.html')">JS 7</button>
+      <button onclick="goTo('LAB8_JS.html')">JS 8</button>
+      <button onclick="goTo('LAB9_JS.html')">JS 9</button>
+    </div>
+  </div>
+  
+  <div class="chapter">
+    <h3>Chapter 4 & 5</h3>
+    <div class="btn-grid">
+      <button onclick="goTo('LAB10.html')">JS 10</button>
+      <button onclick="goTo('LAB11.html')">JS 11</button>
+      <button onclick="goTo('LAB12.html')">JS 12</button>
+    </div>
+  </div>
+</div>
+
+<div class="job-popup" id="ainPopup">
+  <button class="close-btn" onclick="closePopup('ainPopup')">CLOSE</button>
+  <h2 style="color:#E91E63; margin-bottom:20px;">Ain's Dashboard</h2>
+  <div class="chapter">
+    <h3>Chapter 1</h3>
+    <div class="btn-grid">
+      <button onclick="goTo('JS1.html')">JS 1</button>
+      <button onclick="goTo('JS2.html')">JS 2</button>
+    </div>
+  </div>
+</div>
 
 <footer>&copy; 2026 lilyain website. All rights reserved.</footer>
 
 <div id="cursorContainer"></div>
 
 <script>
+const clickSound = document.getElementById("clickSound");
+
+// FUNGSI UNTUK BUKA FAIL (MANUAL)
+function goTo(url) {
+  clickSound.currentTime = 0;
+  clickSound.play();
+  window.location.href = url;
+}
+
+// BUKA & TUTUP POPUP
+document.getElementById("lily").onclick = () => { 
+  clickSound.currentTime = 0; clickSound.play();
+  document.getElementById("lilyPopup").style.display = "flex"; 
+};
+document.getElementById("ain").onclick = () => { 
+  clickSound.currentTime = 0; clickSound.play();
+  document.getElementById("ainPopup").style.display = "flex"; 
+};
+
+function closePopup(id) {
+  clickSound.currentTime = 0; clickSound.play();
+  document.getElementById(id).style.display = "none";
+}
+
+// MOUSE TRAIL & VIDEO RATE (Kekal Asal)
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('bgVideo').playbackRate = 0.3;
 });
 
-const clickSound = document.getElementById("clickSound");
-
-const sections = [{id:"lily", popup:"lilyPopup"}, {id:"ain", popup:"ainPopup"}];
-sections.forEach(s => {
-  document.getElementById(s.id).addEventListener("click", () => {
-    clickSound.currentTime = 0; clickSound.play();
-    document.getElementById(s.popup).style.display = "flex";
-  });
-  document.getElementById(s.popup).querySelector(".close-btn").addEventListener("click", (e) => {
-    e.stopPropagation();
-    clickSound.currentTime = 0; clickSound.play();
-    document.getElementById(s.popup).style.display = "none";
-  });
-});
-
-const chapters = [
-  { chapter: 1, jobsheets: [1, 2, 3] },
-  { chapter: 2, jobsheets: [4, 5, 6] },
-  { chapter: 3, jobsheets: [7, 8, 9] }
-];
-
-const chapterTitles = { 
-  1: "Chapter 1: HTML5 Foundation", 
-  2: "Chapter 2: CSS3 Styling", 
-  3: "Chapter 3: JavaScript Logic" 
-};
-
-function populateChapters(popup, type) {
-  const container = popup;
-  const titleHeader = document.createElement("h2");
-  titleHeader.style.color = "#E91E63";
-  titleHeader.style.marginBottom = "25px";
-  titleHeader.textContent = (type === 'lily' ? "Lily's" : "Ain's") + " Dashboard";
-  container.appendChild(titleHeader);
-
-  chapters.forEach(ch => {
-    const chapDiv = document.createElement("div");
-    chapDiv.className = "chapter";
-
-    const chapTitle = document.createElement("h3");
-    chapTitle.textContent = chapterTitles[ch.chapter] || "Chapter " + ch.chapter;
-    chapDiv.appendChild(chapTitle);
-
-    const btnGrid = document.createElement("div");
-    btnGrid.className = "btn-grid";
-
-    ch.jobsheets.forEach(jsNum => {
-      const btn = document.createElement("button");
-      btn.textContent = "JS " + jsNum;
-      btn.onclick = (e) => {
-        e.stopPropagation();
-        clickSound.currentTime = 0; clickSound.play();
-        window.location.href = (type === 'lily') ? `Lab${jsNum}.html` : `JS${jsNum}.html`;
-      };
-      btnGrid.appendChild(btn);
-
-      // Logik Butang EXTRA (Sesuai dengan input fail anda: extra.html)
-      if(jsNum === 9) {
-        const extraBtn = document.createElement("button");
-        extraBtn.textContent = "EXTRA";
-        extraBtn.style.backgroundColor = "#ff77bc";
-        extraBtn.onclick = (e) => {
-          e.stopPropagation();
-          clickSound.currentTime = 0; clickSound.play();
-          
-          if (type === 'lily') {
-            window.open("extra.html", "_blank"); // Membuka fail extra.html milik Lily
-          } else {
-            window.open("extra_ain.html", "_blank"); // Contoh link untuk Ain
-          }
-        };
-        btnGrid.appendChild(extraBtn);
-      }
-    });
-    chapDiv.appendChild(btnGrid);
-    container.appendChild(chapDiv);
-  });
-}
-
-populateChapters(document.getElementById("lilyPopup"), 'lily');
-populateChapters(document.getElementById("ainPopup"), 'ain');
-
-// Mouse Trail Effect
 const dots = [];
 for(let i=0; i<12; i++) {
   const dot = document.createElement("div");
