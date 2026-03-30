@@ -6,24 +6,28 @@
 <title>Interactive Student Dashboard</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-/* ===== ASAS & SCROLL HALIMUNAN ===== */
+/* ===== ASAS & SCROLL HALIMUNAN (TOTAL) ===== */
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
 
-body, html { 
+/* 1. Hilangkan scrollbar pada seluruh halaman */
+html, body { 
     width: 100%;
     min-height: 100%;
     overflow-x: hidden; 
-    overflow-y: auto; /* Fungsi scroll tetap ada */
+    overflow-y: auto; /* Fungsi scroll tetap hidup */
     
-    /* Sembunyikan Scrollbar untuk Firefox */
+    /* Untuk Firefox */
     scrollbar-width: none; 
-    /* Sembunyikan Scrollbar untuk IE/Edge */
+    /* Untuk Internet Explorer/Edge lama */
     -ms-overflow-style: none; 
 }
 
-/* Sembunyikan Scrollbar untuk Chrome, Safari & Opera */
+/* 2. Hilangkan scrollbar untuk Chrome, Safari, dan Edge baru */
+html::-webkit-scrollbar, 
 body::-webkit-scrollbar {
     display: none;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 #bgVideo {
@@ -39,7 +43,7 @@ nav {
 nav img { height:50px; }
 nav a { margin-left:15px; color:#8B5A8B; text-decoration:none; font-weight:bold; }
 
-/* ===== KANDUNGAN DASHBOARD ===== */
+/* ===== DASHBOARD ===== */
 .dashboard { 
     padding: 100px 20px 50px 20px; 
     color:#000; max-width:1200px; margin:0 auto; 
@@ -50,7 +54,6 @@ nav a { margin-left:15px; color:#8B5A8B; text-decoration:none; font-weight:bold;
     text-shadow:2px 2px 6px rgba(0,0,0,0.5); text-align:center; 
 }
 
-/* ===== KAD STATUS ===== */
 .cards { display:flex; flex-wrap:wrap; gap:15px; margin-bottom:20px; justify-content:center; }
 .card { 
     flex:1 1 200px; background:rgba(255,182,217,0.8); padding:15px; border-radius:15px; 
@@ -59,7 +62,6 @@ nav a { margin-left:15px; color:#8B5A8B; text-decoration:none; font-weight:bold;
 }
 .card p { font-size:1.4em; font-weight:bold; }
 
-/* ===== CARTA & AKTIVITI ===== */
 .side-by-side { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
 
 .chart-container, .activity {
@@ -68,14 +70,15 @@ nav a { margin-left:15px; color:#8B5A8B; text-decoration:none; font-weight:bold;
     border-radius:15px; border:2px solid #FFB6D9; 
     display:flex; flex-direction:column; margin-bottom: 20px;
 }
-.chart-container canvas { max-width: 250px; max-height: 250px; margin: 0 auto; }
 
-/* Sembunyikan scrollbar dalam kotak Recent Activity juga */
+/* 3. Hilangkan scrollbar dalam kotak Recent Activity juga */
 .activity ul { 
-    list-style:none; overflow-y:auto; flex:1; max-height: 300px; 
-    scrollbar-width: none;
+    list-style:none; overflow-y:auto; flex:1; max-height: 280px; 
+    scrollbar-width: none; /* Firefox */
 }
-.activity ul::-webkit-scrollbar { display: none; }
+.activity ul::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
 
 .activity ul li { 
     background:rgba(255,182,217,0.5); padding:10px; margin-bottom:8px; 
@@ -85,10 +88,9 @@ nav a { margin-left:15px; color:#8B5A8B; text-decoration:none; font-weight:bold;
 .actions { text-align:center; margin: 20px 0; }
 .actions button { 
     padding:15px 40px; font-size:1.1em; cursor:pointer; border:none; 
-    border-radius:30px; background:#FFB6D9; font-weight:bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius:30px; background:#FFB6D9; font-weight:bold;
 }
 
-/* ===== FOOTER ===== */
 footer { 
     background:rgba(255,209,232,0.9); color:#8B5A8B; text-align:center; 
     padding:15px; width:100%; border-top:2px solid #FFB6D9; 
@@ -100,8 +102,6 @@ footer {
     .dashboard h1 { font-size: 1.6em; }
     .card { flex: 1 1 100%; }
     .chart-container, .activity { flex: 1 1 100%; }
-    /* Pastikan scrollbar tetap invisible dalam mobile */
-    body, html { overflow-y: auto; height: auto; }
 }
 </style>
 </head>
