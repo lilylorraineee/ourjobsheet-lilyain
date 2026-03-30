@@ -34,47 +34,49 @@
         <h3>1. User Info</h3>
         <table class="regTable">
             <tr>
-                <td><label>First Name</label><br><input type="text"></td>
-                <td><label>Last Name</label><br><input type="text"></td>
+                <td><label>First Name</label><br><input type="text" class="input-medium"></td>
+                <td><label>Last Name</label><br><input type="text" class="input-medium"></td>
             </tr>
             <tr>
                 <td colspan="2">
                     <label>Email</label><br>
-                    <input type="email" placeholder="example: ahmad@gmail.com "style= width:95%;">
+                    <input type="email" placeholder="format for email is xxx@yyy.zzz" class="input-full">
                 </td>
             </tr>
             <tr>
-                <td><label>Password</label><br><input type="password" placeholder="at least 8 characters"></td>
-                <td><label>Password Repeat</label><br><input type="password" placeholder="must same with password"></td>
+                <td><label>Password</label><br><input type="password" placeholder="at least 8 characters" class="input-medium"></td>
+                <td><label>Password Repeat</label><br><input type="password" placeholder="at least 8 characters" class="input-medium"></td>
             </tr>
         </table>
 
         <h3>2. Location</h3>
         <table class="regTable">
             <tr>
-                <td colspan="3"><label>Address</label><br><input type="text" style="width:95%;"></td>
+                <td colspan="3"><label>Address</label><br><input type="text" class="input-full"></td>
             </tr>
             <tr>
-                <td><label>City</label><br><input type="text"></td>
-                <td><label>State</label><br><input type="text"></td>
-                <td><label>Zip</label><br><input type="text" style="width:50px;"></td>
+                <td><label>City</label><br><input type="text" class="input-medium"></td>
+                <td><label>State</label><br><input type="text" class="input-short"></td>
+                <td><label>Zip</label><br><input type="text" class="input-vshort"></td>
             </tr>
             <tr>
-                <td colspan="2"><label>Phone</label><br><input type="text" placeholder="Number Phone"></td>
+                <td colspan="2"><label>Phone</label><br><input type="text" placeholder="NNN-NNN-NNNN" class="input-medium"></td>
                 <td>
                     <label>Country</label><br>
-                    <select>
-                        <option>Malaysia</option>
+                    <select class="select-country">
                         <option>Canada</option>
+                        <option>Malaysia</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td colspan="3">
                     <label>Continent</label><br>
-                    <input type="radio" name="continent"> North America<br>
-                    <input type="radio" name="continent" checked> Europe<br>
-                    <input type="radio" name="continent"> South America
+                    <div class="radio-group">
+                        <input type="radio" name="continent"> North America<br>
+                        <input type="radio" name="continent" checked> Europe<br>
+                        <input type="radio" name="continent"> South America
+                    </div>
                 </td>
             </tr>
         </table>
@@ -82,13 +84,17 @@
         <h3>3. Personal Details</h3>
         <table class="regTable">
             <tr>
-                <td><label>Birth Day</label><br><input type="date"></td>
-                <td><label>Favorite Color</label><br><input type="color"></td>
+                <td><label>Birth Day</label><br><input type="date" class="input-date"></td>
+                <td><label>Favorite Color</label><br><input type="color" class="input-color"></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <label>Interest In Kema's store products</label><br>
-                    Minimal <input type="range" class="rangeInput"> Love it!
+                    <label>Interest In Art</label><br>
+                    <div class="range-container">
+                        <span>Minimal</span>
+                        <input type="range" class="rangeInput">
+                        <span>Love it!</span>
+                    </div>
                 </td>
             </tr>
         </table>
@@ -96,14 +102,16 @@
         <br>
         <h3>4. All Done</h3>
         <div class="checkbox-row">
-            <input type="checkbox"> I agree to the <a href="#" style="color: blue; text-decoration: none;">Terms of the Site</a>
+            <input type="checkbox"> I agree to the <a href="#" style="color: blue; text-decoration: underline;">Terms of the Site</a>
         </div>
         <br>
 
-        <button type="submit" class="fancyBtn">
-            <img src="tick.png" alt="tick" class="btn-tick">
-            <span class="btn-text">Sign me up!</span>
-        </button>
+        <div class="promo-box">
+             <img src="tick.png" alt="tick" class="promo-tick">
+             <span class="promo-text">Sign me up!</span>
+        </div>
+
+        <button type="submit" class="fancyBtn">Sign me up!</button>
     </form>
 </main>
 
