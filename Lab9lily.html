@@ -1,49 +1,119 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
+
     <title>Lab 7 - Shopping Cart</title>
+
     <link href="styleslilylab9.css" rel="stylesheet" />
-    <script src="datalily.js"></script> 
+
+    <script src="datalily.js"></script>
+
     <script src="function.js"></script>
-    <style>
-        .qty-btn { padding: 5px 10px; cursor: pointer; background: #ff77bc; border: none; color: white; border-radius: 4px; font-weight: bold; }
-        .qty-val { margin: 0 10px; font-weight: bold; }
-    </style>
+
 </head>
+
 <body>
+
     <div class="title"><h1>Shopping Cart</h1></div>
+
     <table class="table-fill">
+
         <thead>
+
             <tr>
+
                 <th colspan="2">Product</th>
+
                 <th>#</th>
+
                 <th>Price</th>
+
                 <th>Amount</th>
+
             </tr>
+
         </thead>
-        <tbody id="cart-body">
-            </tbody>
-        <tfoot>
+
+        <tbody>
+
+            <script src="Lab7lily.js"></script>
+
             <tr class="totals">
+
                 <td colspan="4">Subtotal</td>
-                <td id="subtotal-val">RM0.00</td>
+
+                <td><script>outputCurrency(subtotal);</script></td>
+
             </tr>
+
             <tr class="totals">
-                <td colspan="4">Tax (10%)</td>
-                <td id="tax-val">RM0.00</td>
+
+                <td colspan="4">Tax</td>
+
+                <td><script>outputCurrency(tax);</script></td>
+
             </tr>
+
             <tr class="totals">
+
                 <td colspan="4">Shipping</td>
-                <td id="shipping-val">RM0.00</td>
+
+                <td><script>outputCurrency(shipping);</script></td>
+
             </tr>
+
             <tr class="totals focus">
+
                 <td colspan="4">Grand Total</td>
-                <td id="grand-val">RM0.00</td>
+
+                <td><script>outputCurrency(grand);</script></td>
+
             </tr>
-        </tfoot>
+
+        </tbody>
+
     </table>
 
-    <script src="Lab7lily.js"></script>
 </body>
+
 </html>
+
+
+
+
+
+
+
+var filenames = ["sikatpink.jpeg", "sikatbiru.jpeg", "sikathijau.jpeg"];
+
+var titles = ["Sikat Pink Comel", "Sikat Biru Moden", "Sikat Hijau Klasik"];
+
+var quantities = [3, 1, 2];
+
+var prices = [7.00, 6.00, 5.00];
+
+
+
+
+
+const tax_rate = 0.10;
+
+const shipping_threshold = 1000;
+
+var subtotal = 0;
+
+
+
+for (var i = 0; i < titles.length; i++) {
+
+    let total = calculateTotal(quantities[i], prices[i]);
+
+    subtotal += total;
+
+    outputCartRow(filenames[i], titles[i], quantities[i], prices[i], total);
+
+}
