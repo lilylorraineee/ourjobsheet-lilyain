@@ -6,21 +6,36 @@
 <title>Our Jobsheet Sections</title>
 
 <style>
-/* ===== RESET & SCROLL HALIMUNAN ===== */
+/* ===== RESET & FLEXBOX FOOTER LOGIC ===== */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  height: 100%; /* Penting untuk tolak footer ke bawah */
   font-family: 'Segoe UI', Arial, sans-serif;
   text-align: center;
   background-color: #000;
   overflow-x: hidden;
-  overflow-y: auto; 
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   scrollbar-width: none; 
 }
 
 body::-webkit-scrollbar { display: none; }
+
+/* Wrapper untuk kandungan utama supaya footer duduk bawah */
+.main-content {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
 
 /* ===== BACKGROUND VIDEO ===== */
 #bgVideo {
@@ -34,7 +49,7 @@ body::-webkit-scrollbar { display: none; }
 
 /* ===== NAVBAR ===== */
 nav {
-  position: fixed;
+  position: sticky; /* Kekal di atas */
   top: 0; width: 100%;
   background-color: #FFD1E8;
   padding: 15px;
@@ -50,18 +65,16 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 
 /* ===== PAGE TITLE ===== */
 .page-title {
-  margin-top: 120px;
+  margin-top: 50px;
   font-size: 2.5em;
   font-weight: bold;
   color: #E91E63;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 40px;
   border: 3px solid #FFB6D9;
-  border-radius: 50px; /* Buat bentuk oval sikit bagi moden */
+  border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.9);
-  position: relative;
-  z-index: 1;
 }
 
 /* ===== SECTIONS CONTAINER ===== */
@@ -72,8 +85,6 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   gap: 30px;
   flex-wrap: wrap;
   padding: 50px 20px;
-  position: relative;
-  z-index: 1;
 }
 
 .section {
@@ -105,7 +116,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 #ain { background-image: url('ain.jpeg'); }
 .section:hover { transform: scale(1.05); border-color: #FFB6D9; }
 
-/* ===== POPUP (KOTAK CHAPTER SEIMBANG) ===== */
+/* ===== POPUP (KOTAK CHAPTER SAMA RATA) ===== */
 .job-popup {
   position: fixed;
   top: 50%; left: 50%;
@@ -124,27 +135,18 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   overflow-y: auto;
   scrollbar-width: none;
 }
-.job-popup::-webkit-scrollbar { display: none; }
 
-/* --- KOTAK PINK CHAPTER (DIKEMASKINI) --- */
 .job-popup .chapter {
-  width: 92%; /* Kekalkan lebar sama rata */
-  background: linear-gradient(145deg, #FFE0F0, #ffecf5); /* Gradien sikit bagi nampak mahal */
+  width: 92%; /* Kotak Chapter sama lebar */
+  background: linear-gradient(145deg, #FFE0F0, #ffecf5);
   padding: 25px;
-  margin-bottom: 25px; /* Jarak antara kotak chapter */
+  margin-bottom: 25px;
   border-radius: 20px;
   border: 2px solid #FFB6D9;
-  box-shadow: 0 8px 20px rgba(255, 182, 217, 0.3); /* Shadow pink lembut */
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  transition: 0.3s;
-}
-
-.job-popup .chapter:hover {
-  transform: translateY(-5px); /* Efek terapung sikit bila hover */
-  box-shadow: 0 12px 25px rgba(255, 182, 217, 0.5);
 }
 
 .job-popup .chapter h3 { 
@@ -153,13 +155,11 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   margin-top: 0;
   margin-bottom: 20px; 
   font-size: 1.5em;
-  letter-spacing: 1px;
   text-transform: uppercase;
   border-bottom: 2px dashed #FFB6D9;
   padding-bottom: 10px;
 }
 
-/* Container butang JS */
 .btn-grid {
   display: flex;
   flex-wrap: wrap;
@@ -174,16 +174,11 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border: none;
   border-radius: 12px;
   font-weight: bold;
-  font-size: 1em;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
 }
-.job-popup button:hover { 
-  background-color: #8B5A8B; 
-  transform: scale(1.1); 
-  box-shadow: 0 6px 15px rgba(139, 90, 139, 0.4);
-}
+
+.job-popup button:hover { background-color: #8B5A8B; transform: scale(1.1); }
 
 .job-popup .close-btn {
   background-color: #333;
@@ -193,22 +188,21 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border-radius: 50px;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER (TIDAK TERANGKAT LAGI) ===== */
 footer {
   background-color: #FFD1E8;
   color: #8B5A8B;
   padding: 20px;
   width: 100%;
   position: relative; 
-  margin-top: 50px;
   z-index: 1;
   font-weight: bold;
+  margin-top: auto; /* Ini kunci utama menolak footer ke bawah skrin */
 }
 
 @media(max-width:768px){
   .section { width: 300px; height: 300px; }
-  .page-title { font-size: 1.8em; }
-  .job-popup .chapter { width: 95%; padding: 15px; }
+  .page-title { font-size: 1.8em; margin-top: 100px; }
 }
 
 .cursor-dot {
@@ -227,36 +221,31 @@ footer {
 <audio id="bgSound" autoplay loop><source src="bgs2.mp3" type="audio/mpeg"></audio>
 <audio id="clickSound" preload="auto"><source src="pop.mp3" type="audio/mpeg"></audio>
 
-<nav>
-  <img src="ikmlogo.png" alt="IKM Logo">
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="aboutus.html">About Us</a>
-  </div>
-</nav>
+<div class="main-content">
+  <nav>
+    <img src="ikmlogo.png" alt="IKM Logo">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+  </nav>
 
-<div class="page-title">OUR JOBSHEET</div>
+  <div class="page-title">OUR JOBSHEET</div>
 
-<div class="sections-container">
-  <div id="lily" class="section">
-    <h2 style="font-size: 2em;">Lily Lorraine</h2>
-    <p>Click to explore my work</p>
-  </div>
-  <div id="ain" class="section">
-    <h2 style="font-size: 2em;">Ain</h2>
-    <p>Click to explore my work</p>
+  <div class="sections-container">
+    <div id="lily" class="section">
+      <h2 style="font-size: 2em;">Lily Lorraine</h2>
+      <p>Click to explore my work</p>
+    </div>
+    <div id="ain" class="section">
+      <h2 style="font-size: 2em;">Ain</h2>
+      <p>Click to explore my work</p>
+    </div>
   </div>
 </div>
 
-<div class="job-popup" id="lilyPopup">
-  <button class="close-btn">CLOSE</button>
-  <h2 style="color:#E91E63; margin-bottom:25px; font-size: 2em;">Lily's Dashboard</h2>
-</div>
-
-<div class="job-popup" id="ainPopup">
-  <button class="close-btn">CLOSE</button>
-  <h2 style="color:#E91E63; margin-bottom:25px; font-size: 2em;">Ain's Dashboard</h2>
-</div>
+<div class="job-popup" id="lilyPopup"><button class="close-btn">CLOSE</button></div>
+<div class="job-popup" id="ainPopup"><button class="close-btn">CLOSE</button></div>
 
 <footer>&copy; 2026 lilyain website. All rights reserved.</footer>
 
@@ -269,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const clickSound = document.getElementById("clickSound");
 
-// Handle Popups
+// Popup Trigger Logic
 const sections = [{id:"lily", popup:"lilyPopup"}, {id:"ain", popup:"ainPopup"}];
 sections.forEach(s => {
   document.getElementById(s.id).addEventListener("click", () => {
@@ -296,6 +285,13 @@ const chapterTitles = {
 };
 
 function populateChapters(popup, type) {
+  const container = popup;
+  const titleHeader = document.createElement("h2");
+  titleHeader.style.color = "#E91E63";
+  titleHeader.style.marginBottom = "25px";
+  titleHeader.textContent = (type === 'lily' ? "Lily's" : "Ain's") + " Dashboard";
+  container.appendChild(titleHeader);
+
   chapters.forEach(ch => {
     const chapDiv = document.createElement("div");
     chapDiv.className = "chapter";
@@ -317,7 +313,7 @@ function populateChapters(popup, type) {
       };
       btnGrid.appendChild(btn);
 
-      // Butang EXTRA di Chapter 3 (JS 9)
+      // Butang EXTRA yang terus ke Link Website
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
         extraBtn.textContent = "EXTRA";
@@ -330,16 +326,15 @@ function populateChapters(popup, type) {
         btnGrid.appendChild(extraBtn);
       }
     });
-
     chapDiv.appendChild(btnGrid);
-    popup.appendChild(chapDiv);
+    container.appendChild(chapDiv);
   });
 }
 
 populateChapters(document.getElementById("lilyPopup"), 'lily');
 populateChapters(document.getElementById("ainPopup"), 'ain');
 
-// Cursor Trail
+// Mouse Trail Effect
 const dots = [];
 for(let i=0; i<12; i++) {
   const dot = document.createElement("div");
