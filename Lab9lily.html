@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <title>Lab 7 - Shopping Cart</title>
     <link href="styleslilylab9.css" rel="stylesheet" />
-    <script src="datalily.js"></script>
+    <script src="datalily.js"></script> 
     <script src="function.js"></script>
+    <style>
+        .qty-btn { padding: 5px 10px; cursor: pointer; background: #ff77bc; border: none; color: white; border-radius: 4px; font-weight: bold; }
+        .qty-val { margin: 0 10px; font-weight: bold; }
+    </style>
 </head>
 <body>
     <div class="title"><h1>Shopping Cart</h1></div>
@@ -18,25 +22,28 @@
                 <th>Amount</th>
             </tr>
         </thead>
-        <tbody>
-            <script src="Lab7lily.js"></script>
+        <tbody id="cart-body">
+            </tbody>
+        <tfoot>
             <tr class="totals">
                 <td colspan="4">Subtotal</td>
-                <td><script>outputCurrency(subtotal);</script></td>
+                <td id="subtotal-val">RM0.00</td>
             </tr>
             <tr class="totals">
-                <td colspan="4">Tax</td>
-                <td><script>outputCurrency(tax);</script></td>
+                <td colspan="4">Tax (10%)</td>
+                <td id="tax-val">RM0.00</td>
             </tr>
             <tr class="totals">
                 <td colspan="4">Shipping</td>
-                <td><script>outputCurrency(shipping);</script></td>
+                <td id="shipping-val">RM0.00</td>
             </tr>
             <tr class="totals focus">
                 <td colspan="4">Grand Total</td>
-                <td><script>outputCurrency(grand);</script></td>
+                <td id="grand-val">RM0.00</td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>
+
+    <script src="Lab7lily.js"></script>
 </body>
 </html>
