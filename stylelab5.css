@@ -155,9 +155,10 @@ select {
 }
 
 .btn-tick {
-    width: 20px;
-    height: auto;
-    margin-right: 10px;
+    width: 20px;       /* Laraskan lebar imej (saiz standard ialah 18px - 22px) */
+    height: auto;      /* Mengekalkan nisbah asal supaya imej tidak penyek */
+    margin-right: 10px; /* Jarakkan sedikit imej dengan teks "Sign me up!" */
+    vertical-align: middle; /* Pastikan imej selari dengan tinggi teks */
 }
 
 .btn-text {
