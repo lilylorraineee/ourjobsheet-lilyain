@@ -104,7 +104,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   overflow: hidden;
 }
 
-/* WARNA TEKS PUTIH TERANG */
+/* WARNA TEKS PUTIH TERANG (Sesuai dengan image_5f881c.png) */
 .section h2 {
   color: #FFFFFF !important;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
@@ -131,13 +131,13 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   z-index:1;
 }
 
-/* GAMBAR LATAR KOTAK */
+/* GAMBAR DIKEKALKAN */
 #lily { background-image: url('lily.jpeg'); }
 #ain { background-image: url('ain.jpeg'); }
 
 .section:hover { transform: scale(1.05); border-color: #FFB6D9; }
 
-/* ===== POPUP ===== */
+/* ===== POPUP (Sesuai dengan Video 20260330-0304-17.3906472.mp4) ===== */
 .job-popup {
   position: fixed;
   top: 50%; left: 50%;
@@ -300,9 +300,9 @@ const chapters = [
 ];
 
 const chapterTitles = { 
-  1: "Chapter 1: HTML5", 
-  2: "Chapter 2: CSS3", 
-  3: "Chapter 3: JavaScript" 
+  1: "Chapter 1: HTML5 Foundation", 
+  2: "Chapter 2: CSS3 Styling", 
+  3: "Chapter 3: JavaScript Logic" 
 };
 
 function populateChapters(popup, type) {
@@ -334,7 +334,7 @@ function populateChapters(popup, type) {
       };
       btnGrid.appendChild(btn);
 
-      // BUTANG EXTRA DI SINI
+      // Logik Butang EXTRA (Sesuai dengan input fail anda: extra.html)
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
         extraBtn.textContent = "EXTRA";
@@ -343,8 +343,11 @@ function populateChapters(popup, type) {
           e.stopPropagation();
           clickSound.currentTime = 0; clickSound.play();
           
-          // GANTIKAN LINK DI BAWAH INI
-          window.location.href = (type === 'lily') ? "extra.html" : "https://ain-extra-link.com";
+          if (type === 'lily') {
+            window.open("extra.html", "_blank"); // Membuka fail extra.html milik Lily
+          } else {
+            window.open("extra_ain.html", "_blank"); // Contoh link untuk Ain
+          }
         };
         btnGrid.appendChild(extraBtn);
       }
