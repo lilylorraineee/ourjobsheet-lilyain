@@ -3,339 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <title>Art Store - Customer Registration</title>
-
-    <style>
-        /* ===== RESET & BASIC STYLE ===== */
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            margin: 0;
-            background-color: #ffffff;
-            color: #333;
-        }
-
-        /* ===== TOP TASK BAR (DARK) ===== */
-        .top-bar {
-            background-color: #1a1a1a;
-            padding: 10px 50px;
-            text-align: right;
-        }
-
-        .top-bar a {
-            color: #888;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 13px;
-        }
-
-        .top-bar a:hover { color: #fff; }
-
-        /* ===== SHOP TITLE AREA ===== */
-        .header-container {
-            width: 90%;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        .shop-title {
-            font-size: 48px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        /* ===== MAIN NAV BAR (LIGHT GREY) ===== */
-        .main-nav {
-            background-color: #f8f8f8;
-            border-top: 1px solid #e7e7e7;
-            border-bottom: 1px solid #e7e7e7;
-            padding: 12px 50px;
-        }
-
-        .main-nav a {
-            text-decoration: none;
-            color: #666;
-            margin-right: 30px;
-            font-size: 15px;
-        }
-
-        .main-nav a:hover { color: #000; }
-
-        /* ===== FORM CONTAINER ===== */
-        .content-area {
-            width: 90%;
-            margin: 30px auto;
-        }
-
-        h2.form-heading {
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        form {
-            width: 100%;
-        }
-
-        fieldset {
-            border: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        legend {
-            font-size: 20px;
-            font-weight: bold;
-            color: #444;
-            padding: 0;
-            margin-bottom: 5px;
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #ddd; /* Garisan nipis seperti dalam gambar */
-            margin-bottom: 20px;
-        }
-
-        /* ===== INPUT STYLING ===== */
-        .form-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-
-        .input-group {
-            flex: 1;
-        }
-
-        .input-group.full {
-            width: 100%;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        input[type=text],
-        input[type=email],
-        input[type=password],
-        input[type=date],
-        select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box; /* Pastikan padding tak rosakkan saiz */
-        }
-
-        input::placeholder {
-            color: #aaa;
-            font-style: italic;
-            font-size: 13px;
-        }
-
-        /* ===== PERSONAL DETAILS STUFF ===== */
-        .details-grid {
-            display: flex;
-            gap: 50px;
-            align-items: flex-start;
-        }
-
-        input[type=range] {
-            width: 300px;
-            margin-top: 10px;
-        }
-
-        /* ===== BUTTONS & CHECKBOX ===== */
-        .terms-text {
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .terms-text a { color: blue; text-decoration: underline; }
-
-        .signup-container {
-            background-color: #f0f7f0;
-            border: 1px solid #d0e0d0;
-            padding: 10px 15px;
-            width: fit-content;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .btn-submit {
-            background-color: #e7e7e7;
-            border: 1px solid #ccc;
-            padding: 10px 25px;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 4px;
-        }
-
-        .btn-submit:hover { background-color: #ddd; }
-
-        /* ===== FOOTER BAR ===== */
-        .footer-bar {
-            background-color: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 15px;
-            font-size: 12px;
-            margin-top: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="top-bar">
+<div class="top-task-bar">
     <a href="#">My Account</a>
     <a href="#">Wish List</a>
     <a href="#">Shopping Cart</a>
     <a href="#">Checkout</a>
 </div>
 
-<div class="header-container">
-    <div class="shop-title">Art Store</div>
-</div>
+<div class="container">
+    <header>
+        <h1 class="main-title">Art Store</h1>
+        <nav class="sub-nav">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Art Works</a>
+            <a href="#">Artists</a>
+        </nav>
+    </header>
 
-<nav class="main-nav">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Art Works</a>
-    <a href="#">Artists</a>
-</nav>
-
-<div class="content-area">
-    <h2 class="form-heading">Customer Registration</h2>
-
-    <form>
-        <fieldset>
-            <legend>1. User Info</legend>
-            <hr>
-            <div class="form-row">
-                <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text">
+    <main>
+        <h2 class="form-title">Customer Registration</h2>
+        
+        <form action="#">
+            <fieldset>
+                <legend>1. User Info</legend>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <label>First Name</label>
+                        <input type="text">
+                    </div>
+                    <div class="col">
+                        <label>Last Name</label>
+                        <input type="text">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Last Name</label>
-                    <input type="text">
-                </div>
-            </div>
-            
-            <div class="input-group full">
                 <label>Email</label>
-                <input type="email" placeholder="format for email is xxx@yyy.zzz">
-            </div>
-
-            <div class="form-row" style="margin-top:15px;">
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="at least 8 characters">
+                <input type="email" placeholder="format for email is xxx@yyy.zzz" class="full-width">
+                
+                <div class="row">
+                    <div class="col">
+                        <label>Password</label>
+                        <input type="password" placeholder="at least 8 characters">
+                    </div>
+                    <div class="col">
+                        <label>Password Repeat</label>
+                        <input type="password" placeholder="at least 8 characters">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Password Repeat</label>
-                    <input type="password" placeholder="at least 8 characters">
-                </div>
-            </div>
-        </fieldset>
+            </fieldset>
 
-        <fieldset>
-            <legend>2. Location</legend>
-            <hr>
-            <div class="input-group full">
+            <fieldset>
+                <legend>2. Location</legend>
+                <hr>
                 <label>Address</label>
-                <input type="text">
-            </div>
+                <input type="text" class="full-width">
+                
+                <div class="row">
+                    <div class="col-6">
+                        <label>City</label>
+                        <input type="text">
+                    </div>
+                    <div class="col-3">
+                        <label>State</label>
+                        <input type="text">
+                    </div>
+                    <div class="col-3">
+                        <label>Zip</label>
+                        <input type="text">
+                    </div>
+                </div>
 
-            <div class="form-row" style="margin-top:15px;">
-                <div class="input-group" style="flex: 2;">
-                    <label>City</label>
-                    <input type="text">
+                <div class="row">
+                    <div class="col">
+                        <label>Phone</label>
+                        <input type="text" placeholder="NNN-NNN-NNNN">
+                    </div>
+                    <div class="col">
+                        <label>Country</label>
+                        <select>
+                            <option>Canada</option>
+                            <option>Malaysia</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>State</label>
-                    <input type="text">
-                </div>
-                <div class="input-group">
-                    <label>Zip</label>
-                    <input type="text">
-                </div>
-            </div>
+            </fieldset>
 
-            <div class="form-row">
-                <div class="input-group">
-                    <label>Phone</label>
-                    <input type="text" placeholder="NNN-NNN-NNNN">
+            <fieldset>
+                <legend>3. Personal Details</legend>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <label>Birth Day</label>
+                        <input type="date">
+                    </div>
+                    <div class="col">
+                        <label>Favorite Color</label>
+                        <input type="color" class="color-picker">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Country</label>
-                    <select>
-                        <option>Canada</option>
-                        <option>Malaysia</option>
-                    </select>
-                </div>
-            </div>
-
-            <label style="margin-top:10px;">Continent</label>
-            <div style="font-size: 14px;">
-                <input type="radio" name="cont"> North America<br>
-                <input type="radio" name="cont"> Europe<br>
-                <input type="radio" name="cont"> South America
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <legend>3. Personal Details</legend>
-            <hr>
-            <div class="details-grid">
-                <div class="input-group">
-                    <label>Birth Day</label>
-                    <input type="date">
-                </div>
-                <div class="input-group">
-                    <label>Favorite Color</label>
-                    <input type="color" style="height:40px; padding:2px;">
-                </div>
-            </div>
-
-            <div style="margin-top:15px;">
                 <label>Interest In Art</label>
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <span style="font-size:12px; color:#666;">Minimal</span>
-                    <input type="range" min="0" max="10">
-                    <span style="font-size:12px; color:#666;">Love it!</span>
+                <div class="range-container">
+                    <span>Minimal</span>
+                    <input type="range">
+                    <span>Love it!</span>
                 </div>
-            </div>
-        </fieldset>
+            </fieldset>
 
-        <fieldset>
-            <legend>4. All Done</legend>
-            <hr>
-            <div class="terms-text">
-                <input type="checkbox"> I agree to the <a href="#">Terms of the Site</a>
-            </div>
+            <fieldset>
+                <legend>4. All Done</legend>
+                <hr>
+                <label class="checkbox-label">
+                    <input type="checkbox"> I agree to the <a href="#">Terms of the Site</a>
+                </label>
+                
+                <div class="signup-box">
+                    <img src="check-icon.png" alt="" class="icon"> 
+                    <span>Sign me up!</span>
+                </div>
 
-            <div class="signup-container">
-                <img src="https://cdn-icons-png.flaticon.com/128/190/190411.png" width="20" alt="check">
-                <span style="color: #2e7d32; font-weight: bold;">Sign me up!</span>
-            </div>
-
-            <button type="submit" class="btn-submit">Sign me up!</button>
-        </fieldset>
-    </form>
+                <button type="submit" class="register-btn">Sign me up!</button>
+            </fieldset>
+        </form>
+    </main>
 </div>
 
-<div class="footer-bar">
-    All images are copyright to their owners. This is just a hypothetical site &copy; 2014 Copyright Art Store
-</div>
+<footer class="dark-footer">
+    <p>All images are copyright to their owners. This is just a hypothetical site &copy; 2014 Copyright Art Store</p>
+</footer>
 
 </body>
 </html>
