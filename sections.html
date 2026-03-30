@@ -197,7 +197,7 @@ nav a:hover { text-decoration: underline; }
   background-color: #6B4C6B;
 }
 
-/* ===== VIDEO OVERLAY (NEW) ===== */
+/* ===== VIDEO OVERLAY ===== */
 #videoOverlay {
   position: fixed;
   top: 0;
@@ -205,7 +205,7 @@ nav a:hover { text-decoration: underline; }
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.9);
-  display: none; /* Hidden by default */
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 20000;
@@ -215,7 +215,6 @@ nav a:hover { text-decoration: underline; }
   max-height: 80%;
   border: 5px solid #FFB6D9;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 #videoOverlay .close-video {
   position: absolute;
@@ -247,7 +246,6 @@ footer {
   .sections-container{ flex-direction: column; gap:25px; }
   .section{ width: 280px; height:280px; }
   .page-title { font-size: 2em; }
-  #videoOverlay video { width: 95%; }
 }
 
 /* ===== CURSOR TRAIL ===== */
@@ -315,7 +313,7 @@ footer {
 <div id="videoOverlay">
   <button class="close-video">CLOSE VIDEO</button>
   <video id="extraVid" controls>
-    <source src="extrajobsheetlily.mp4" type="video/mp4">
+    <source src="" id="videoSource" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
@@ -327,22 +325,22 @@ footer {
 <div id="cursorContainer"></div>
 
 <script>
-// Slow down background video
+// Video Logic
 document.addEventListener('DOMContentLoaded', function() {
   var bgVideo = document.getElementById('bgVideo');
   if(bgVideo) bgVideo.playbackRate = 0.3;
 });
 
 const clickSound = document.getElementById("clickSound");
+const videoOverlay = document.getElementById("videoOverlay");
+const extraVid = document.getElementById("extraVid");
+const videoSource = document.getElementById("videoSource");
+const closeVideoBtn = document.querySelector(".close-video");
 
-// NAVBAR SOUND
-document.querySelectorAll(".nav-link").forEach(link=>{
-  link.addEventListener("click", function(e){
-    e.preventDefault();
-    const url=this.href;
-    clickSound.currentTime=0; clickSound.play();
-    setTimeout(()=>window.location.href=url,300);
-  });
+closeVideoBtn.addEventListener("click", () => {
+  videoOverlay.style.display = "none";
+  extraVid.pause();
+  extraVid.currentTime = 0;
 });
 
 // POPUP HANDLERS
@@ -364,18 +362,6 @@ sections.forEach(s=>{
   });
 });
 
-// VIDEO OVERLAY LOGIC
-const videoOverlay = document.getElementById("videoOverlay");
-const extraVid = document.getElementById("extraVid");
-const closeVideoBtn = document.querySelector(".close-video");
-
-closeVideoBtn.addEventListener("click", () => {
-  videoOverlay.style.display = "none";
-  extraVid.pause(); // Stop video when closed
-  extraVid.currentTime = 0;
-});
-
-// Chapters + Jobsheets
 const chapters = [
   { chapter: 1, jobsheets: [1, 2, 3] },
   { chapter: 2, jobsheets: [4, 5, 6] },
@@ -395,7 +381,8 @@ const chapterTitles = {
   7: "Chapter 7: "
 };
 
-function populateChapters(popup){
+// Generic Populate Function to handle both
+function populateChapters(popup, type){
   chapters.forEach(ch=>{
     const chapDiv = document.createElement("div");
     chapDiv.className = "chapter";
@@ -410,22 +397,35 @@ function populateChapters(popup){
         e.stopPropagation();
         clickSound.currentTime = 0; clickSound.play();
         let url="";
-        switch(jsNum){
-          case 1: url="LAB1_HTML5.html"; break;
-          case 2: url="LAB2_HTML5.html"; break;
-          case 3: url="LAB3_HTML5.html"; break;
-          case 4: url="Lab4.html"; break;
-          case 5: url="Lab5.html"; break;
-          case 6: url="Lab6.html"; break;
-          case 7: url="Lab7lily.html"; break;
-          case 8: url="Lab8lily.html"; break;
-          case 9: url="Lab9lily.html"; break;
-          default: url="jobsheet"+jsNum+".html";
+        if(type === 'lily'){
+            switch(jsNum){
+                case 1: url="LAB1_HTML5.html"; break;
+                case 2: url="LAB2_HTML5.html"; break;
+                case 3: url="LAB3_HTML5.html"; break;
+                case 4: url="Lab4.html"; break;
+                case 5: url="Lab5.html"; break;
+                case 6: url="Lab6.html"; break;
+                case 7: url="Lab7lily.html"; break;
+                case 8: url="Lab8lily.html"; break;
+                case 9: url="Lab9lily.html"; break;
+                default: url="jobsheet"+jsNum+".html";
+            }
+        } else {
+            switch(jsNum){
+                case 1: url="JS1.html"; break;
+                case 2: url="JS 2.html"; break;
+                case 3: url="JS 3.html"; break;
+                case 4: url="JS4.html"; break;
+                case 5: url="jobsheet 5.html"; break;
+                case 6: url="JS 6.html"; break;
+                default: alert("Jobsheet Ain belum tersedia"); return;
+            }
         }
         window.location.href = url;
       });
       chapDiv.appendChild(btn);
 
+      // EXTRA JOBSHEET LOGIC FOR BOTH
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
         extraBtn.textContent = "EXTRA JOBSHEET";
@@ -433,7 +433,15 @@ function populateChapters(popup){
         extraBtn.addEventListener("click", (e)=>{
           e.stopPropagation();
           clickSound.currentTime = 0; clickSound.play();
-          // Paparkan video overlay daripada lompat ke URL lain
+          
+          // Set video based on who is clicked
+          if(type === 'lily'){
+            videoSource.src = "extrajobsheetlily.mp4";
+          } else {
+            videoSource.src = "extrajobsheetain.mp4";
+          }
+          
+          extraVid.load(); // Reload new source
           videoOverlay.style.display = "flex";
           extraVid.play(); 
         });
@@ -444,69 +452,31 @@ function populateChapters(popup){
   });
 }
 
-function populateChaptersAin(popup){
-  chapters.forEach(ch=>{
-    const chapDiv = document.createElement("div");
-    chapDiv.className = "chapter";
-    const chapTitle = document.createElement("h3");
-    chapTitle.textContent = chapterTitles[ch.chapter] || "Chapter "+ch.chapter;
-    chapDiv.appendChild(chapTitle);
+// Initialize
+populateChapters(document.getElementById("lilyPopup"), 'lily');
+populateChapters(document.getElementById("ainPopup"), 'ain');
 
-    ch.jobsheets.forEach(jsNum=>{
-      const btn = document.createElement("button");
-      btn.textContent = "JOBSHEET " + jsNum;
-      btn.addEventListener("click", (e)=>{
-        e.stopPropagation();
-        clickSound.currentTime = 0; clickSound.play();
-        let url="";
-        switch(jsNum){
-          case 1: url="JS1.html"; break;
-          case 2: url="JS 2.html"; break;
-          case 3: url="JS 3.html"; break;
-          case 4: url="JS4.html"; break;
-          case 5: url="jobsheet 5.html"; break;
-          case 6: url="JS 6.html"; break;
-          default: alert("Jobsheet Ain belum tersedia"); return;
-        }
-        window.location.href = url;
-      });
-      chapDiv.appendChild(btn);
-    });
-    popup.appendChild(chapDiv);
-  });
-}
-
-populateChapters(document.getElementById("lilyPopup"));
-populateChaptersAin(document.getElementById("ainPopup"));
-
-// ===== CURSOR COMET TRAIL =====
+// Cursor Trail
 const cursorContainer = document.getElementById("cursorContainer");
-const trailLength = 12;
 const dots = [];
-for(let i=0;i<trailLength;i++){
+for(let i=0;i<12;i++){
   const dot = document.createElement("div");
   dot.className="cursor-dot";
   cursorContainer.appendChild(dot);
   dots.push({el: dot, x:0, y:0});
 }
 let mouseX=0, mouseY=0;
-document.addEventListener("mousemove", e=>{
-  mouseX=e.clientX;
-  mouseY=e.clientY;
-});
+document.addEventListener("mousemove", e=>{ mouseX=e.clientX; mouseY=e.clientY; });
 function animateDots(){
   let x=mouseX, y=mouseY;
-  dots.forEach((dot,i)=>{
-    dot.x += (x - dot.x)*0.2;
-    dot.y += (y - dot.y)*0.2;
+  dots.forEach((dot)=>{
+    dot.x += (x - dot.x)*0.2; dot.y += (y - dot.y)*0.2;
     dot.el.style.transform = `translate(${dot.x}px, ${dot.y}px)`;
-    x=dot.x;
-    y=dot.y;
+    x=dot.x; y=dot.y;
   });
   requestAnimationFrame(animateDots);
 }
 animateDots();
 </script>
-
 </body>
 </html>
