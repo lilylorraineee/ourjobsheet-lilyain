@@ -6,15 +6,24 @@
 <title>Interactive Student Dashboard</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-/* ===== ASAS & SCROLL ===== */
+/* ===== ASAS & SCROLL HALIMUNAN ===== */
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
 
-/* Buang overflow:hidden supaya boleh scroll */
 body, html { 
     width: 100%;
     min-height: 100%;
     overflow-x: hidden; 
-    overflow-y: auto; 
+    overflow-y: auto; /* Fungsi scroll tetap ada */
+    
+    /* Sembunyikan Scrollbar untuk Firefox */
+    scrollbar-width: none; 
+    /* Sembunyikan Scrollbar untuk IE/Edge */
+    -ms-overflow-style: none; 
+}
+
+/* Sembunyikan Scrollbar untuk Chrome, Safari & Opera */
+body::-webkit-scrollbar {
+    display: none;
 }
 
 #bgVideo {
@@ -61,7 +70,13 @@ nav a { margin-left:15px; color:#8B5A8B; text-decoration:none; font-weight:bold;
 }
 .chart-container canvas { max-width: 250px; max-height: 250px; margin: 0 auto; }
 
-.activity ul { list-style:none; overflow-y:auto; flex:1; max-height: 300px; }
+/* Sembunyikan scrollbar dalam kotak Recent Activity juga */
+.activity ul { 
+    list-style:none; overflow-y:auto; flex:1; max-height: 300px; 
+    scrollbar-width: none;
+}
+.activity ul::-webkit-scrollbar { display: none; }
+
 .activity ul li { 
     background:rgba(255,182,217,0.5); padding:10px; margin-bottom:8px; 
     border-radius:8px; font-size:0.9em; text-align: left;
@@ -80,14 +95,13 @@ footer {
     position: relative; margin-top: 30px;
 }
 
-/* ===== KHUSUS UNTUK MOBILE (SKRIN KECIL) ===== */
+/* ===== KHUSUS MOBILE ===== */
 @media(max-width: 600px) {
     .dashboard h1 { font-size: 1.6em; }
-    .card { flex: 1 1 100%; } /* Kad jadi satu-satu sebaris */
-    .chart-container, .activity { flex: 1 1 100%; } /* Kotak carta & aktiviti jadi penuh */
-    nav { padding: 10px 15px; }
-    nav img { height: 40px; }
-    nav a { font-size: 0.8em; }
+    .card { flex: 1 1 100%; }
+    .chart-container, .activity { flex: 1 1 100%; }
+    /* Pastikan scrollbar tetap invisible dalam mobile */
+    body, html { overflow-y: auto; height: auto; }
 }
 </style>
 </head>
