@@ -211,8 +211,9 @@ nav a:hover { text-decoration: underline; }
   z-index: 20000;
 }
 #videoOverlay video {
-  max-width: 90%;
-  max-height: 90%;
+  width: 1280px;    /* Saiz lebar tetap */
+  height: auto;     /* Tinggi akan ikut nisbah video secara automatik */
+  max-width: 95%;   /* Supaya video tak terkeluar jika skrin laptop kecil */
   border: 5px solid #FFB6D9;
   border-radius: 15px;
 }
