@@ -15,14 +15,12 @@ html, body {
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: #000;
-  /* Benarkan scroll tapi sorokkan bar kelabu */
   overflow-x: hidden;
   overflow-y: auto; 
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
 }
 
-/* Sembunyikan Scrollbar Chrome/Safari/Edge */
 body::-webkit-scrollbar {
   display: none;
   width: 0 !important;
@@ -56,7 +54,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 /* ===== PAGE TITLE ===== */
 .page-title {
   margin-top: 120px;
-  font-size: 2.8em;
+  font-size: 2.5em;
   font-weight: bold;
   color: #E91E63;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -74,17 +72,16 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
   padding: 50px 20px;
   position: relative;
   z-index: 1;
-  min-height: 60vh;
 }
 
 .section {
-  width: 380px;
-  height: 380px;
+  width: 350px;
+  height: 350px;
   position: relative;
   cursor: pointer;
   transition: 0.3s;
@@ -107,48 +104,63 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   background: rgba(0,0,0,0.4);
   z-index:0;
 }
-.section h2, .section p { position: relative; z-index:1; margin: 8px; }
 #lily { background-image: url('lily.jpeg'); }
 #ain { background-image: url('ain.jpeg'); }
-.section:hover { transform: scale(1.05); border-color: #FFB6D9; }
+.section:hover { transform: scale(1.05); }
 
-/* ===== POPUP (SCROLLABLE & HIDDEN BAR) ===== */
+/* ===== POPUP (KOTAK CHAPTER SAMA RATA) ===== */
 .job-popup {
   position: fixed;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
-  max-width: 850px;
+  max-width: 800px;
   max-height: 85vh;
   background-color: rgba(255,255,255,0.98);
   display: none;
   flex-direction: column;
+  align-items: center;
   z-index: 10000;
-  padding: 25px;
+  padding: 30px 20px;
   border-radius: 20px;
   box-shadow: 0 0 50px rgba(0,0,0,0.6);
-  /* Benarkan scroll dalam popup */
   overflow-y: auto;
   scrollbar-width: none;
 }
 .job-popup::-webkit-scrollbar { display: none; }
 
+/* Styling Kotak Chapter bagi cantik & sama rata */
 .job-popup .chapter {
-  width: 100%;
+  width: 95%; /* Kotak sama lebar */
   background-color: #FFE0F0;
-  padding: 18px;
+  padding: 20px;
   border-radius: 15px;
   border: 2px solid #FFB6D9;
+  display: flex;
+  flex-direction: column; /* Tajuk atas, butang bawah */
+  align-items: center;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.job-popup .chapter h3 { 
+  width: 100%; 
+  color: #8B5A8B; 
+  margin-bottom: 15px; 
+  font-size: 1.3em;
+  text-align: center;
+}
+
+/* Container butang dalam chapter */
+.btn-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 20px;
 }
-.job-popup .chapter h3 { width: 100%; color: #8B5A8B; margin-bottom: 12px; font-size: 1.4em; }
 
 .job-popup button {
-  padding: 14px 22px;
+  padding: 12px 20px;
   background-color: #f12a8e;
   color: #fff;
   border: none;
@@ -162,9 +174,8 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 .job-popup .close-btn {
   background-color: #8B5A8B;
   color: #fff;
-  padding: 12px 25px;
-  align-self: center;
-  margin-bottom: 15px;
+  padding: 10px 25px;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 
@@ -175,15 +186,14 @@ footer {
   padding: 20px;
   width: 100%;
   position: relative; 
-  margin-top: 60px;
+  margin-top: 50px;
   z-index: 1;
 }
 
-/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  .sections-container { flex-direction: column; gap:25px; padding-bottom: 80px; }
-  .section { width: 320px; height: 320px; }
-  .page-title { font-size: 2em; margin-top: 100px; }
+  .sections-container { flex-direction: column; gap:25px; padding-bottom: 50px; }
+  .section { width: 300px; height: 300px; }
+  .page-title { font-size: 1.8em; }
 }
 
 .cursor-dot {
@@ -215,12 +225,11 @@ footer {
 <div class="sections-container">
   <div id="lily" class="section">
     <h2>Lily Lorraine</h2>
-    <p>Click to view my jobsheets!</p>
+    <p>View my jobsheets</p>
   </div>
-
   <div id="ain" class="section">
     <h2>Ain</h2>
-    <p>Click to view my jobsheets!</p>
+    <p>View my jobsheets</p>
   </div>
 </div>
 
@@ -239,79 +248,71 @@ footer {
 <div id="cursorContainer"></div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var bgVideo = document.getElementById('bgVideo');
-  if(bgVideo) bgVideo.playbackRate = 0.3;
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('bgVideo').playbackRate = 0.3;
 });
 
 const clickSound = document.getElementById("clickSound");
 
-// POPUP LOGIC
+// Handle Popups
 const sections = [{id:"lily", popup:"lilyPopup"}, {id:"ain", popup:"ainPopup"}];
-sections.forEach(s=>{
-  const sec = document.getElementById(s.id);
-  const pop = document.getElementById(s.popup);
-  sec.addEventListener("click", ()=>{
-    clickSound.currentTime=0; clickSound.play();
-    pop.style.display="flex";
+sections.forEach(s => {
+  document.getElementById(s.id).addEventListener("click", () => {
+    clickSound.currentTime = 0; clickSound.play();
+    document.getElementById(s.popup).style.display = "flex";
   });
-  pop.querySelector(".close-btn").addEventListener("click",(e)=>{
+  document.getElementById(s.popup).querySelector(".close-btn").addEventListener("click", (e) => {
     e.stopPropagation();
-    clickSound.currentTime=0; clickSound.play();
-    pop.style.display="none";
+    clickSound.currentTime = 0; clickSound.play();
+    document.getElementById(s.popup).style.display = "none";
   });
 });
 
 const chapters = [
   { chapter: 1, jobsheets: [1, 2, 3] },
   { chapter: 2, jobsheets: [4, 5, 6] },
-  { chapter: 3, jobsheets: [7, 8, 9] },
-  { chapter: 4, jobsheets: [10, 11] },
-  { chapter: 5, jobsheets: [12, 13] },
-  { chapter: 6, jobsheets: [14] },
-  { chapter: 7, jobsheets: [15] },
+  { chapter: 3, jobsheets: [7, 8, 9] }
 ];
 
 const chapterTitles = { 1: "Chapter 1: HTML5", 2: "Chapter 2: CSS3", 3: "Chapter 3: JavaScript" };
 
-function populateChapters(popup, type){
-  chapters.forEach(ch=>{
+function populateChapters(popup, type) {
+  chapters.forEach(ch => {
     const chapDiv = document.createElement("div");
     chapDiv.className = "chapter";
+
     const chapTitle = document.createElement("h3");
-    chapTitle.textContent = chapterTitles[ch.chapter] || "Chapter "+ch.chapter;
+    chapTitle.textContent = chapterTitles[ch.chapter] || "Chapter " + ch.chapter;
     chapDiv.appendChild(chapTitle);
 
-    ch.jobsheets.forEach(jsNum=>{
+    const btnGrid = document.createElement("div");
+    btnGrid.className = "btn-grid";
+
+    ch.jobsheets.forEach(jsNum => {
       const btn = document.createElement("button");
       btn.textContent = "JS " + jsNum;
-      btn.addEventListener("click", (e)=>{
+      btn.onclick = (e) => {
         e.stopPropagation();
         clickSound.currentTime = 0; clickSound.play();
-        let url = (type === 'lily') ? `Lab${jsNum}.html` : `JS${jsNum}.html`;
-        window.location.href = url;
-      });
-      chapDiv.appendChild(btn);
+        window.location.href = (type === 'lily') ? `Lab${jsNum}.html` : `JS${jsNum}.html`;
+      };
+      btnGrid.appendChild(btn);
 
-      // --- BUTTON EXTRA: TUKAR KE LINK WEBSITE ---
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
         extraBtn.textContent = "EXTRA";
-        extraBtn.style.backgroundColor = "#ff77bc"; 
-        extraBtn.addEventListener("click", (e)=>{
+        extraBtn.style.backgroundColor = "#ff77bc";
+        extraBtn.onclick = (e) => {
           e.stopPropagation();
           clickSound.currentTime = 0; clickSound.play();
-          
-          // TUKAR LINK WEBSITE DI SINI
-          if(type === 'lily'){
-            window.location.href = "https://website-lily.com"; 
-          } else {
-            window.location.href = "https://website-ain.com";
-          }
-        });
-        chapDiv.appendChild(extraBtn);
+          // TUKAR LINK WEBSITE ANDA DI SINI
+          window.location.href = (type === 'lily') ? "https://lily-extra-link.com" : "https://ain-extra-link.com";
+        };
+        btnGrid.appendChild(extraBtn);
       }
     });
+
+    chapDiv.appendChild(btnGrid);
     popup.appendChild(chapDiv);
   });
 }
@@ -319,26 +320,26 @@ function populateChapters(popup, type){
 populateChapters(document.getElementById("lilyPopup"), 'lily');
 populateChapters(document.getElementById("ainPopup"), 'ain');
 
-// Cursor Trail Effect
+// Cursor Trail
 const dots = [];
-for(let i=0;i<12;i++){
+for(let i=0; i<12; i++) {
   const dot = document.createElement("div");
-  dot.className="cursor-dot";
+  dot.className = "cursor-dot";
   document.getElementById("cursorContainer").appendChild(dot);
   dots.push({el: dot, x:0, y:0});
 }
 let mouseX=0, mouseY=0;
-document.addEventListener("mousemove", e=>{ mouseX=e.clientX; mouseY=e.clientY; });
-function animateDots(){
+document.addEventListener("mousemove", e => { mouseX=e.clientX; mouseY=e.clientY; });
+function animate() {
   let x=mouseX, y=mouseY;
-  dots.forEach((dot)=>{
+  dots.forEach(dot => {
     dot.x += (x - dot.x)*0.2; dot.y += (y - dot.y)*0.2;
     dot.el.style.transform = `translate(${dot.x}px, ${dot.y}px)`;
     x=dot.x; y=dot.y;
   });
-  requestAnimationFrame(animateDots);
+  requestAnimationFrame(animate);
 }
-animateDots();
+animate();
 </script>
 </body>
 </html>
