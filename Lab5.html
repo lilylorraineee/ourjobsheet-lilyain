@@ -5,13 +5,15 @@
     <title>Art Store - Customer Registration</title>
 
     <style>
-        /* ===== CSS BERMULA DI SINI ===== */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
             background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Bar Hitam Paling Atas */
@@ -28,11 +30,9 @@
             margin-left: 20px;
         }
 
-        .top-task-bar a:hover { color: #fff; }
-
-        /* Tajuk Kedai */
+        /* Header & Nav */
         .header-container {
-            width: 90%;
+            width: 80%; /* Kecilkan sikit supaya nampak tgh */
             margin: 0 auto;
             padding: 20px 0;
         }
@@ -43,30 +43,36 @@
             color: #333;
         }
 
-        /* Navigasi Kelabu Cerah */
         .main-nav {
             background-color: #f8f8f8;
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
-            padding: 12px 50px;
+            padding: 12px 0;
+            text-align: center; /* Navigasi ke tengah */
         }
 
         .main-nav a {
             text-decoration: none;
             color: #666;
-            margin-right: 30px;
+            margin: 0 15px;
             font-size: 14px;
         }
 
-        /* Kandungan Borang */
+        /* Meletakkan Borang di Tengah Website */
         .content-area {
-            width: 90%;
-            margin: 30px auto;
+            width: 100%;
+            max-width: 800px; /* Lebar maksimum borang */
+            margin: 40px auto; /* Margin auto untuk ke tengah */
+            padding: 0 20px;
+            box-sizing: border-box;
+            flex: 1; /* Supaya footer sentiasa di bawah */
         }
 
         h2.form-heading {
             font-size: 26px;
             margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
 
         fieldset {
@@ -82,7 +88,6 @@
             margin-bottom: 5px;
         }
 
-        /* Garisan nipis kelabu di bawah tajuk seksyen */
         hr {
             border: 0;
             border-top: 1px solid #ddd;
@@ -97,47 +102,43 @@
             color: #555;
         }
 
-        /* Gaya Kotak Input */
-        input[type=text],
-        input[type=email],
-        input[type=password],
-        input[type=date],
-        select {
+        input[type=text], input[type=email], input[type=password], input[type=date], select {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 3px;
             box-sizing: border-box;
             margin-bottom: 15px;
+            background-color: #fff;
         }
 
-        /* Tulisan condong dalam placeholder */
         input::placeholder {
             color: #aaa;
             font-style: italic;
             font-size: 12px;
         }
 
-        /* Susunan Sebelah-menyebelah (Flexbox) */
         .form-row {
             display: flex;
             gap: 20px;
+            margin-bottom: 5px;
         }
 
         .input-group {
             flex: 1;
         }
 
-        /* Slider & Color Picker */
-        .range-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 12px;
-            color: #888;
+        /* Radio Buttons Layout */
+        .radio-group {
+            font-size: 13px;
+            margin-bottom: 15px;
         }
 
-        input[type=range] { width: 250px; }
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 10px;
+        }
 
         /* Kotak Hijau Sign Me Up */
         .signup-promo {
@@ -163,18 +164,16 @@
             font-weight: bold;
         }
 
-        /* Footer Hitam */
         .footer-bar {
             background-color: #1a1a1a;
             color: #777;
             text-align: center;
             padding: 20px;
             font-size: 12px;
-            margin-top: 50px;
+            margin-top: auto;
         }
     </style>
 </head>
-
 <body>
 
     <div class="top-task-bar">
@@ -274,14 +273,14 @@
                     </div>
                     <div class="input-group">
                         <label>Favorite Color</label>
-                        <input type="color" style="height: 40px; cursor: pointer;">
+                        <input type="color" style="height: 40px; cursor: pointer; padding: 2px;">
                     </div>
                 </div>
 
                 <label style="margin-top: 15px;">Interest In Art</label>
-                <div class="range-box">
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #888;">
                     <span>Minimal</span>
-                    <input type="range" min="1" max="10">
+                    <input type="range" min="1" max="10" style="flex: 1; max-width: 250px;">
                     <span>Love it!</span>
                 </div>
             </fieldset>
@@ -290,11 +289,12 @@
                 <legend>4. All Done</legend>
                 <hr>
                 <div style="font-size: 14px; margin-bottom: 15px;">
-                    <input type="checkbox"> I agree to the <a href="#" style="color: blue;">Terms of the Site</a>
+                    <input type="checkbox"> I agree to the <a href="#" style="color: blue; text-decoration: underline;">Terms of the Site</a>
                 </div>
 
                 <div class="signup-promo">
-                    <span>✔</span> <span>Sign me up!</span>
+                    <span style="color: #4CAF50; font-weight: bold;">✔</span>
+                    <span>Sign me up!</span>
                 </div>
 
                 <button type="submit" class="register-btn">Sign me up!</button>
