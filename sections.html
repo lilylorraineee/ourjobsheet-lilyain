@@ -94,7 +94,6 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   border-radius: 20px;
-  /* Warna teks asal ditukar di bawah (h2 dan p) */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,19 +104,20 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   overflow: hidden;
 }
 
-/* --- PERUBAHAN WARNA TEKS MENJADI PUTIH TERANG --- */
+/* --- WARNA TEKS PUTIH TERANG --- */
 .section h2 {
-  color: #FFFFFF; /* Nama jadi putih terang */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Tambah shadow sikit bagi lagi timbul */
-  font-size: 2em;
+  color: #FFFFFF !important; /* Putih terang */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Shadow gelap supaya teks timbul */
+  font-size: 2.2em;
   position: relative;
   z-index: 2;
   margin: 0;
 }
 
 .section p {
-  color: #FFFFFF; /* Kapsyen jadi putih terang */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  color: #FFFFFF !important; /* Putih terang */
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  font-weight: bold;
   position: relative;
   z-index: 2;
   margin-top: 10px;
@@ -127,14 +127,17 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   content: "";
   position: absolute;
   top:0; left:0; right:0; bottom:0;
-  background: rgba(0,0,0,0.4);
-  z-index:1; /* Pastikan overlay di bawah teks */
+  background: rgba(0,0,0,0.3); /* Overlay gelap sikit untuk nampakkan gambar & teks */
+  z-index:1;
 }
+
+/* GAMBAR DIKEKALKAN */
 #lily { background-image: url('lily.jpeg'); }
 #ain { background-image: url('ain.jpeg'); }
+
 .section:hover { transform: scale(1.05); border-color: #FFB6D9; }
 
-/* ===== POPUP (KOTAK CHAPTER SAMA RATA) ===== */
+/* ===== POPUP ===== */
 .job-popup {
   position: fixed;
   top: 50%; left: 50%;
@@ -201,8 +204,8 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 .job-popup .close-btn {
   background-color: #333;
   color: #fff;
-  padding: 12px 30px;
-  margin-bottom: 25px;
+  padding: 10px 30px;
+  margin-bottom: 20px;
   border-radius: 50px;
 }
 
@@ -277,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const clickSound = document.getElementById("clickSound");
 
-// Popup Trigger Logic
 const sections = [{id:"lily", popup:"lilyPopup"}, {id:"ain", popup:"ainPopup"}];
 sections.forEach(s => {
   document.getElementById(s.id).addEventListener("click", () => {
@@ -352,7 +354,6 @@ function populateChapters(popup, type) {
 populateChapters(document.getElementById("lilyPopup"), 'lily');
 populateChapters(document.getElementById("ainPopup"), 'ain');
 
-// Mouse Trail Effect
 const dots = [];
 for(let i=0; i<12; i++) {
   const dot = document.createElement("div");
