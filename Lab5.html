@@ -3,54 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <title>Art Store - Customer Registration</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== CSS BERMULA DI SINI ===== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        /* Bar Hitam Paling Atas */
+        .top-task-bar {
+            background-color: #1a1a1a;
+            padding: 10px 50px;
+            text-align: right;
+        }
+
+        .top-task-bar a {
+            color: #888;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 20px;
+        }
+
+        .top-task-bar a:hover { color: #fff; }
+
+        /* Tajuk Kedai */
+        .header-container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .shop-title {
+            font-size: 45px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Navigasi Kelabu Cerah */
+        .main-nav {
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 12px 50px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #666;
+            margin-right: 30px;
+            font-size: 14px;
+        }
+
+        /* Kandungan Borang */
+        .content-area {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        h2.form-heading {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        /* Garisan nipis kelabu di bawah tajuk seksyen */
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        /* Gaya Kotak Input */
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=date],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        /* Tulisan condong dalam placeholder */
+        input::placeholder {
+            color: #aaa;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        /* Susunan Sebelah-menyebelah (Flexbox) */
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        /* Slider & Color Picker */
+        .range-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        input[type=range] { width: 250px; }
+
+        /* Kotak Hijau Sign Me Up */
+        .signup-promo {
+            background-color: #f1f9f1;
+            border: 1px solid #d1e1d1;
+            padding: 10px 15px;
+            width: fit-content;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .register-btn {
+            background-color: #efefef;
+            border: 1px solid #ccc;
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Footer Hitam */
+        .footer-bar {
+            background-color: #1a1a1a;
+            color: #777;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="top-task-bar">
-    <a href="#">My Account</a>
-    <a href="#">Wish List</a>
-    <a href="#">Shopping Cart</a>
-    <a href="#">Checkout</a>
-</div>
+    <div class="top-task-bar">
+        <a href="#">My Account</a>
+        <a href="#">Wish List</a>
+        <a href="#">Shopping Cart</a>
+        <a href="#">Checkout</a>
+    </div>
 
-<div class="container">
-    <header>
-        <h1 class="main-title">Art Store</h1>
-        <nav class="sub-nav">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Art Works</a>
-            <a href="#">Artists</a>
-        </nav>
-    </header>
+    <div class="header-container">
+        <div class="shop-title">Art Store</div>
+    </div>
 
-    <main>
-        <h2 class="form-title">Customer Registration</h2>
-        
+    <nav class="main-nav">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Art Works</a>
+        <a href="#">Artists</a>
+    </nav>
+
+    <div class="content-area">
+        <h2 class="form-heading">Customer Registration</h2>
+
         <form action="#">
             <fieldset>
                 <legend>1. User Info</legend>
                 <hr>
-                <div class="row">
-                    <div class="col">
+                <div class="form-row">
+                    <div class="input-group">
                         <label>First Name</label>
                         <input type="text">
                     </div>
-                    <div class="col">
+                    <div class="input-group">
                         <label>Last Name</label>
                         <input type="text">
                     </div>
                 </div>
-                <label>Email</label>
-                <input type="email" placeholder="format for email is xxx@yyy.zzz" class="full-width">
                 
-                <div class="row">
-                    <div class="col">
+                <label>Email</label>
+                <input type="email" placeholder="format for email is xxx@yyy.zzz">
+
+                <div class="form-row">
+                    <div class="input-group">
                         <label>Password</label>
                         <input type="password" placeholder="at least 8 characters">
                     </div>
-                    <div class="col">
+                    <div class="input-group">
                         <label>Password Repeat</label>
                         <input type="password" placeholder="at least 8 characters">
                     </div>
@@ -61,29 +232,29 @@
                 <legend>2. Location</legend>
                 <hr>
                 <label>Address</label>
-                <input type="text" class="full-width">
-                
-                <div class="row">
-                    <div class="col-6">
+                <input type="text">
+
+                <div class="form-row">
+                    <div class="input-group" style="flex: 2;">
                         <label>City</label>
                         <input type="text">
                     </div>
-                    <div class="col-3">
+                    <div class="input-group">
                         <label>State</label>
                         <input type="text">
                     </div>
-                    <div class="col-3">
+                    <div class="input-group">
                         <label>Zip</label>
                         <input type="text">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col">
+                <div class="form-row">
+                    <div class="input-group">
                         <label>Phone</label>
                         <input type="text" placeholder="NNN-NNN-NNNN">
                     </div>
-                    <div class="col">
+                    <div class="input-group">
                         <label>Country</label>
                         <select>
                             <option>Canada</option>
@@ -96,20 +267,21 @@
             <fieldset>
                 <legend>3. Personal Details</legend>
                 <hr>
-                <div class="row">
-                    <div class="col">
+                <div class="form-row">
+                    <div class="input-group">
                         <label>Birth Day</label>
                         <input type="date">
                     </div>
-                    <div class="col">
+                    <div class="input-group">
                         <label>Favorite Color</label>
-                        <input type="color" class="color-picker">
+                        <input type="color" style="height: 40px; cursor: pointer;">
                     </div>
                 </div>
-                <label>Interest In Art</label>
-                <div class="range-container">
+
+                <label style="margin-top: 15px;">Interest In Art</label>
+                <div class="range-box">
                     <span>Minimal</span>
-                    <input type="range">
+                    <input type="range" min="1" max="10">
                     <span>Love it!</span>
                 </div>
             </fieldset>
@@ -117,24 +289,22 @@
             <fieldset>
                 <legend>4. All Done</legend>
                 <hr>
-                <label class="checkbox-label">
-                    <input type="checkbox"> I agree to the <a href="#">Terms of the Site</a>
-                </label>
-                
-                <div class="signup-box">
-                    <img src="check-icon.png" alt="" class="icon"> 
-                    <span>Sign me up!</span>
+                <div style="font-size: 14px; margin-bottom: 15px;">
+                    <input type="checkbox"> I agree to the <a href="#" style="color: blue;">Terms of the Site</a>
+                </div>
+
+                <div class="signup-promo">
+                    <span>✔</span> <span>Sign me up!</span>
                 </div>
 
                 <button type="submit" class="register-btn">Sign me up!</button>
             </fieldset>
         </form>
-    </main>
-</div>
+    </div>
 
-<footer class="dark-footer">
-    <p>All images are copyright to their owners. This is just a hypothetical site &copy; 2014 Copyright Art Store</p>
-</footer>
+    <div class="footer-bar">
+        All images are copyright to their owners. This is just a hypothetical site &copy; 2014 Copyright Art Store
+    </div>
 
 </body>
 </html>
