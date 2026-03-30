@@ -2,309 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Art Store - Customer Registration</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Bar Hitam Paling Atas */
-        .top-task-bar {
-            background-color: #1a1a1a;
-            padding: 10px 50px;
-            text-align: right;
-        }
-
-        .top-task-bar a {
-            color: #888;
-            text-decoration: none;
-            font-size: 12px;
-            margin-left: 20px;
-        }
-
-        /* Header & Nav */
-        .header-container {
-            width: 80%; /* Kecilkan sikit supaya nampak tgh */
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        .shop-title {
-            font-size: 45px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .main-nav {
-            background-color: #f8f8f8;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 12px 0;
-            text-align: center; /* Navigasi ke tengah */
-        }
-
-        .main-nav a {
-            text-decoration: none;
-            color: #666;
-            margin: 0 15px;
-            font-size: 14px;
-        }
-
-        /* Meletakkan Borang di Tengah Website */
-        .content-area {
-            width: 100%;
-            max-width: 800px; /* Lebar maksimum borang */
-            margin: 40px auto; /* Margin auto untuk ke tengah */
-            padding: 0 20px;
-            box-sizing: border-box;
-            flex: 1; /* Supaya footer sentiasa di bawah */
-        }
-
-        h2.form-heading {
-            font-size: 26px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        fieldset {
-            border: none;
-            padding: 0;
-            margin-bottom: 35px;
-        }
-
-        legend {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        input[type=text], input[type=email], input[type=password], input[type=date], select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-            margin-bottom: 15px;
-            background-color: #fff;
-        }
-
-        input::placeholder {
-            color: #aaa;
-            font-style: italic;
-            font-size: 12px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 5px;
-        }
-
-        .input-group {
-            flex: 1;
-        }
-
-        /* Radio Buttons Layout */
-        .radio-group {
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
-
-        .radio-group label {
-            display: inline;
-            font-weight: normal;
-            margin-right: 10px;
-        }
-
-        /* Kotak Hijau Sign Me Up */
-        .signup-promo {
-            background-color: #f1f9f1;
-            border: 1px solid #d1e1d1;
-            padding: 10px 15px;
-            width: fit-content;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-            color: #2e7d32;
-            font-weight: bold;
-        }
-
-        .register-btn {
-            background-color: #efefef;
-            border: 1px solid #ccc;
-            padding: 10px 25px;
-            cursor: pointer;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-
-        .footer-bar {
-            background-color: #1a1a1a;
-            color: #777;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            margin-top: auto;
-        }
-    </style>
+    <title>Registration form</title>
+    <link rel="stylesheet" href="styleLab5.css">
 </head>
 <body>
 
-    <div class="top-task-bar">
-        <a href="#">My Account</a>
-        <a href="#">Wish List</a>
-        <a href="#">Shopping Cart</a>
-        <a href="#">Checkout</a>
-    </div>
+<div class="divtopHeaderRow">
+    <a href="JS5.html">My Account</a>
+    <a href="#">Wish List</a>
+    <a href="#">Shopping Cart</a>
+    <a href="#">Checkout</a>
+</div>
 
-    <div class="header-container">
-        <div class="shop-title">Art Store</div>
-    </div>
+<header>
+    <h1>Kema's Store</h1>
+</header>
 
-    <nav class="main-nav">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Art Works</a>
-        <a href="#">Artists</a>
-    </nav>
+<nav class="divmainNavigationRow">
+    <ul>
+        <li><a href="JS5.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Art Works</a></li>
+        <li><a href="#">Artists</a></li>
+    </ul>
+</nav>
 
-    <div class="content-area">
-        <h2 class="form-heading">Customer Registration</h2>
+<main>
+    <h2>Customer Registration</h2>
 
-        <form action="#">
-            <fieldset>
-                <legend>1. User Info</legend>
-                <hr>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>First Name</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-group">
-                        <label>Last Name</label>
-                        <input type="text">
-                    </div>
-                </div>
-                
-                <label>Email</label>
-                <input type="email" placeholder="format for email is xxx@yyy.zzz">
+    <form>
+        <h3>1. User Info</h3>
+        <table class="regTable">
+            <tr>
+                <td><label>First Name</label><br><input type="text"></td>
+                <td><label>Last Name</label><br><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Email</label><br>
+                    <input type="email" placeholder="format for email is xxx@yyy.zzz" style="width:95%;">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Password</label><br><input type="password" placeholder="at least 8 characters"></td>
+                <td><label>Password Repeat</label><br><input type="password" placeholder="at least 8 characters"></td>
+            </tr>
+        </table>
 
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>Password</label>
-                        <input type="password" placeholder="at least 8 characters">
-                    </div>
-                    <div class="input-group">
-                        <label>Password Repeat</label>
-                        <input type="password" placeholder="at least 8 characters">
-                    </div>
-                </div>
-            </fieldset>
+        <h3>2. Location</h3>
+        <table class="regTable">
+            <tr>
+                <td colspan="3"><label>Address</label><br><input type="text" style="width:95%;"></td>
+            </tr>
+            <tr>
+                <td><label>City</label><br><input type="text"></td>
+                <td><label>State</label><br><input type="text"></td>
+                <td><label>Zip</label><br><input type="text" style="width:50px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>Phone</label><br><input type="text" placeholder="NNN-NNN-NNNN"></td>
+                <td>
+                    <label>Country</label><br>
+                    <select>
+                        <option>Malaysia</option>
+                        <option>Canada</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label>Continent</label><br>
+                    <input type="radio" name="continent"> North America<br>
+                    <input type="radio" name="continent" checked> Europe<br>
+                    <input type="radio" name="continent"> South America
+                </td>
+            </tr>
+        </table>
 
-            <fieldset>
-                <legend>2. Location</legend>
-                <hr>
-                <label>Address</label>
-                <input type="text">
+        <h3>3. Personal Details</h3>
+        <table class="regTable">
+            <tr>
+                <td><label>Birth Day</label><br><input type="date"></td>
+                <td><label>Favorite Color</label><br><input type="color"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Interest In Kema's store products</label><br>
+                    Minimal <input type="range" class="rangeInput"> Love it!
+                </td>
+            </tr>
+        </table>
 
-                <div class="form-row">
-                    <div class="input-group" style="flex: 2;">
-                        <label>City</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-group">
-                        <label>State</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-group">
-                        <label>Zip</label>
-                        <input type="text">
-                    </div>
-                </div>
+        <br>
+        <h3>4. All Done</h3>
+        <div class="checkbox-row">
+            <input type="checkbox"> I agree to the <a href="#" style="color: blue; text-decoration: none;">Terms of the Site</a>
+        </div>
+        <br>
 
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>Phone</label>
-                        <input type="text" placeholder="NNN-NNN-NNNN">
-                    </div>
-                    <div class="input-group">
-                        <label>Country</label>
-                        <select>
-                            <option>Canada</option>
-                            <option>Malaysia</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
+        <button type="submit" class="fancyBtn">
+            <img src="tick.png" alt="tick" class="btn-tick">
+            <span class="btn-text">Sign me up!</span>
+        </button>
+    </form>
+</main>
 
-            <fieldset>
-                <legend>3. Personal Details</legend>
-                <hr>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>Birth Day</label>
-                        <input type="date">
-                    </div>
-                    <div class="input-group">
-                        <label>Favorite Color</label>
-                        <input type="color" style="height: 40px; cursor: pointer; padding: 2px;">
-                    </div>
-                </div>
-
-                <label style="margin-top: 15px;">Interest In Art</label>
-                <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #888;">
-                    <span>Minimal</span>
-                    <input type="range" min="1" max="10" style="flex: 1; max-width: 250px;">
-                    <span>Love it!</span>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>4. All Done</legend>
-                <hr>
-                <div style="font-size: 14px; margin-bottom: 15px;">
-                    <input type="checkbox"> I agree to the <a href="#" style="color: blue; text-decoration: underline;">Terms of the Site</a>
-                </div>
-
-                <div class="signup-promo">
-                    <span style="color: #4CAF50; font-weight: bold;">✔</span>
-                    <span>Sign me up!</span>
-                </div>
-
-                <button type="submit" class="register-btn">Sign me up!</button>
-            </fieldset>
-        </form>
-    </div>
-
-    <div class="footer-bar">
-        All images are copyright to their owners. This is just a hypothetical site &copy; 2014 Copyright Art Store
-    </div>
+<footer>
+    All images are copyright to their owners © 2026 Kema's Store.
+</footer>
 
 </body>
 </html>
