@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #f19f9fcc;
+    padding: 200px 300px 0 300px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.utama{
+    display : grid;
+    grid-template-columns: 2fr 2fr;
+    column-gap: 30px;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    /* border: 1px solid #000000; */
+}
+
+.beli{
+    background-color: #ec8f8b;
+    border-radius: 3px;
+    padding: 5px 60px 10px 60px;
+    transition:.2s;
+    outline: none;
+    border: none;
+    
+}
+
+.beli:hover{
+    cursor: pointer;
+    background-color: #dd4f4f; 
+}
+
+/* /// */
+
+.buang{
+    background-color: #7c51f0;
+    border-radius: 3px;
+    padding: 5px 60px 10px 60px;
+    transition:.2s;
+    outline: none;
+    border: none;
+}
+
+.buang:hover{
+    cursor: pointer;
+    background-color: #3a496b; 
+}
+
+
+.pertama{
+    background-color: #ad1111cc;
+    padding: 30px;
+}
+
+.kedua{
+    background-color: #40e63bcc;
+    padding: 30px;
+}
+
+.kandungan-kedua{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+
+.kedua-padding{
+    padding: 30px;
+}
+
+.jumlah{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    margin: 30px;
+}
+
+th, td{
+    padding: 15px;
+}
+
+.bold{
+    font-weight: bold;
+}
+

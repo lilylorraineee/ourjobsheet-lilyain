@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8e9d3d9e41.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styleextra.css">
+    <title>Tambah Ke Troli (Add to Cart)</title>
+</head>
+<body>
+    <h1>Lily's Kedai Runcit</h1>
+    <div class="utama">
+
+        <div class="pertama">
+        <table>
+            <tr>
+                <th>Barang</th>
+                <th>Harga</th>
+            </tr>
+            <tr>
+                <td>Sikat</td>
+                <td>RM7.00</td>
+                <td><button class="beli" onclick="tambahData({name: 'Sikat', harga: 7.00})"><i class="fa-solid fa-cart-arrow-down"></i>Beli</button></td>
+            </tr>
+
+            <tr>
+                <td>Syampu</td>
+                <td>RM8.00</td>
+                <td><button class="beli" onclick="tambahData({name: 'Syampu', harga: 8.00})"><i class="fa-solid fa-cart-arrow-down"></i>Beli</button></td>
+            </tr>
+
+            <tr>
+                <td>Gam</td>
+                <td>RM1.00</td>
+                <td><button class="beli" onclick="tambahData({name: 'Gam', harga: 1.00})"><i class="fa-solid fa-cart-arrow-down"></i>Beli</button></td>
+            </tr>
+
+            <tr>
+                <td>Buku</td>
+                <td>RM1.00</td>
+                <td><button class="beli" onclick="tambahData({name: 'Buku', harga: 1.00})"><i class="fa-solid fa-cart-arrow-down"></i>Beli</button></td>
+            </tr>
+
+            <tr>
+                <td>TShirt</td>
+                <td>RM50.00</td>
+                <td><button class="beli" onclick="tambahData({name: 'TShirt', harga: 50.00})"><i class="fa-solid fa-cart-arrow-down"></i>Beli</button></td>
+            </tr>
+
+            <!--  <tr>
+                <td>Syampu</td>
+                <td>RM7.00</td>
+                <td><button class="beli">Beli</button></td>
+            </tr> -->
+        </table>
+        </div>
+
+        <div class="kedua">
+            <div class="kandungan-kedua" id="troli">
+                <div class="kedua-padding">Sikat (1x)</div>
+                <div>Sikat (1x)</div>
+                <div><button class="buang">
+                    <i class="fa-solid fa-trash-can"></i>Buang</button>
+                </div>
+            </div>
+
+            <div class="jumlah">
+                <p>Jumlah</p>
+                <div id="jumlah">
+                    <p class="bold">Rm15.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./extra.js"></script>
+</body>
+</html>
+
+
