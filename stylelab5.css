@@ -3,7 +3,59 @@ html, body, header, footer, hgroup, nav, article, section, figure, figcaption,
 h1, h2, h3, ul, li, div, p, img, table, tr, th, td, label, input, button, select, fieldset, legend {
     margin: 0;
     padding: 0;
-    border: 0;
+    border: 0;html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label {
+    margin: 0; padding: 0; border: 0; font-size: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e7e7e7;
+    color: #333;
+}
+header, .divmainNavigationRow, footer { width: 900px; margin: 0 auto; }
+
+.divtopHeaderRow { background-color: #222; height: 30px; text-align: right; line-height: 30px; }
+.divtopHeaderRow a { color: #999; margin-right: 20px; text-decoration: none; font-size: 12px; }
+h1 { font-size: 50px; font-weight: bold; padding: 10px 0; background-color: #fff; width: 900px; margin: 0 auto;}
+.divmainNavigationRow { background-color: #f8f8f8; border: 1px solid #e7e7e7; height: 40px; line-height: 40px; }
+.divmainNavigationRow li { display: inline; margin: 0 15px; }
+.divmainNavigationRow a { color: #777; font-weight: bold; text-decoration: none; }
+
+main { width: 860px; margin: 10px auto; background-color: #fff; padding: 20px; border: 1px solid #e7e7e7; }
+h3 { margin-top: 25px; padding-bottom: 5px; border-bottom: 1px solid #e7e7e7; margin-bottom: 15px; }
+.regTable { width: 60%; }
+label { font-weight: bold; font-size: 13px; }
+input[type="text"], input[type="password"], input[type="email"], select { 
+    border: 1px solid #ccc; padding: 4px; margin: 5px 0 10px 0; 
+}
+
+.fancyBtn {
+    background-color: #bddbfa; /* Warna biru muda yang tepat */
+    border: 1.5px solid #555;   /* Border kelabu gelap yang tegas */
+    padding: 8px 15px;         /* Padding seimbang untuk kotak yang luas */
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0;          /* Kotak tajam sebiji macam rujukan */
+}
+
+.btn-tick {
+    width: 28px;               /* Saiz imej tick.png yang lebih jelas */
+    height: auto;
+    margin-right: 12px;        /* Jarak antara tick dan teks */
+}
+
+.btn-text {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;               /* Warna teks gelap */
+}
+
+.fancyBtn:hover {
+    background-color: #a2c9f0;
+}
+
+/* --- FOOTER --- */
+footer { background-color: #222; color: #999; text-align: center; padding: 10px 0; margin-top: 20px; }
     font-size: 100%;
     vertical-align: baseline;
 }
