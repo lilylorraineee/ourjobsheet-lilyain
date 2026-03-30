@@ -331,7 +331,7 @@ sections.forEach(s=>{
 const chapters = [
   { chapter: 1, jobsheets: [1, 2, 3] },
   { chapter: 2, jobsheets: [4, 5, 6] },
-  { chapter: 3, jobsheets: [7, 8, 9] },
+  { chapter: 3, jobsheets: [7, 8, 9] }, // Chapter 3 ada 7,8,9
   { chapter: 4, jobsheets: [10, 11] },
   { chapter: 5, jobsheets: [12, 13] },
   { chapter: 6, jobsheets: [14] },
@@ -378,11 +378,10 @@ function populateChapters(popup){
       });
       chapDiv.appendChild(btn);
 
-      // TAMBAHAN: Selepas Jobsheet 9 di Chapter 3 Lily, tambah kotak Extra Jobsheet
+      // JIKA JOBSHEET 9 (AKHIR CHAPTER 3), TAMBAH BUTANG KE-4
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
         extraBtn.textContent = "EXTRA JOBSHEET";
-        // Warna boleh dikekalkan atau diubah sedikit jika mahu
         extraBtn.addEventListener("click", (e)=>{
           e.stopPropagation();
           clickSound.currentTime = 0; clickSound.play();
