@@ -1,53 +1,170 @@
-/* RESET */
-html, body, header, footer, hgroup, nav, article, section, figure, figcaption,
-h1, h2, h3, ul, li, div, p, img, table, tr, th, td, label, input, button, select, fieldset, legend {
+/* --- RESET & BASIC STYLING --- */
+html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label {
     margin: 0;
     padding: 0;
-    border: 0;html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label {
-    margin: 0; padding: 0; border: 0; font-size: 100%;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e7e7e7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
     color: #333;
-}
-header, .divmainNavigationRow, footer { width: 900px; margin: 0 auto; }
-
-.divtopHeaderRow { background-color: #222; height: 30px; text-align: right; line-height: 30px; }
-.divtopHeaderRow a { color: #999; margin-right: 20px; text-decoration: none; font-size: 12px; }
-h1 { font-size: 50px; font-weight: bold; padding: 10px 0; background-color: #fff; width: 900px; margin: 0 auto;}
-.divmainNavigationRow { background-color: #f8f8f8; border: 1px solid #e7e7e7; height: 40px; line-height: 40px; }
-.divmainNavigationRow li { display: inline; margin: 0 15px; }
-.divmainNavigationRow a { color: #777; font-weight: bold; text-decoration: none; }
-
-main { width: 860px; margin: 10px auto; background-color: #fff; padding: 20px; border: 1px solid #e7e7e7; }
-h3 { margin-top: 25px; padding-bottom: 5px; border-bottom: 1px solid #e7e7e7; margin-bottom: 15px; }
-.regTable { width: 60%; }
-label { font-weight: bold; font-size: 13px; }
-input[type="text"], input[type="password"], input[type="email"], select { 
-    border: 1px solid #ccc; padding: 4px; margin: 5px 0 10px 0; 
+    background-color: #e7e7e7; /* Warna kelabu cair luaran */
+    line-height: 1.428571429;
 }
 
+/* --- LAYOUT CONTAINERS --- */
+header, .divmainNavigationRow, footer {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.divtopHeaderRow {
+    background-color: #222;
+    height: 30px;
+    text-align: right;
+    line-height: 30px;
+}
+
+.divtopHeaderRow a {
+    color: #999;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* --- HEADER & NAV --- */
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    padding: 20px 0 20px 20px;
+    background-color: #fff;
+    width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.divmainNavigationRow {
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    height: 40px;
+    line-height: 40px;
+}
+
+.divmainNavigationRow ul {
+    list-style: none;
+}
+
+.divmainNavigationRow li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.divmainNavigationRow a {
+    color: #777;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- MAIN CONTENT --- */
+main {
+    width: 880px;
+    margin: 1em auto 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    margin-top: 25px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+/* --- FORM & TABLE STYLING --- */
+.regTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.regTable td {
+    padding: 5px 10px 5px 0;
+    vertical-align: top;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+/* Penyelarasan saiz kotak input mengikut gambar rujukan  */
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="date"], 
+select {
+    border: 1px solid #ccc;
+    padding: 6px;
+    margin-bottom: 10px;
+    width: 90%; /* Default width */
+    box-sizing: border-box;
+}
+
+/* Spesifik saiz untuk input tertentu */
+.input-full { width: 95% !important; }
+.input-medium { width: 85% !important; }
+.input-short { width: 60% !important; }
+.input-vshort { width: 60px !important; }
+
+/* Continent Radio Buttons [cite: 7] */
+.radio-group {
+    margin-top: 5px;
+    line-height: 2;
+}
+
+/* Range/Slider styling */
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* --- BUTTON STYLING [cite: 7] --- */
 .fancyBtn {
-    background-color: #bddbfa; /* Warna biru muda yang tepat */
-    border: 1.5px solid #555;   /* Border kelabu gelap yang tegas */
-    padding: 8px 15px;         /* Padding seimbang untuk kotak yang luas */
+    background-color: #bddbfa; /* Warna biru muda rujukan */
+    border: 1.5px solid #555;
+    padding: 8px 15px;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    border-radius: 0;          /* Kotak tajam sebiji macam rujukan */
+    border-radius: 0;
+    margin-top: 10px;
 }
 
 .btn-tick {
-    width: 28px;               /* Saiz imej tick.png yang lebih jelas */
+    width: 20px;
     height: auto;
-    margin-right: 12px;        /* Jarak antara tick dan teks */
+    margin-right: 10px;
 }
 
 .btn-text {
     font-size: 14px;
     font-family: Arial, sans-serif;
-    color: #333;               /* Warna teks gelap */
+    color: #333;
+    font-weight: normal;
 }
 
 .fancyBtn:hover {
@@ -55,104 +172,11 @@ input[type="text"], input[type="password"], input[type="email"], select {
 }
 
 /* --- FOOTER --- */
-footer { background-color: #222; color: #999; text-align: center; padding: 10px 0; margin-top: 20px; }
-    font-size: 100%;
-    vertical-align: baseline;
-}
-
-/* BODY */
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-    background-image: url("stucco.png");
-    line-height: 1.428571429;
-}
-
-/* HEADER */
-header { width: 900px; margin: 0 auto; }
-
-#topHeaderRow {
-    background-color: #222;
-    font-size: 0.9em;
-    height: 3em;
-    text-align: center;
-    line-height: 3em;
-}
-
-#topHeaderRow a { color: #999; margin-right: 2em; text-decoration: none; }
-
-/* NAVIGATION */
-#mainNavigationRow {
-    background-color: #f8f8f8;
-    height: 3em;
-    border: 1pt solid #e7e7e7;
-    line-height: 3em;
-}
-
-#mainNavigationRow a {
-    color: #777;
-    font-weight: bold;
-    margin-left: 1em;
-    margin-right: 2em;
-    text-decoration: none;
-}
-
-ul { list-style: none; }
-li { display: inline; }
-
-/* HEADINGS */
-h1 { font-size: 4em; font-weight: bold; }
-h2 { font-size: 1.75em; margin-bottom: 0.5em; }
-
-/* MAIN */
-main {
-    width: 880px;
-    margin: 1em auto 0 auto;
-    background-color: #fff;
-    padding: 10px;
-    border: 1pt solid #e7e7e7;
-}
-
-/* FIELDSET */
-fieldset {
-    margin-bottom: 2em;
-    padding: 1em;
-    border: 1pt solid #e7e7e7;
-}
-
-/* LEGEND */
-legend { font-weight: bold; padding: 0 0.5em; }
-
-/* LABEL */
-label { font-weight: bold; }
-
-/* INPUTS */
-input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="color"], select {
-    width: 60%;
-    padding: 0.3em;
-    margin-top: 0.2em;
-    margin-bottom: 0.5em;
-    border: 1pt solid #e7e7e7;
-}
-
-/* BUTTON FANCY */
-.fancyBtn {
-    background-color: #bddbfa;
-    padding: 0.5em 1em;
-    border: 1pt solid #e7e7e7;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-}
-
-/* FOOTER */
 footer {
     clear: left;
     width: 900px;
     height: 3em;
     margin: 1em auto 0 auto;
-    border: 1pt solid #e7e7e7;
     background-color: #222;
     color: #999;
     font-size: 0.9em;
