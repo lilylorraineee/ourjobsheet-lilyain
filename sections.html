@@ -11,7 +11,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%; /* Penting untuk tolak footer ke bawah */
+  height: 100%;
   font-family: 'Segoe UI', Arial, sans-serif;
   text-align: center;
   background-color: #000;
@@ -27,7 +27,6 @@ body {
 
 body::-webkit-scrollbar { display: none; }
 
-/* Wrapper untuk kandungan utama supaya footer duduk bawah */
 .main-content {
   flex: 1; 
   display: flex;
@@ -49,7 +48,7 @@ body::-webkit-scrollbar { display: none; }
 
 /* ===== NAVBAR ===== */
 nav {
-  position: sticky; /* Kekal di atas */
+  position: sticky; 
   top: 0; width: 100%;
   background-color: #FFD1E8;
   padding: 15px;
@@ -95,7 +94,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   border-radius: 20px;
-  color: white;
+  /* Warna teks asal ditukar di bawah (h2 dan p) */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,12 +104,31 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border: 4px solid white;
   overflow: hidden;
 }
+
+/* --- PERUBAHAN WARNA TEKS MENJADI PUTIH TERANG --- */
+.section h2 {
+  color: #FFFFFF; /* Nama jadi putih terang */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Tambah shadow sikit bagi lagi timbul */
+  font-size: 2em;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.section p {
+  color: #FFFFFF; /* Kapsyen jadi putih terang */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+}
+
 .section::before {
   content: "";
   position: absolute;
   top:0; left:0; right:0; bottom:0;
   background: rgba(0,0,0,0.4);
-  z-index:0;
+  z-index:1; /* Pastikan overlay di bawah teks */
 }
 #lily { background-image: url('lily.jpeg'); }
 #ain { background-image: url('ain.jpeg'); }
@@ -137,7 +155,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 }
 
 .job-popup .chapter {
-  width: 92%; /* Kotak Chapter sama lebar */
+  width: 92%; 
   background: linear-gradient(145deg, #FFE0F0, #ffecf5);
   padding: 25px;
   margin-bottom: 25px;
@@ -188,7 +206,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border-radius: 50px;
 }
 
-/* ===== FOOTER (TIDAK TERANGKAT LAGI) ===== */
+/* ===== FOOTER ===== */
 footer {
   background-color: #FFD1E8;
   color: #8B5A8B;
@@ -197,12 +215,13 @@ footer {
   position: relative; 
   z-index: 1;
   font-weight: bold;
-  margin-top: auto; /* Ini kunci utama menolak footer ke bawah skrin */
+  margin-top: auto; 
 }
 
 @media(max-width:768px){
   .section { width: 300px; height: 300px; }
   .page-title { font-size: 1.8em; margin-top: 100px; }
+  .section h2 { font-size: 1.5em; }
 }
 
 .cursor-dot {
@@ -234,11 +253,11 @@ footer {
 
   <div class="sections-container">
     <div id="lily" class="section">
-      <h2 style="font-size: 2em;">Lily Lorraine</h2>
+      <h2>Lily Lorraine</h2>
       <p>Click to explore my work</p>
     </div>
     <div id="ain" class="section">
-      <h2 style="font-size: 2em;">Ain</h2>
+      <h2>Ain</h2>
       <p>Click to explore my work</p>
     </div>
   </div>
@@ -313,7 +332,6 @@ function populateChapters(popup, type) {
       };
       btnGrid.appendChild(btn);
 
-      // Butang EXTRA yang terus ke Link Website
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
         extraBtn.textContent = "EXTRA";
