@@ -6,24 +6,33 @@
 <title>Our Jobsheet Sections</title>
 
 <style>
-/* ===== RESET & FULLSCREEN ===== */
+/* ===== RESET & FULLSCREEN (SCROLL HALIMUNAN) ===== */
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  width: 100%;
+  min-height: 100%;
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: transparent;
-  overflow: hidden;
+  background-color: #000;
+  /* Benarkan scroll tapi sorokkan bar */
+  overflow-x: hidden;
+  overflow-y: auto; 
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Sembunyikan Scrollbar Chrome/Safari/Edge */
+body::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
 }
 
 /* ===== BACKGROUND VIDEO ===== */
 #bgVideo {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
@@ -32,8 +41,7 @@ html, body {
 /* ===== NAVBAR ===== */
 nav {
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 0; width: 100%;
   background-color: #FFD1E8;
   padding: 15px;
   display: flex;
@@ -41,24 +49,14 @@ nav {
   justify-content: space-between;
   z-index: 1000;
 }
-nav img { height: 70px; }
-nav .nav-links {
-  display: flex;
-  gap: 20px;
-  margin-right: 50px;
-}
-nav a {
-  color: #8B5A8B;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-nav a:hover { text-decoration: underline; }
+nav img { height: 60px; }
+nav .nav-links { display: flex; gap: 20px; margin-right: 20px; }
+nav a { color: #8B5A8B; text-decoration: none; font-size: 1em; font-weight: bold; }
 
 /* ===== PAGE TITLE ===== */
 .page-title {
-  margin-top: 120px;
-  font-size: 2.8em;
+  margin-top: 110px;
+  font-size: 2.5em;
   font-weight: bold;
   color: #E91E63;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -76,193 +74,132 @@ nav a:hover { text-decoration: underline; }
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   flex-wrap: wrap;
-  padding: 30px;
-  height: calc(100% - 200px);
-  box-sizing: border-box;
+  padding: 40px 20px;
   position: relative;
   z-index: 1;
+  min-height: 60vh;
 }
 
 .section {
-  width: 420px;
-  height: 420px;
+  width: 380px;
+  height: 380px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: 0.3s;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
   border-radius: 15px;
-  color: rgb(255, 255, 255);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   background-size: cover;      
   background-position: center;  
-  background-repeat: no-repeat;
   border: 3px solid white;
+  overflow: hidden;
 }
 .section::before {
   content: "";
   position: absolute;
   top:0; left:0; right:0; bottom:0;
   background: rgba(0,0,0,0.3);
-  border-radius: 15px;
   z-index:0;
 }
-.section h2, .section p {
-  position: relative;
-  z-index:1;
-  margin: 0.5em 0;
-}
+.section h2, .section p { position: relative; z-index:1; margin: 5px; }
 #lily { background-image: url('lily.jpeg'); }
 #ain { background-image: url('ain.jpeg'); }
 .section:hover { transform: scale(1.05); }
 
-/* ===== POPUP ===== */
+/* ===== POPUP (SCROLLABLE & HIDDEN BAR) ===== */
 .job-popup {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
-  max-width: 1200px;
-  max-height: 90vh;
-  background-color: rgba(255,255,255,0.97);
+  max-width: 800px;
+  max-height: 80vh;
+  background-color: rgba(255,255,255,0.98);
   display: none;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 25px;
   z-index: 10000;
-  padding: 30px;
-  overflow-y: auto;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  padding: 20px;
   border-radius: 15px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  
+  /* Benarkan scroll dalam popup */
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
 }
+.job-popup::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
-/* Chapters */
 .job-popup .chapter {
   width: 100%;
-  max-width: 100%;
   background-color: #FFE0F0;
-  padding: 20px;
+  padding: 15px;
   border-radius: 12px;
   border: 2px solid #FFB6D9;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
-  align-items: center;
-}
-.job-popup .chapter h3 {
-  width: 100%;
-  margin-bottom: 12px;
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #8B5A8B;
-}
-
-/* Buttons */
-.job-popup button {
-  flex: 1 1 120px;
-  min-width: 120px;
-  max-width: 180px;
-  padding: 14px 22px;
-  font-size: 1em;
-  border-radius: 6px;
-  background-color: #f12a8e;
-  color: #000000;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.job-popup button:hover {
-  background-color: #FFCCE6;
-  transform: scale(1.05);
-}
-
-/* Close button */
-.job-popup .close-btn {
-  background-color: #8B5A8B;
-  color: #FFD1E8;
-  font-size: 1.2em;
-  padding: 14px 28px;
-  border-radius: 10px;
   margin-bottom: 15px;
 }
-.job-popup .close-btn:hover {
-  background-color: #6B4C6B;
+.job-popup .chapter h3 { width: 100%; color: #8B5A8B; margin-bottom: 10px; }
+
+.job-popup button {
+  padding: 12px 18px;
+  background-color: #f12a8e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* ===== VIDEO OVERLAY (DIKEMASKINI) ===== */
+.job-popup .close-btn {
+  background-color: #8B5A8B;
+  color: #fff;
+  padding: 10px 20px;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+/* ===== VIDEO OVERLAY ===== */
 #videoOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0; width: 100vw; height: 100vh;
   background: rgba(0,0,0,0.95);
   display: none;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; align-items: center;
   z-index: 20000;
 }
-#videoOverlay video {
-  width: 90%;          /* Besarkan lebar video ke 90% skrin */
-  max-height: 80vh;    /* Hadkan tinggi supaya butang CLOSE tidak hilang */
-  border: 5px solid #FFB6D9;
-  border-radius: 15px;
-  background-color: black; 
-  box-shadow: 0 0 50px rgba(0,0,0,0.5);
-}
-#videoOverlay .close-video {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #E91E63;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 20001;
-}
+#videoOverlay video { width: 90%; max-height: 80vh; border-radius: 10px; }
 
 /* ===== FOOTER ===== */
 footer {
   background-color: #FFD1E8;
   color: #8B5A8B;
-  text-align: center;
   padding: 15px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
+  position: relative; /* Tukar dari fixed supaya tak ganggu mobile */
+  margin-top: 50px;
   z-index: 1;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  .sections-container{ flex-direction: column; gap:25px; }
-  .section{ width: 280px; height:280px; }
-  .page-title { font-size: 2em; }
+  .sections-container { flex-direction: column; gap:20px; padding-bottom: 100px; }
+  .section { width: 300px; height: 300px; }
+  .page-title { font-size: 1.8em; margin-top: 100px; }
+  nav img { height: 45px; }
 }
 
-/* ===== CURSOR TRAIL ===== */
 .cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,0,150,0.7);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 20000;
+  position: fixed; top: 0; left: 0; width: 12px; height: 12px;
+  border-radius: 50%; background: rgba(255,0,150,0.7);
+  pointer-events: none; z-index: 20000;
 }
 </style>
 </head>
@@ -272,19 +209,14 @@ footer {
   <source src="bgvsection.mp4" type="video/mp4">
 </video>
 
-<audio id="bgSound" autoplay loop>
-  <source src="bgs2.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="clickSound" preload="auto">
-  <source src="pop.mp3" type="audio/mpeg">
-</audio>
+<audio id="bgSound" autoplay loop><source src="bgs2.mp3" type="audio/mpeg"></audio>
+<audio id="clickSound" preload="auto"><source src="pop.mp3" type="audio/mpeg"></audio>
 
 <nav>
   <img src="ikmlogo.png" alt="IKM Logo">
   <div class="nav-links">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
   </div>
 </nav>
 
@@ -293,42 +225,35 @@ footer {
 <div class="sections-container">
   <div id="lily" class="section">
     <h2>Lily Lorraine</h2>
-    <p>This is my jobsheet submit section</p>
-    <p>Click me to view my jobsheets!</p>
+    <p>Click to view my jobsheets!</p>
   </div>
 
   <div id="ain" class="section">
     <h2>Ain</h2>
-    <p>This is my jobsheet submit section</p>
-    <p>Click me to view my jobsheets!</p>
+    <p>Click to view my jobsheets!</p>
   </div>
 </div>
 
 <div class="job-popup" id="lilyPopup">
   <button class="close-btn">Close</button>
-  <div class="popup-title">Lily's Jobsheet</div>
+  <h2 style="color:#E91E63; margin-bottom:15px;">Lily's Jobsheet</h2>
 </div>
+
 <div class="job-popup" id="ainPopup">
   <button class="close-btn">Close</button>
-  <div class="popup-title">Ain's Jobsheet</div>
+  <h2 style="color:#E91E63; margin-bottom:15px;">Ain's Jobsheet</h2>
 </div>
 
 <div id="videoOverlay">
-  <button class="close-video">CLOSE VIDEO</button>
-  <video id="extraVid" controls>
-    <source src="" id="videoSource" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <button style="position:fixed; top:20px; right:20px; padding:10px; background:#E91E63; color:white; border:none;" class="close-video">CLOSE VIDEO</button>
+  <video id="extraVid" controls><source src="" id="videoSource" type="video/mp4"></video>
 </div>
 
-<footer>
-&copy; 2026 lilyain website. All rights reserved.
-</footer>
+<footer>&copy; 2026 lilyain website. All rights reserved.</footer>
 
 <div id="cursorContainer"></div>
 
 <script>
-// Video Logic
 document.addEventListener('DOMContentLoaded', function() {
   var bgVideo = document.getElementById('bgVideo');
   if(bgVideo) bgVideo.playbackRate = 0.3;
@@ -338,19 +263,13 @@ const clickSound = document.getElementById("clickSound");
 const videoOverlay = document.getElementById("videoOverlay");
 const extraVid = document.getElementById("extraVid");
 const videoSource = document.getElementById("videoSource");
-const closeVideoBtn = document.querySelector(".close-video");
 
-closeVideoBtn.addEventListener("click", () => {
+document.querySelector(".close-video").addEventListener("click", () => {
   videoOverlay.style.display = "none";
   extraVid.pause();
-  extraVid.currentTime = 0;
 });
 
-// POPUP HANDLERS
-const sections = [
-  {id:"lily", popup:"lilyPopup"},
-  {id:"ain", popup:"ainPopup"}
-];
+const sections = [{id:"lily", popup:"lilyPopup"}, {id:"ain", popup:"ainPopup"}];
 sections.forEach(s=>{
   const sec = document.getElementById(s.id);
   const pop = document.getElementById(s.popup);
@@ -374,15 +293,8 @@ const chapters = [
   { chapter: 6, jobsheets: [14] },
   { chapter: 7, jobsheets: [15] },
 ];
-const chapterTitles = {
-  1: "Chapter 1: HTML5",
-  2: "Chapter 2: CSS3",
-  3: "Chapter 3: JavaScript",
-  4: "Chapter 4: ",
-  5: "Chapter 5: ",
-  6: "Chapter 6: ",
-  7: "Chapter 7: "
-};
+
+const chapterTitles = { 1: "Chapter 1: HTML5", 2: "Chapter 2: CSS3", 3: "Chapter 3: JavaScript" };
 
 function populateChapters(popup, type){
   chapters.forEach(ch=>{
@@ -394,62 +306,25 @@ function populateChapters(popup, type){
 
     ch.jobsheets.forEach(jsNum=>{
       const btn = document.createElement("button");
-      btn.textContent = "JOBSHEET " + jsNum;
+      btn.textContent = "JS " + jsNum;
       btn.addEventListener("click", (e)=>{
         e.stopPropagation();
         clickSound.currentTime = 0; clickSound.play();
-        let url="";
-        if(type === 'lily'){
-            switch(jsNum){
-                case 1: url="LAB1_HTML5.html"; break;
-                case 2: url="LAB2_HTML5.html"; break;
-                case 3: url="LAB3_HTML5.html"; break;
-                case 4: url="Lab4.html"; break;
-                case 5: url="Lab5.html"; break;
-                case 6: url="Lab6.html"; break;
-                case 7: url="Lab7lily.html"; break;
-                case 8: url="Lab8lily.html"; break;
-                case 9: url="Lab9lily.html"; break;
-                default: url="jobsheet"+jsNum+".html";
-            }
-        } else {
-            switch(jsNum){
-                case 1: url="JS1.html"; break;
-                case 2: url="JS 2.html"; break;
-                case 3: url="JS 3.html"; break;
-                case 4: url="JS4.html"; break;
-                case 5: url="jobsheet 5.html"; break;
-                case 6: url="JS 6.html"; break;
-                default: alert("Jobsheet Ain belum tersedia"); return;
-            }
-        }
+        let url = (type === 'lily') ? `Lab${jsNum}.html` : `JS${jsNum}.html`;
         window.location.href = url;
       });
       chapDiv.appendChild(btn);
 
-      // EXTRA JOBSHEET LOGIC
       if(jsNum === 9) {
         const extraBtn = document.createElement("button");
-        extraBtn.textContent = "EXTRA JOBSHEET";
+        extraBtn.textContent = "EXTRA";
         extraBtn.style.backgroundColor = "#ff77bc"; 
         extraBtn.addEventListener("click", (e)=>{
           e.stopPropagation();
           clickSound.currentTime = 0; clickSound.play();
-          
-          // Pastikan nama fail ini tepat mengikut folder anda
-          if(type === 'lily'){
-            videoSource.src = "extrajobsheetlily.mp4";
-          } else {
-            videoSource.src = "extrajobsheetain.mp4";
-          }
-          
+          videoSource.src = (type === 'lily') ? "extrajobsheetlily.mp4" : "extrajobsheetain.mp4";
           videoOverlay.style.display = "flex";
-          extraVid.load(); // Wajib untuk muat semula video baru
-          
-          // Mainkan video hanya selepas ia sedia
-          extraVid.oncanplay = () => {
-            extraVid.play();
-          };
+          extraVid.load(); extraVid.play();
         });
         chapDiv.appendChild(extraBtn);
       }
@@ -461,12 +336,11 @@ function populateChapters(popup, type){
 populateChapters(document.getElementById("lilyPopup"), 'lily');
 populateChapters(document.getElementById("ainPopup"), 'ain');
 
-const cursorContainer = document.getElementById("cursorContainer");
 const dots = [];
 for(let i=0;i<12;i++){
   const dot = document.createElement("div");
   dot.className="cursor-dot";
-  cursorContainer.appendChild(dot);
+  document.getElementById("cursorContainer").appendChild(dot);
   dots.push({el: dot, x:0, y:0});
 }
 let mouseX=0, mouseY=0;
