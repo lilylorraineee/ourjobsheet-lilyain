@@ -99,8 +99,8 @@ nav a:hover { text-decoration: underline; }
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-size: cover;     
-  background-position: center; 
+  background-size: cover;      
+  background-position: center;  
   background-repeat: no-repeat;
   border: 3px solid white;
 }
@@ -237,22 +237,18 @@ footer {
 </head>
 <body>
 
-<!-- Background Video -->
 <video id="bgVideo" autoplay loop muted playsinline>
   <source src="bgvsection.mp4" type="video/mp4">
 </video>
 
-<!-- Background Sound -->
 <audio id="bgSound" autoplay loop>
   <source src="bgs2.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Click Sound -->
 <audio id="clickSound" preload="auto">
   <source src="pop.mp3" type="audio/mpeg">
 </audio>
 
-<!-- NAVBAR -->
 <nav>
   <img src="ikmlogo.png" alt="IKM Logo">
   <div class="nav-links">
@@ -261,10 +257,8 @@ footer {
   </div>
 </nav>
 
-<!-- PAGE TITLE -->
 <div class="page-title">OUR JOBSHEET</div>
 
-<!-- SECTIONS -->
 <div class="sections-container">
   <div id="lily" class="section">
     <h2>Lily Lorraine</h2>
@@ -279,7 +273,6 @@ footer {
   </div>
 </div>
 
-<!-- POPUPS -->
 <div class="job-popup" id="lilyPopup">
   <button class="close-btn">Close</button>
   <div class="popup-title">Lily's Jobsheet</div>
@@ -293,7 +286,6 @@ footer {
 &copy; 2026 lilyain website. All rights reserved.
 </footer>
 
-<!-- Cursor trail dots -->
 <div id="cursorContainer"></div>
 
 <script>
@@ -354,6 +346,7 @@ const chapterTitles = {
   6: "Chapter 6: ",
   7: "Chapter 7: "
 };
+
 function populateChapters(popup){
   chapters.forEach(ch=>{
     const chapDiv = document.createElement("div");
@@ -384,10 +377,24 @@ function populateChapters(popup){
         window.location.href = url;
       });
       chapDiv.appendChild(btn);
+
+      // TAMBAHAN: Selepas Jobsheet 9 di Chapter 3 Lily, tambah kotak Extra Jobsheet
+      if(jsNum === 9) {
+        const extraBtn = document.createElement("button");
+        extraBtn.textContent = "EXTRA JOBSHEET";
+        // Warna boleh dikekalkan atau diubah sedikit jika mahu
+        extraBtn.addEventListener("click", (e)=>{
+          e.stopPropagation();
+          clickSound.currentTime = 0; clickSound.play();
+          window.location.href = "Extra_Jobsheet.html";
+        });
+        chapDiv.appendChild(extraBtn);
+      }
     });
     popup.appendChild(chapDiv);
   });
 }
+
 function populateChaptersAin(popup){
   chapters.forEach(ch=>{
     const chapDiv = document.createElement("div");
