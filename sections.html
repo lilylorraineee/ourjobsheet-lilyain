@@ -341,7 +341,7 @@ function populateChapters(popup, type) {
         extraBtn.onclick = (e) => {
           e.stopPropagation();
           clickSound.currentTime = 0; clickSound.play();
-          window.location.href = (type === 'lily') ? "https://lily-extra-link.com" : "https://ain-extra-link.com";
+          window.location.href = (type === 'lily') ? "extra.html" : "https://ain-extra-link.com";
         };
         btnGrid.appendChild(extraBtn);
       }
