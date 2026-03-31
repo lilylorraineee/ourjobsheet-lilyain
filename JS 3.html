@@ -1,52 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-        <meta charset="UTF-8">
-        <title>Dato Siti Nurhaliza</title>
-        
-    </head>
-     <body>
-        <h2>Siti Nurhaliza binti Tarudin</h2>
-    <nav>
-        <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Siti_Nurhaliza">About</a></li>
-            <li><a href="https://music.apple.com/my/playlist/dato-siti-nurhaliza-essentials/pl.3d3f53fbdf154e30944c8044dcd8d38c">Music</a></li>
-            <li><a href="https://www.nst.com.my/lifestyle/groove/2025/11/1324411/showbiz-siti-nurhaliza-receives-lifetime-achievement-award">awards</a></li>
-        </ul>
-        <ul>
-            <li><a href="https://linktr.ee/SitiNurhaliza11" target="_blank">Official Links</a>
+<head>
+    <meta charset="UTF-8">
+    <title>Dato Siti Nurhaliza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
 
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>About</h2>
-            <p>
-               Dato’ Siti Nurhaliza is a Malaysian singer, songwriter, and businesswoman.
-        She is widely regarded as one of the most successful and influential
-        artists in Southeast Asia.  
-            </p>
-            <figure>
-                <img src="siti.jpg" alt="Dato Siti Nurhaliza" width="200">
-            </figure>
-            <p>
-                  Dato’ Siti Nurhaliza has won hundreds of awards throughout her career and
-        has represented Malaysia on various international stages.
-    </p>
-            </p>
-        </section>
+        /* Container utama untuk About */
+        .about-section {
+            display: flex;
+            align-items: flex-start; /* Pastikan teks bermula dari atas gambar */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Saiz gambar yang lebih kecil mengikut soalan */
+        .profile-img {
+            width: 80px; /* Saiz lebih kurang macam dalam gambar Jonathan Stark */
+            height: auto;
+            border-radius: 4px; /* Optional: bagi nampak kemas */
+        }
+
+        .text-content {
+            flex: 1; /* Biar teks ambil baki ruang yang ada */
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        nav ul {
+            padding-left: 20px;
+        }
         
-<aside>
-    <p>
-        Dato’ Siti Nurhaliza is also known for her philanthropic work and
-        involvement in charitable activities.
-        </p>
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="https://en.wikipedia.org/wiki/Siti_Nurhaliza" target="_blank">Siti Nurhaliza binti Tarudin</a></h1>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="https://music.apple.com/my/artist/siti-nurhaliza/15632230">Music</a></li>
+                <li><a href="#awards">awards</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://linktr.ee/SitiNurhaliza11" target="_blank">Official Links</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <div class="text-content">
+                    <p>
+                        Dato’ Siti Nurhaliza is a Malaysian singer, songwriter, and businesswoman. 
+                        She is widely regarded as one of the most successful and influential 
+                        artists in Southeast Asia.
+                    </p>
+                    <p>
+                        Dato’ Siti Nurhaliza has won hundreds of awards throughout her career and 
+                        has represented Malaysia on various international stages.
+                    </p>
+                </div>
+            
+            <div class="about-section">
+                <img src="siti.jpg" alt="Manga Portrait of Jonathan Stark" class="profile-img">
+                
+            </div>
+        </section>
+
+        <aside>
+            <p>
+                Dato’ Siti Nurhaliza is also known for her philanthropic work and 
+                involvement in charitable activities.
+            </p>
         </aside>
+
         <footer>
-    <p>
-        © Dato’ Siti Nurhaliza Productions
-    </p>
-</footer>
+            <p>© Dato’ Siti Nurhaliza Productions</p>
+        </footer>
     </main>
-     </body>
+
+</body>
 </html>
