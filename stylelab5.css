@@ -142,34 +142,32 @@ select {
     margin-top: 10px;
 }
 
-/* --- BUTTON STYLING [cite: 7] --- */
+/* --- BUTTON STYLING (SEBIJI MACAM RUJUKAN) --- */
 .fancyBtn {
-    background-color: #bddbfa; /* Warna biru muda rujukan */
-    border: 1.5px solid #555;
-    padding: 8px 15px;
-    display: inline-flex;
-    align-items: center;
+    background-color: #bddbfa; /* Warna biru muda lembut  */
+    border: 1px solid #767676; /* Bingkai kelabu gelap/hitam nipis */
+    padding: 4px 12px;         /* Saiz padding yang kecil untuk nampak kompak */
+    display: inline-flex;      /* Susun imej dan teks bersebelahan */
+    align-items: center;       /* Selarikan imej dan teks di tengah secara menegak */
     cursor: pointer;
-    border-radius: 0;
-    margin-top: 10px;
-}
-
-.btn-tick {
-    width: 20px;       /* Laraskan lebar imej (saiz standard ialah 18px - 22px) */
-    height: auto;      /* Mengekalkan nisbah asal supaya imej tidak penyek */
-    margin-right: 10px; /* Jarakkan sedikit imej dengan teks "Sign me up!" */
-    vertical-align: middle; /* Pastikan imej selari dengan tinggi teks */
-}
-
-.btn-text {
-    font-size: 14px;
+    border-radius: 2px;        /* Sedikit bulat di bucu (standard browser) */
     font-family: Arial, sans-serif;
-    color: #333;
-    font-weight: normal;
 }
 
 .fancyBtn:hover {
-    background-color: #a2c9f0;
+    background-color: #a2c9f0; /* Warna gelap sedikit bila di-hover */
+}
+
+.btn-tick {
+    width: 18px;               /* Saiz ikon tick yang kecil */
+    height: auto;
+    margin-right: 8px;         /* Jarak antara imej dan teks */
+}
+
+.btn-text {
+    font-size: 13px;           /* Saiz tulisan yang sepadan dengan borang */
+    color: #000;               /* Warna teks hitam */
+    font-weight: normal;
 }
 
 /* --- FOOTER --- */
