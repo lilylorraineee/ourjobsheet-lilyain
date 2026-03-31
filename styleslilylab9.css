@@ -1,72 +1,66 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
-
-body {
-  background-color: #F5F5F5;
-  font-family: "Roboto", sans-serif;
+body{
+    font-family: Arial;
+    background:#eee;
 }
 
-.title {
-  margin: 20px auto;
-  max-width: 900px;
+.container{
+    width:800px;
+    margin:30px auto;
+    background:#fff;
+    padding:15px;
 }
 
-.title h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
+h2{
+    margin-bottom:10px;
 }
 
-.table-fill {
-  background: white;
-  border-collapse: collapse;
-  margin: auto;
-  max-width: 900px;
-  width: 100%;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-th {
-  color: white;
-  background: #EF6C00; /* Warna oren mengikut gambar */
-  border-bottom: 4px solid #FF9800;
-  font-size: 18px;
-  padding: 20px;
-  text-align: left;
+thead{
+    background:#f57c00;
+    color:white;
 }
 
-td {
-  padding: 15px;
-  border-bottom: 1px solid #EBEBEB;
-  font-size: 16px;
+th{
+    padding:12px;
+    text-align:left;
 }
 
-/* Gambar produk dalam table */
-td img {
-  width: 80px;
-  height: auto;
-  border: 1px solid #ddd;
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    vertical-align:middle;
 }
 
-.center { text-align: center; }
-.right { text-align: right; }
-
-/* Gaya untuk bahagian pengiraan di bawah */
-tr.totals td {
-  background: #FFF8E1; /* Warna kuning lembut mengikut gambar */
-  text-align: right;
+img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
 }
 
-.focus td {
-  color: #D84315;
-  font-weight: 700;
+input{
+    width:50px;
+    padding:5px;
 }
 
-/* Gaya butang tambah/kurang */
-.qty-btn {
-  background: #EF6C00;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 3px;
+.summary{
+    width:300px;
+    margin-left:auto;
+    margin-top:20px;
+    background:#f5e6d3;
+    padding:15px;
+}
+
+.summary p{
+    display:flex;
+    justify-content:space-between;
+    margin:8px 0;
+}
+
+.total{
+    color:#d84315;
+    font-weight:bold;
 }
