@@ -116,3 +116,39 @@ td.center {
   color: #E65100;  
   font-weight: 500;
 }
+
+/* Tambah kod ini di dalam bahagian <style> */
+
+#thumbnails {
+    display: flex;            /* Menyusun gambar secara mendatar (horizontal) */
+    justify-content: space-between; /* Menyamaratakan jarak antara gambar supaya selari dengan kiri & kanan gambar atas */
+    gap: 10px;                /* Jarak kecil antara gambar */
+    margin-top: 15px;         /* Jarak dari gambar besar di atas */
+    width: 100%;              /* Memastikan container thumbnails mengikut lebar penuh */
+}
+
+#thumbnails img {
+    width: 100%;              /* Memberi saiz yang fleksibel */
+    flex: 1;                  /* Memastikan setiap gambar mengambil ruang yang sama rata */
+    height: 80px;             /* Tetapkan tinggi yang sama untuk semua gambar kecil */
+    object-fit: cover;        /* Memastikan gambar tidak nampak penyek/tertarik walaupun saiz asal berbeza */
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#thumbnails img:hover {
+    border-color: #ff9900;    /* Highlight warna bila di-hover */
+    opacity: 0.8;
+}
+
+/* Memastikan container utama (featured) juga mempunyai lebar yang tetap jika perlu */
+#featured {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#featured img {
+    width: 100%;              /* Memastikan gambar besar mengambil lebar penuh container */
+    height: auto;
+}
