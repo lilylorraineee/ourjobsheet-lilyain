@@ -5,107 +5,147 @@
     <title>Latest Gadgets</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body { 
+            font-family: Arial, sans-serif; 
+        }
+
+        /* Container untuk pastikan tajuk & jadual bermula di titik yang sama */
+        .main-container {
+            width: 1000px;
+            margin: 20px auto; /* Center kan keseluruhan container */
+        }
+
+        h2 {
+            text-align: left; /* Tajuk rapat ke kiri */
+            margin-bottom: 10px;
+            padding-left: 0;
         }
 
         table {
-            width: 1100px;
+            width: 100%; /* Guna 100% daripada lebar container (1000px) */
             border-collapse: collapse;
-            margin: 20px auto;
         }
 
         th, td {
             border: 1px solid black;
-            padding: 10px;
-            vertical-align: top;
+            padding: 15px;
+            vertical-align: middle;
         }
 
-        th {
-            text-align: center;
-        }
+        th { background-color: #f2f2f2; }
 
-        th.video { width: 400px; }
-        th.spec  { width: 250px; }
-        th.info  { width: 450px; }
-
-        .video-cell {
-            text-align: center;
+        /* Video styling */
+        .video-wrapper {
+            position: relative;
+            width: 360px;
+            height: 215px;
+            margin: auto;
+            cursor: pointer;
+            background-color: black;
         }
 
         video {
-            width: 360px;
-            height: 215px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .play-button::after {
+            content: "";
+            border-style: solid;
+            border-width: 15px 0 15px 25px;
+            border-color: transparent transparent transparent white;
+            margin-left: 5px;
+        }
+
+        .playing .play-button {
+            display: none;
         }
     </style>
 </head>
 
 <body>
 
-<h2>My Pick of the Latest Gadgets</h2>
+<div class="main-container">
+    
+    <h2>My Pick of the Latest Gadgets</h2>
 
-<table>
-    <tr>
-        <th class="video">VIDEO</th>
-        <th class="spec">SPECIFICATION</th>
-        <th class="info">INFORMATION</th>
-    </tr>
+    <table>
+        <tr>
+            <th style="width: 400px;">VIDEO</th>
+            <th style="width: 300px;">SPECIFICATION</th>
+            <th>INFORMATION</th>
+        </tr>
 
-    <!-- ================= MACBOOK ================= -->
-    <tr>
-        <td class="video-cell" rowspan="2">
-            <video autoplay loop muted>
-                <source src="macbook.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </td>
-        <td>
-            <b>MacBook Pro</b><br><br>
-            Model: 14” / 16”<br>
-            Display: Liquid Retina XDR<br>
-            Processor: Apple M3 / M3 Pro / M3 Max<br>
-            RAM: 16GB – 128GB
-        </td>
-        <td>
-            Official website:<br>
-            <a href="https://www.apple.com/my/macbook-pro/" target="_blank">Apple</a>
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <div class="video-wrapper" onclick="toggleVideo(this)">
+                    <div class="play-button"></div>
+                    <video>
+                        <source src="macbook.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </td>
+            <td>
+                <b>MacBook Pro</b><br><br>
+                Model: 14” / 16”<br>
+                Processor: Apple M3
+            </td>
+            <td>
+                Official website:<br>
+                <a href="https://www.apple.com/my/macbook-pro/" target="_blank">Apple</a>
+            </td>
+        </tr>
 
-    <tr>
-        <td colspan="2">
-            Suitable for professionals and developers
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <div class="video-wrapper" onclick="toggleVideo(this)">
+                    <div class="play-button"></div>
+                    <video>
+                        <source src="ipad.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </td>
+            <td>
+                <b>iPad Pro M4</b><br><br>
+                Processor: Apple M4
+            </td>
+            <td>
+                Official website:<br>
+                <a href="https://www.apple.com/my/ipad-pro/" target="_blank">Apple</a>
+            </td>
+        </tr>
+    </table>
 
-    <!-- ================= IPAD ================= -->
-    <tr>
-        <td class="video-cell" rowspan="2">
-            <video autoplay loop muted>
-                <source src="ipad.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </td>
-        <td>
-            <b>iPad Pro M4</b><br><br>
-            Display: OLED ProMotion<br>
-            Processor: Apple M4
-        </td>
-        <td>
-            Official website:<br>
-            <a href="https://www.apple.com/my/ipad-pro/" target="_blank">Apple</a>
-        </td>
-    </tr>
+</div>
 
-    <tr>
-        <td colspan="2">
-            Apple Pencil Pro & Magic Keyboard support<br>
-            Suitable for students & creatives
-        </td>
-    </tr>
-
-</table>
+<script>
+    function toggleVideo(wrapper) {
+        var video = wrapper.querySelector('video');
+        if (video.paused) {
+            video.play();
+            wrapper.classList.add('playing');
+        } else {
+            video.pause();
+            wrapper.classList.remove('playing');
+        }
+    }
+</script>
 
 </body>
 </html>
