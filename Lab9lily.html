@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Lab 7 - Shopping Cart</title>
-    <link href="styleslilylab9.css" rel="stylesheet" />
-    <script src="data.js"></script>
-    <script src="function.js"></script>
+<meta charset="UTF-8">
+<title>Shopping Cart</title>
+<link rel="stylesheet" href="js9.css">
 </head>
+
 <body>
-    <div class="title"><h1>SHOPPING CART</h1></div>
-    <table class="table-fill">
+
+<div class="container">
+    <h2>SHOPPING CART</h2>
+
+    <table>
         <thead>
             <tr>
                 <th colspan="2">Product</th>
@@ -18,28 +20,45 @@
                 <th>Amount</th>
             </tr>
         </thead>
+
         <tbody id="cart-body">
-            </tbody>
-        <tfoot>
-            <tr class="totals">
-                <td colspan="4">Subtotal</td>
-                <td id="subtotal-val"></td>
+
+            <tr>
+                <td><img src="_Girl_with_a_Pearl_Earring.jpg"></td>
+                <td>Girl with a Pearl Earring</td>
+                <td><input type="number" value="3" class="qty"></td>
+                <td class="price">80</td>
+                <td class="amount"></td>
             </tr>
-            <tr class="totals">
-                <td colspan="4">Tax</td>
-                <td id="tax-val"></td>
+
+            <tr>
+                <td><img src="artist holding a thistle.jpg"></td>
+                <td>Artist Holding a Thistle</td>
+                <td><input type="number" value="1" class="qty"></td>
+                <td class="price">125</td>
+                <td class="amount"></td>
             </tr>
-            <tr class="totals">
-                <td colspan="4">Shipping</td>
-                <td id="shipping-val"></td>
+
+            <tr>
+                <td><img src="Portrait of Eleanor of Toledo.jpg"></td>
+                <td>Portrait of Eleanor of Toledo</td>
+                <td><input type="number" value="2" class="qty"></td>
+                <td class="price">75</td>
+                <td class="amount"></td>
             </tr>
-            <tr class="totals focus">
-                <td colspan="4">Grand Total</td>
-                <td id="grand-val"></td>
-            </tr>
-        </tfoot>
+
+        </tbody>
     </table>
 
-    <script src="Lab7lily.js"></script>
+    <div class="summary">
+        <p>Subtotal <span id="subtotal"></span></p>
+        <p>Tax <span id="tax"></span></p>
+        <p>Shipping <span id="shipping">RM40.00</span></p>
+        <p class="total">Grand Total <span id="grandtotal"></span></p>
+    </div>
+
+</div>
+
+<script src="script9.js"></script>
 </body>
 </html>
