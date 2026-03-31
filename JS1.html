@@ -3,30 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>FAMOUS DESTINATION TO VISIT</title>
+    <style>
+        /* CSS untuk Progress Bar */
+        progress {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 12px;
+            border-radius: 10px; /* Bagi hujung dia melengkung (tak petak) */
+            overflow: hidden;    /* Pastikan warna dalam pun melengkung */
+            border: 1px solid #ccc; /* Border halus macam rujukan */
+        }
+
+        /* 1. Bar Atas: Meter Value (Hijau & Pendek) */
+        #meterBar {
+            width: 100px;
+        }
+        /* Warna Hijau untuk Chrome/Safari/Edge */
+        #meterBar::-webkit-progress-value {
+            background-color: #008000;
+            border-radius: 10px 0 0 10px; /* Melengkung di depan sahaja */
+        }
+        /* Warna Hijau untuk Firefox */
+        #meterBar::-moz-progress-bar {
+            background-color: #008000;
+            border-radius: 10px;
+        }
+
+        /* 2. Bar Bawah: Progress Value (Biru & Panjang) */
+        #progressBar {
+            width: 180px;
+        }
+        #progressBar::-webkit-progress-value {
+            background-color: #007bff;
+            border-radius: 10px 0 0 10px;
+        }
+        #progressBar::-moz-progress-bar {
+            background-color: #007bff;
+            border-radius: 10px;
+        }
+
+        /* Background kelabu cair untuk bar */
+        progress::-webkit-progress-bar {
+            background-color: #f3f3f3;
+            border-radius: 10px;
+        }
+
+        /* Susunan Sebaris */
+        .progress-row {
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .progress-row span {
+            margin-right: 10px;
+            min-width: 150px;
+        }
+    </style>
 </head>
 <body> 
+
     <h1>Famous Destination in Perak</h1>
     <h2>TOP 3 DESTINATION</h2>
-    <p>Meter Value: 70%</p>
-    <progress value="70" max="100"></progress>
-    <p>Progress Value: 68%</p>
-    <progress value="68" max="100"></progress>
+
+    <div class="progress-row">
+        <span>Customer Satisfaction Rate </span>
+        <progress id="meterBar" value="70" max="100"></progress>
+    </div>
+
+    <div class="progress-row">
+        <span>Reservation Progress Bar </span>
+        <progress id="progressBar" value="68" max="100"></progress>
+    </div>
+
     <ul>
-        <li><a href="https://www.melancong.com.my/tempat-menarik-di-perak/" target="_blank">TEMPAT MENARIK DI PERAK
-        </a></li>
+        <li><a href="https://www.melancong.com.my/tempat-menarik-di-perak/" target="_blank">TEMPAT MENARIK DI PERAK</a></li>
+        <li>
+            Location: 
+            <a href="https://www.google.com/maps/place/Victoria+Bridge/@4.8211019,100.9577749,17z/data=!3m1!4b1!4m6!3m5!1s0x31cac4e015d5904d:0xc4f5d2276cb04f98!8m2!3d4.8211019!4d100.9603498!16s%2Fm%2F0_x56f_?entry=ttu0" target="_blank">Kellie's Castle</a> | 
+            <a href="https://www.google.com/maps/place/Victoria+Bridge/@4.8211019,100.9577749,17z/data=!3m1!4b1!4m6!3m5!1s0x31cac4e015d5904d:0xc4f5d2276cb04f98!8m2!3d4.8211019!4d100.9603498!16s%2Fm%2F0_x56f_?entry=ttu1" target="_blank">Victoria Bridge</a>
+        </li>
     </ul>
+
     <hr>
-<p>These are the top 3 interesting places to visit in Perak</p>
-<figure>
-<img src="kelly.jpeg"alt="pink" height="200" width="300">
-<figcaption>KELLY CASTLE</figcaption>
-</figure>
-<figure> 
-    <img src="vb.jpeg" alt="pink" height="200" width="300">
-    <figcaption>VICTORIA BRIDGE</figcaption>
-</figure>
+    
+    <h2>Our Activities</h2>
+    <p>These are the top 3 interesting places to visit in Perak</p>
+
+    <figure>
+        <img src="kelly.jpeg" alt="Kellie's Castle" height="200" width="300">
+        <figcaption>KELLY CASTLE</figcaption>
+    </figure>
+
+    <figure> 
+        <img src="vb.jpeg" alt="Victoria Bridge" height="200" width="300">
+        <figcaption>VICTORIA BRIDGE</figcaption>
+    </figure>
+
+    <hr>
+    <footer style="font-family:'Times New Roman'; font-style: italic;">
+        Copyright © 2026 ainsolehah
+    </footer>
+
 </body>
-<hr>
-<h5 style="font-family:Times New Roman;">copyright@ainsolehah   
-</h5>
-</html> 
+</html>
