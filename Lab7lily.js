@@ -8,7 +8,7 @@ function updateCart(){
         let price = row.querySelector(".price").textContent;
 
         let amount = qty * price;
-        row.querySelector(".amount").textContent = "RM" + amount.toFixed(2);
+        row.querySelector(".amount").textContent = "$" + amount.toFixed(2);
 
         subtotal += amount;
     });
@@ -17,9 +17,9 @@ function updateCart(){
     let shipping = 40;
     let grand = subtotal + tax + shipping;
 
-    document.getElementById("subtotal").textContent = "RM" + subtotal.toFixed(2);
-    document.getElementById("tax").textContent = "RM" + tax.toFixed(2);
-    document.getElementById("grandtotal").textContent = "RM" + grand.toFixed(2);
+    document.getElementById("subtotal").textContent = "$" + subtotal.toFixed(2);
+    document.getElementById("tax").textContent = "$" + tax.toFixed(2);
+    document.getElementById("grandtotal").textContent = "$" + grand.toFixed(2);
 }
 
 document.querySelectorAll(".qty").forEach(input => {
