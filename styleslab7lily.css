@@ -1,79 +1,57 @@
-/* --- RESET & BASIC STYLING --- */
-html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label, figure, figcaption {
+[12:09 am, 31/03/2026] L: /* RESET */
+html, body, header, footer, hgroup, nav, article, section, figure, figcaption,
+h1, h2, h3, ul, li, div, p, img, table, tr, th, td, label, input, button, select, fieldset, legend {
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
+    border: 0;html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label {
+    margin: 0; padding: 0; border: 0; font-size: 100%;
 }
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-/* --- CONTAINER UTAMA --- */
-/* Pastikan lebar ini sama dengan gambar rujukan (contoh 900px) */
-#container {
-    width: 900px; 
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
-/* --- BAHAGIAN GAMBAR BESAR (FEATURED) --- */
-#featured {
-    width: 100%;           /* Ambil lebar penuh container */
-    margin-bottom: 10px;
-    border: 5px solid #eee; /* Bingkai putih tebal seperti dalam gambar */
-    box-sizing: border-box;
-}
-
-#featured img {
-    width: 100%;           /* Gambar besar memenuhi ruang */
-    height: auto;          /* Kekalkan nisbah asal */
-    display: block;
-}
-
-#featured figcaption {
-    background-color: #f8f8f8;
+    background-color: #e7e7e7;
     color: #333;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
 }
+header, .divmainNavigationRow, footer { width: 900px; margin: 0 auto; }
 
-/* --- BAHAGIAN GAMBAR KECIL (THUMBNAILS) --- */
-/* Ini adalah bahagian penting untuk penyelarasan (Alignment) */
-#thumbnails {
-    display: flex;                /* Susun secara mendatar */
-    justify-content: space-between; /* Gambar pertama rapat kiri, terakhir rapat kanan */
-    gap: 5px;                     /* Jarak kecil antara gambar */
-    width: 100%;                  /* Selari dengan lebar gambar besar di atas */
-    margin-top: 15px;
-}
+.divtopHeaderRow { background-color: #222; height: 30px; text-align: right; line-height: 30px; }
+.divtopHeaderRow a { color: #999; margin-right: 20px; text-decoration: none; font-size: 12px; }
+h1 { font-size: 50px; font-weight: bold; paddi…
+[12:09 am, 31/03/2026] L: css 5
+[12:09 am, 31/03/2026] L: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="stylelab5.css">
+</head>
+<body>
 
-#thumbnails img {
-    flex: 1;                      /* Bahagikan ruang sama rata untuk semua gambar */
-    width: 100%;                  /* Lebar mengikut ruang yang dibahagi */
-    height: 80px;                 /* Tetapkan tinggi yang seragam supaya nampak selari */
-    object-fit: cover;            /* Potong imej secara automatik supaya tidak nampak penyek */
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: 0.3s;
-}
+<div class="divtopHeaderRow">
+    <a href="JS5.html">My Account</a>
+    <a href="#">Wish List</a>
+    <a href="#">Shopping Cart</a>
+    <a href="#">Checkout</a>
+</div>
 
-#thumbnails img:hover {
-    border-color: #ff9900;        /* Highlight warna bila di-hover */
-    opacity: 0.8;
-}
+<header>
+    <h1>Lily's Store</h1>
+</header>
 
-/* --- FOOTER --- */
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: #777;
-}
+<nav class="divmainNavigationRow">
+    <ul>
+        <li><a href="JS5.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Art Works</a></li>
+        <li><a href="#">Artists</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Customer Registration</h2>
+
+    <form>
+        <h3>1. User Info</h3>
+        <table class="regTable">
+            <tr>
+                <…
+[12:09 am, 31/03/2026] L: js5
