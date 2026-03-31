@@ -1,154 +1,79 @@
-/*  CSS inspired by http://codepen.io/alassetter/full/cyrfB/ */
-
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+/* --- RESET & BASIC STYLING --- */
+html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
 
 body {
-  background-color: #F5F5F5;
-  font-family: "Roboto", helvetica, arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
 }
 
-div.title {
-  margin: auto;
-  max-width: 900px;
-  padding:5px;
-  width: 100%;
+/* --- CONTAINER UTAMA --- */
+/* Pastikan lebar ini sama dengan gambar rujukan (contoh 900px) */
+#container {
+    width: 900px; 
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
 }
 
-.title h1 {
-   color: black;
-   font-size: 26px;
-   font-weight: 500;
-   font-family: "Roboto", helvetica, arial, sans-serif;
-   text-transform:uppercase;
+/* --- BAHAGIAN GAMBAR BESAR (FEATURED) --- */
+#featured {
+    width: 100%;           /* Ambil lebar penuh container */
+    margin-bottom: 10px;
+    border: 5px solid #eee; /* Bingkai putih tebal seperti dalam gambar */
+    box-sizing: border-box;
 }
 
-
-/*** Table Styles **/
-
-.table-fill {
-  background: white;
-  border-radius:3px;
-  border-collapse: collapse;
-  height: 320px;
-  margin: auto;
-  max-width: 900px;
-  padding:5px;
-  width: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
- 
-th {
-  color: white;
-  background: #EF6C00;
-  border-bottom:4px solid #9ea7af;
-  border-right: 1px solid #343a45;
-  font-size:20px;
-  font-weight: 400;
-  padding:24px;
-  text-align:left;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  vertical-align:middle;
+#featured img {
+    width: 100%;           /* Gambar besar memenuhi ruang */
+    height: auto;          /* Kekalkan nisbah asal */
+    display: block;
 }
 
-th:first-child {
-  border-top-left-radius:3px;
-}
- 
-th:last-child {
-  border-top-right-radius:3px;
-  border-right:none;
-}
-  
-tr {
-  border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
-  color:#666B85;
-  font-size:16px;
-  font-weight:normal;
-  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-}
- 
- 
-tr:first-child {
-  border-top:none;
-}
-tr:last-child {
-  border-bottom:none;
-}
-tr:last-child td:first-child {
-  border-bottom-left-radius:3px;
-}
- 
-tr:last-child td:last-child {
-  border-bottom-right-radius:3px;
-}
- 
-td {
-  background:#FFFFFF;
-  padding:10px;
-  text-align:left;
-  vertical-align:middle;
-  font-weight:300;
-  font-size:18px;
-  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-  border-right: 1px solid #C1C3D1;
+#featured figcaption {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-td:last-child {
-  border-right: 0px;
-}
-
-tr.totals td {
-    background:#FFF3E0;
-    text-align: right;
-}
-
-td.right {
-  text-align: right;
-}
-td.center {
-  text-align: center;
-}
-
-.focus td {
-  color: #E65100;  
-  font-weight: 500;
-}
-
-/* Tambah kod ini di dalam bahagian <style> */
-
+/* --- BAHAGIAN GAMBAR KECIL (THUMBNAILS) --- */
+/* Ini adalah bahagian penting untuk penyelarasan (Alignment) */
 #thumbnails {
-    display: flex;            /* Menyusun gambar secara mendatar (horizontal) */
-    justify-content: space-between; /* Menyamaratakan jarak antara gambar supaya selari dengan kiri & kanan gambar atas */
-    gap: 10px;                /* Jarak kecil antara gambar */
-    margin-top: 15px;         /* Jarak dari gambar besar di atas */
-    width: 100%;              /* Memastikan container thumbnails mengikut lebar penuh */
+    display: flex;                /* Susun secara mendatar */
+    justify-content: space-between; /* Gambar pertama rapat kiri, terakhir rapat kanan */
+    gap: 5px;                     /* Jarak kecil antara gambar */
+    width: 100%;                  /* Selari dengan lebar gambar besar di atas */
+    margin-top: 15px;
 }
 
 #thumbnails img {
-    width: 100%;              /* Memberi saiz yang fleksibel */
-    flex: 1;                  /* Memastikan setiap gambar mengambil ruang yang sama rata */
-    height: 80px;             /* Tetapkan tinggi yang sama untuk semua gambar kecil */
-    object-fit: cover;        /* Memastikan gambar tidak nampak penyek/tertarik walaupun saiz asal berbeza */
+    flex: 1;                      /* Bahagikan ruang sama rata untuk semua gambar */
+    width: 100%;                  /* Lebar mengikut ruang yang dibahagi */
+    height: 80px;                 /* Tetapkan tinggi yang seragam supaya nampak selari */
+    object-fit: cover;            /* Potong imej secara automatik supaya tidak nampak penyek */
     border: 1px solid #ccc;
     cursor: pointer;
     transition: 0.3s;
 }
 
 #thumbnails img:hover {
-    border-color: #ff9900;    /* Highlight warna bila di-hover */
+    border-color: #ff9900;        /* Highlight warna bila di-hover */
     opacity: 0.8;
 }
 
-/* Memastikan container utama (featured) juga mempunyai lebar yang tetap jika perlu */
-#featured {
-    width: 100%;
-    margin: 0 auto;
-}
-
-#featured img {
-    width: 100%;              /* Memastikan gambar besar mengambil lebar penuh container */
-    height: auto;
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #777;
 }
