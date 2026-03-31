@@ -6,6 +6,21 @@ h1, h2, h3, ul, li, div, p, img, table, tr, th, td, label, input, button, select
     border: 0;html, body, header, footer, nav, h1, h2, h3, ul, li, div, p, label {
     margin: 0; padding: 0; border: 0; font-size: 100%;
 }
+
+.header-title {
+    /* Gunakan font Lobster untuk gaya berangkai */
+    font-family: 'Lobster', cursive;
+    
+    /* Tetapan gaya seperti dalam gambar */
+    color: white;
+    background-color: #3b5998; /* Biru gelap */
+    font-size: 32px;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: normal; /* Font jenis ini biasanya sudah tebal */
+}
+    
 body {
     font-family: Arial, sans-serif;
     background-color: #e7e7e7;
