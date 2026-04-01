@@ -5,14 +5,12 @@
     <title>Fluffy Cat Store</title>
     <link rel="stylesheet" href="styleain2.css">
 </head>
-
 <body>
 
-<!-- FULL WIDTH TOP BLACK BAR -->
 <div id="topBarWrapper">
     <div id="topHeaderRow">
         <ul>
-            <li><a href="jobsheet 5.html" target="_blank">My Account</a></li>
+            <li><a href="JS5Ain.html">My Account</a></li>
             <li><a href="#">Wish List</a></li>
             <li><a href="#">Shopping Cart</a></li>
             <li><a href="#">Checkout</a></li>
@@ -21,10 +19,9 @@
 </div>
 
 <header>
-    <h1>Fluffy Cat Store</h1>
-
-    <div id="mainNavigationRow">
-        <nav>
+    <div class="header-content">
+        <h1>Fluffy Cat Store</h1>
+        <nav id="mainNavigationRow">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Cats</a></li>
@@ -36,71 +33,73 @@
 </header>
 
 <main>
+    <div class="white-container">
+        <h2>British Shorthair Kitten</h2>
+        <p class="author">By <a href="#">Fluffy Cattery Malaysia</a></p>
 
-    <h2>British Shorthair Kitten</h2>
-    <p>By <a href="#">Fluffy Cattery Malaysia</a></p>
+        <div class="product-top">
+            <figure>
+                <img src="bsh.jpg" alt="British Shorthair">
+                <figcaption>Blue Male – 3 Months Old</figcaption>
+            </figure>
 
-    <figure>
-        <img src="bsh.jpg" alt="British Shorthair">
-        <figcaption>Blue Male – 3 Months Old</figcaption>
-    </figure>
+            <div id="info">
+                <p>This adorable British Shorthair kitten is fully vaccinated, dewormed and very playful. Friendly with kids and other pets. Perfect fluffy companion for your home.</p>
+                <p id="price">RM 1,800</p>
+                <div id="action-buttons">
+                    <button>Add to Wish List</button>
+                    <button>Add to Shopping Cart</button>
+                </div>
 
-    <div id="info">
-
-        <p>
-            This adorable British Shorthair kitten is fully vaccinated,
-            dewormed and very playful. Friendly with kids and other pets.
-            Perfect fluffy companion for your home.
-        </p>
-
-        <p id="price">RM 1,800</p>
-
-        <div id="buttons">
-            <button>Add to Wish List</button>
-            <button class="primary">Add to Shopping Cart</button>
+                <div class="specs">
+                    <h3>Cat Details</h3>
+                    <table>
+                        <tr><th>Age:</th><td>3 Months</td></tr>
+                        <tr><th>Gender:</th><td>Male</td></tr>
+                        <tr><th>Breed:</th><td>British Shorthair</td></tr>
+                        <tr><th>Vaccinated:</th><td>Yes</td></tr>
+                        <tr><th>Location:</th><td>Kuala Lumpur</td></tr>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <h3>Cat Details</h3>
-
-        <table>
-            <tr><th>Age:</th><td>3 Months</td></tr>
-            <tr><th>Gender:</th><td>Male</td></tr>
-            <tr><th>Breed:</th><td>British Shorthair</td></tr>
-            <tr><th>Vaccinated:</th><td>Yes</td></tr>
-            <tr><th>Location:</th><td>Kuala Lumpur</td></tr>
-        </table>
-
+        <h3 class="similar-title">Similar Cats</h3>
+        <div id="similar-grid">
+            <div class="cat-box">
+                <img src="sf.jpg" alt="Scottish Fold">
+                <p><a href="#">Scottish Fold</a></p>
+                <div class="mini-btns">
+                    <button>View</button><button>Wish</button><button>Cart</button>
+                </div>
+            </div>
+            <div class="cat-box">
+                <img src="pers.jpg" alt="Persian Kitten">
+                <p><a href="#">Persian Kitten</a></p>
+                <div class="mini-btns">
+                    <button>View</button><button>Wish</button><button>Cart</button>
+                </div>
+            </div>
+            <div class="cat-box">
+                <img src="mc.jpg" alt="Maine Coon">
+                <p><a href="#">Maine Coon</a></p>
+                <div class="mini-btns">
+                    <button>View</button><button>Wish</button><button>Cart</button>
+                </div>
+            </div>
+            <div class="cat-box">
+                <img src="rd.jpg" alt="Ragdoll">
+                <p><a href="#">Ragdoll</a></p>
+                <div class="mini-btns">
+                    <button>View</button><button>Wish</button><button>Cart</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div id="similar">
-        <h3>Similar Cats</h3>
-
-        <div class="box">
-            <img src="sf.jpg" alt="">
-            <p>Scottish Fold</p>
-        </div>
-
-        <div class="box">
-            <img src="pers.jpg" alt="">
-            <p>Persian Kitten</p>
-        </div>
-
-        <div class="box">
-            <img src="mc.jpg" alt="">
-            <p>Maine Coon</p>
-        </div>
-
-        <div class="box">
-            <img src="rd.jpg" alt="">
-            <p>Ragdoll</p>
-        </div>
-
-    </div>
-
 </main>
 
 <footer>
-    © 2026 Fluffy Cat Store | Educational Purpose Only
+    <p>All images are copyright to their owners. © 2026 Ain's Store</p>
 </footer>
 
 </body>
