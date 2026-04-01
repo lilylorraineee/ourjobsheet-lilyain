@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Art Work Details</title>
+    <link rel="stylesheet" href="js8ainstyle.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Edit your profile</h2>
+    <form id="mainForm" novalidate>
+        <label for="name">name</label>
+        <input type="text" id="title" name="title" class="required hilightable">
+
+        <label for="email">email</label>
+        <input type="text" id="description" name="description" class="required hilightable">
+
+        <div class="flex-row">
+            <div class="col">
+                <label>Gender</label>
+                <select class="hilightable">
+                    <option value="">Choose </option>
+                    <option value="abstract">male</option>
+                    <option value="portrait">female</option>
+                </select>
+
+                <label>Region</label>
+                <select class="hilightable">
+                    <option value="Borneo">Borneo</option>
+                    <option value="Semenanjung">Semenanjung</option>
+                </select>
+                
+                <label>Age</label>
+                <input type="text" name="medium" class="hilightable">
+            </div>
+
+            <div class="col">
+                <div class="box-section">
+                    <strong>Type of fav activities</strong><br>
+                    <label class="radio-label"><input type="radio" name="artType" checked> indoor activities</label><br>
+                    <label class="radio-label"><input type="radio" name="artType"> outoor activities</label>
+                </div>
+
+                <div class="box-section">
+                    <strong>Image Creative Commons Specification</strong><br>
+                    <label class="check-label"><input type="checkbox"> Attribution</label><br>
+                    <label class="check-label"><input type="checkbox"> Noncommercial</label><br>
+                    <label class="check-label"><input type="checkbox"> No Derivative Works</label><br>
+                    <label class="check-label"><input type="checkbox"> Share Alike</label>
+                </div>
+            </div>
+        </div>
+
+        <label>Year</label>
+        <input type="text" name="year" class="required hilightable" style="width: 100px;">
+
+        <label>Museum</label>
+        <input type="text" name="museum" class="hilightable">
+
+        <div class="button-row">
+            <button type="submit" id="submitBtn">Submit</button>
+            <button type="reset" id="clearBtn">Clear Form</button>
+        </div>
+    </form>
+</div>
+
+<script src="js8ain.js"></script>
+</body>
+</html>
