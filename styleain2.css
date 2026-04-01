@@ -1,188 +1,189 @@
-html, body, header, footer, h1, h2, h3, ul, li, div, p, img, figure, figcaption {
+body {
+    font-family: Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
+    background-image: url('bgjs4.jpeg'); /* Wallpaper anda */
+    background-color: #f4f4f4;
 }
 
-/* BODY */
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #333333;
-    background-image: url("stucco.png");
-    line-height: 1.428571429;
-}
-
-/* TOP FULL WIDTH BAR */
+/* Top Bar Black */
 #topBarWrapper {
-    background-color: #222222;
-    width: 100%;
-}
-
-#topHeaderRow {
-    width: 900px;
-    margin: auto;
-    height: 3em;
-    line-height: 3em;
-    text-align: right;
-    font-size: 0.9em;
-    padding-right: 1em;
+    background-color: #222;
+    padding: 5px 0;
 }
 
 #topHeaderRow ul {
     list-style: none;
-}
-
-#topHeaderRow li {
-    display: inline;
+    margin: 0;
+    padding: 0 50px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 #topHeaderRow a {
-    color: #999999;
+    color: #bbb;
     text-decoration: none;
-    margin-left: 2em;
+    font-size: 11px;
 }
 
-/* HEADER */
+/* Header & Navigasi Sebijik Soalan */
 header {
-    width: 900px;
+    background-color: rgba(255, 255, 255, 0.7); /* Background cair sedikit */
+    padding: 20px 0;
+}
+
+.header-content {
+    max-width: 1000px;
     margin: auto;
+    padding: 0 20px;
 }
 
-h1 {
-    font-size: 4em;
-    font-weight: bold;
-    margin: 0.5em 0;
-}
-
-/* NAVIGATION */
-#mainNavigationRow {
-    background-color: #f8f8f8;
-    height: 3em;
-    line-height: 3em;
-    border: 1pt solid #e7e7e7;
+header h1 {
+    font-size: 40px;
+    margin: 0 0 15px 0;
 }
 
 #mainNavigationRow ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    border: 1px solid #ddd;
+    width: fit-content;
+    background: white;
 }
 
 #mainNavigationRow li {
-    display: inline;
+    border-right: 1px solid #ddd;
 }
 
 #mainNavigationRow a {
-    color: #777777;
-    font-weight: bold;
+    display: block;
+    padding: 8px 25px;
     text-decoration: none;
-    margin: 0 2em;
+    color: #666;
+    font-size: 14px;
 }
 
-/* MAIN */
+/* Container Putih Tengah */
 main {
-    width: 880px;
-    margin: 1em auto;
-    background-color: #ffffff;
-    padding: 10px;
-    border: 1pt solid #e7e7e7;
+    max-width: 1000px;
+    margin: 20px auto;
 }
 
-/* PRODUCT IMAGE */
+.white-container {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid #ccc;
+}
+
+h2 { margin: 0; font-size: 24px; }
+.author { font-size: 13px; margin-bottom: 20px; }
+.author a { color: blue; }
+
+/* Product Section */
+.product-top { overflow: hidden; margin-bottom: 30px; }
+
 figure {
-    width: 300px;
     float: left;
-    margin-top: 1em;
+    margin: 0 30px 20px 0;
+    width: 350px;
 }
 
-figure img {
-    width: 100%;
+figure img { width: 100%; border: 1px solid #ccc; padding: 1px; }
+figcaption { font-size: 11px; color: #777; margin-top: 5px; }
+
+#info { overflow: hidden; }
+#info p { font-size: 14px; line-height: 1.5; color: #333; }
+
+#price { color: red; font-weight: bold; font-size: 20px; margin: 15px 0; }
+
+#action-buttons {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
 }
 
-/* PRODUCT INFO */
-#info {
-    margin-left: 310px;
-    margin-top: 1em;
-}
-
-h2 {
-    font-size: 1.75em;
-}
-
-h3 {
-    font-size: 1.25em;
-    border-bottom: 1pt solid #e7e7e7;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
-}
-
-#price {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: red;
-    margin-top: 1em;
-}
-
-/* BUTTONS */
-#buttons {
-    border: 1pt solid #e7e7e7;
-    margin-top: 1em;
-    padding: 10px;
-}
-
-#buttons button {
-    width: 250px;
-    height: 3em;
-    line-height: 3em;
-    margin-left: 1em;
+#action-buttons button {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #bbb;
+    color: blue;
     cursor: pointer;
 }
 
-.primary {
-    background-color: #444;
-    color: white;
+/* Cat Details Table Rapat Kiri */
+.specs h3 {
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 25px;
 }
 
-/* TABLE */
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
 th {
-    font-weight: bold;
-    font-size: 1em;
     text-align: left;
+    width: 90px;
+    font-size: 13px;
+    padding: 3px 0;
 }
 
-/* SIMILAR */
-#similar {
-    clear: left;
-    margin-top: 2em;
-    height: 250px;
+td { font-size: 13px; padding: 3px 0; }
+
+/* Similar Cats Section */
+.similar-title {
+    clear: both;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 40px;
 }
 
-.box {
-    width: 180px;
-    padding: 0.5em;
-    border: 1pt solid #e7e7e7;
-    margin-right: 1em;
-    float: left;
+#similar-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cat-box {
+    flex: 1;
+    border: 1px solid #eee;
+    padding: 10px;
     text-align: center;
 }
 
-.box img {
-    display: block;
-    margin: auto;
-    width: 150px;
+.cat-box img { width: 100%; margin-bottom: 10px; }
+.cat-box p { font-size: 12px; margin: 5px 0; }
+.cat-box a { color: blue; text-decoration: none; }
+
+.mini-btns {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
 }
 
-/* FOOTER */
+.mini-btns button {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: #fdfdfd;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Footer Black */
 footer {
-    clear: left;
-    width: 900px;
-    height: 3em;
-    margin: 1em auto;
-    border: 1pt solid #e7e7e7;
-    background-color: #222222;
-    color: #999999;
-    font-size: 0.9em;
+    background-color: #222;
+    color: #888;
     text-align: center;
-    line-height: 3em;
+    padding: 20px;
+    font-size: 11px;
+    margin-top: 40px;
 }
