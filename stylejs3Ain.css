@@ -1,0 +1,103 @@
+/* 1. Gaya Asas Badan Halaman */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cbd2d8; /* Warna kelabu kebiruan (UI klasik) */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Header dengan Gradient Glossy */
+header {
+    background: linear-gradient(to bottom, #ced5d9 0%, #7d8b96 50%, #6d7b88 51%, #6d7b88 100%);
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #454f57;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h1 a {
+    color: #000;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+/* 3. Gaya Navigasi (Kotak Putih Melengkung) */
+nav {
+    background-color: #fff;
+    border: 1px solid #ababab;
+    border-radius: 8px;
+    margin: 15px 10px 0 10px; /* Jarak dari tepi dan atas */
+    overflow: hidden;
+}
+
+/* Gap khusus untuk kotak kedua */
+nav.second-nav {
+    margin-top: 15px; /* Ini yang buat 'gap' antara dua petak */
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 15px;
+}
+
+nav li:last-child {
+    border-bottom: none;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+}
+
+/* 4. Kandungan Utama */
+h2 {
+    font-size: 18px;
+    margin: 20px 10px 10px 10px;
+    color: #4c566c; /* Warna biru gelap header rujukan */
+}
+
+p {
+    font-size: 13px;
+    margin: 10px;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* 5. Gaya Gambar Profil */
+.profile-img {
+    width: 55px;
+    height: auto;
+    margin: 10px;
+    border: 1px solid #000;
+    padding: 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: block;
+}
+
+/* 6. Footer */
+footer {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #4c566c;
+    margin: 0;
+}
