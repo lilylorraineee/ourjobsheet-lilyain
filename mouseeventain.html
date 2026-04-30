@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial jQuery - ide corner</title>
+    <script src="jquery-4.0.0.js"></script>
+    <style>
+        body{
+            font-size:17px;
+            font-family: Arial;
+        }
+        .header{
+            text-align: center;
+            padding: 20px;
+            background: rgb(220, 53, 69);
+            color: white;
+        }
+        .container{
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>TUTORIAL JQUERY AIN</h1>
+    </div>
+
+    <div class="container">
+        <h1>Mouse Event</h1>
+        <button id="tombol">Hilang</button>
+        <button id="tombol2">Muncul</button>
+
+        <br><br>
+        <img id="gbr1" src="cat.gif" width="250">
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            let secondImage = "bsh.gif"; // gambar kedua
+
+
+            // BUTTON HILANG
+            $('#tombol').on('click', function () {
+                $('#gbr1').hide();
+            });
+
+            // BUTTON MUNCUL → terus keluar gambar kedua
+            $('#tombol2').click(function(){
+                $('#gbr1').attr('src', secondImage).show();
+            });
+
+            // MOUSE OVER → tukar ke gambar kedua
+            $('#gbr1').mouseover(function(){
+                $(this).attr('src', secondImage);
+            });
+
+            // MOUSE LEAVE → balik gambar asal
+            $('#gbr1').mouseleave(function(){
+                $(this).attr('src', 'cat.gif');
+            });
+
+            $('#tombol').dblclick(function(){
+                $('#gbr1').css('width', '50px');
+            });
+
+            $('#tombol').on('mouseleave', function(){
+                $('#gbr1').css('width','250px');
+            });
+
+        });
+    </script>
+</body>
+</html>

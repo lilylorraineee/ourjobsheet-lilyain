@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial jQuery - ide corner</title>
+    <script src="jquery-4.0.0.js"></script>
+    <style>
+        body{
+            font-size:17px;
+            font-family: Arial;
+        }
+        .header{
+            text.align: center;
+            padding: 20px;
+background: rgb(220, 53, 69);
+color: white;
+        }
+        .container{
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>TUTORIAL JQUERY-ain</h1>
+    </div>
+    <div class="container">
+        <h2 class="paragraph1">SITUASI PAGI INI</h2>
+        <p>Hari ini bermula dengan suasana yang tenang dan sedikit dingin.
+Langit kelihatan cerah,<b>memberi semangat untuk mulakan hari.</b>
+Aktiviti harian berjalan seperti biasa, walaupun ada sedikit rasa penat.
+Beberapa perkara berjaya diselesaikan dengan baik sepanjang hari.
+Ada juga cabaran kecil, tapi masih dapat dihadapi dengan sabar.
+Petang membawa rasa lega selepas urusan hampir selesai.
+Malam pula diisi dengan rehat dan harapan untuk hari esok yang lebih baik.</p>
+    <br><br>
+    <h2 id="paragraph2">SITUASI DI TENGAH HARI</h2>
+<p>Tengah hari terasa panas dengan cahaya matahari yang terik.
+Suasana sekeliling agak sibuk dengan orang keluar untuk makan.
+
+<b> 
+Perut mula terasa lapar selepas penat melakukan aktiviti pagi.
+Angin bertiup perlahan, sedikit melegakan kepanasan.
+Ada yang mengambil masa untuk berehat seketika sebelum sambung kerja.
+Bunyi kenderaan dan suara orang ramai memenuhi suasana.
+</b> 
+Walaupun panas, hari tetap diteruskan dengan tenang.</p>
+</div>
+
+<ul class="daftar">
+<li>ayam masak merah</li>  
+<li>ayam goreng</li>    
+<li>ayam masak lemak</li>    
+<li>ayam kicap</li>    
+<li>ayam berempah</li>    
+<li>ayam buttermilk</li>      
+</ul> 
+
+<input type="button" value="tombol" name="tombol"/>
+<input type="text" value=""/>
+<input type="submit" value="submit"/>
+<input type="reset" value="reset" name="reset"/>
+<br><br>
+
+<script type="text/javascript">
+   // $('h2.paragraph1').hide();
+    //$('h2#paragraph2').hide();
+    $('.daftar li:first').css('color','blue');
+    $('.daftar li:last').css('color','green');
+    $('.daftar li:eq(1)').css('color','purple');
+    $('.daftar li:eq(2)').css('color','yellow');
+
+    $('.daftar li:even').css('background','grey');
+ $('.daftar li:odd').css('background','pink');
+   $('#paragraph2').next('p').find('b').css('color','red');
+     $('.daftar li:nth-child(3n)').css('list-style','square');
+</script>
+
+</body>
+</html>
