@@ -6,35 +6,6 @@
   <title>About Us - Digital Magic</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styleaboutus.css">
-  <style>
-    .music-control {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-    .music-control:hover {
-      transform: scale(1.1);
-      background: rgba(255, 107, 157, 0.3);
-    }
-    /* Memastikan stats tersusun rapi dalam satu baris */
-    .stats-row {
-      display: flex;
-      gap: 30px;
-      margin-top: 40px;
-    }
-  </style>
 </head>
 <body>
 
@@ -89,7 +60,6 @@
           impactful digital experiences.
         </p>
         
-        <!-- BAHAGIAN STATS YANG DIKEMASKINI -->
         <div class="stats-row">
           <div class="stat">
             <div class="stat-num">2</div>
@@ -174,8 +144,15 @@
           </div>
         </div>
       </div>
+      
+      <!-- Back button diletakkan di bawah content supaya tidak bertindih -->
+      <button class="back-btn-custom" onclick="goTo(0)">
+        <div class="arrow-circle reverse">
+            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+        </div>
+        Back to Top
+      </button>
     </div>
-    <button class="back-btn" onclick="goTo(0)">Back</button>
   </div>
 
   <footer class="footer">© 2026 lilyainwebsite. All rights reserved.</footer>
@@ -223,11 +200,17 @@
     function goTo(idx) {
       if (idx === current) return;
       playClick();
+      
       slides[current].classList.remove('active');
       dots[current].classList.remove('active');
+      
       current = idx;
+      
       slides[current].classList.add('active');
       dots[current].classList.add('active');
+
+      // Memastikan skrin naik ke atas balik bila tukar slide
+      window.scrollTo(0, 0);
     }
 
     document.querySelectorAll('a, button, .member-card, .dot, .music-control').forEach(el => {
