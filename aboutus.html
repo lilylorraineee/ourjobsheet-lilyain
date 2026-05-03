@@ -37,11 +37,6 @@
     </div>
   </nav>
 
-  <div class="page-dots">
-    <div class="dot active" onclick="goTo(0)"></div>
-    <div class="dot" onclick="goTo(1)"></div>
-  </div>
-
   <audio id="bgMusic" loop>
     <source src="musicabt.mp3" type="audio/mpeg">
   </audio>
@@ -83,6 +78,23 @@
         </div>
         
         <div id="game-info-display" class="info-box">Click the stats to explore!</div>
+
+        <!-- MINI GAME SECTION -->
+        <div class="break-section">
+          <button id="break-btn" class="stat-card" onclick="startEggGame()">
+            ☕ Want to take a break? <strong>Click Me!</strong>
+          </button>
+          
+          <div id="egg-game-container" style="display: none;">
+            <h3>Catch the Hearts! ❤️</h3>
+            <div style="display: flex; justify-content: space-around; margin: 10px 0;">
+                <p>Score: <span id="egg-score" style="color: var(--blush); font-weight: bold;">0</span></p>
+                <p>Time Left: <span id="game-timer-display" style="color: var(--sky); font-weight: bold;">60</span>s</p>
+            </div>
+            <div id="game-canvas"></div>
+            <button class="contact-btn" style="background: var(--blush); color: white; border: none; cursor: pointer;" onclick="stopEggGame(false)">Close Game</button>
+          </div>
+        </div>
       </div>
 
       <div class="team-photo-wrap">
@@ -104,21 +116,19 @@
   <div class="slide" id="slide2">
     <div class="s2-content">
       <div class="s2-header">
-        <h2>Meet Our <span>Team</span></h2>
-        <p>Click on a card to connect with us</p>
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px;">Meet Our <span class="highlight">Team</span></h2>
+        <p style="text-align: center; opacity: 0.8; margin-bottom: 40px;">Click on a card to connect with us</p>
       </div>
 
       <div class="team-row">
+        <!-- AIN CARD -->
         <div class="member-card" onclick="this.classList.toggle('flipped')">
           <div class="card-inner">
             <div class="card-face card-front">
-              <div class="card-img-wrap">
-                <img src="ainabt.jpeg" alt="Nur Ain Solehah">
-              </div>
+              <img src="ainabt.jpeg" alt="Nur Ain Solehah">
               <div class="card-info">
                 <div class="card-role">About Us Designer</div>
                 <div class="card-name">Nur Ain Solehah</div>
-                <div class="flip-hint"><span>↺</span> Flip to contact</div>
               </div>
             </div>
             <div class="card-face card-back">
@@ -130,16 +140,14 @@
           </div>
         </div>
 
+        <!-- LILY CARD -->
         <div class="member-card" onclick="this.classList.toggle('flipped')">
           <div class="card-inner">
             <div class="card-face card-front">
-              <div class="card-img-wrap">
-                <img src="lilyabt.jpeg" alt="Lily Liyana Lorraine">
-              </div>
+              <img src="lilyabt.jpeg" alt="Lily Liyana Lorraine">
               <div class="card-info">
                 <div class="card-role">Jobsheet Page Designer</div>
                 <div class="card-name">Lily Liyana Lorraine</div>
-                <div class="flip-hint"><span>↺</span> Flip to contact</div>
               </div>
             </div>
             <div class="card-face card-back">
@@ -166,7 +174,7 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Particle JS Initialization
+    // Particle JS
     particlesJS("particles-js", {
       "particles": {
         "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -176,9 +184,6 @@
         "size": { "value": 3, "random": true },
         "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
         "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
-      },
-      "interactivity": {
-        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
       }
     });
 
@@ -210,7 +215,7 @@
       setTimeout(() => {
         const info = {
           team: "OUR TEAM: Ain & Lily working together for perfection.",
-          modules: "5 Core Modules and 15 jobsheets explored in our Mobile Application Development journey.",
+          modules: "5 Core Modules and 15 jobsheets explored.",
           done: "15 Tasks Completed: All jobsheets finalized.",
           next: "0 Next: Ready for submission!"
         };
@@ -221,18 +226,16 @@
 
     let current = 0;
     const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
     function goTo(idx) {
       if (idx === current) return;
       playClick();
       slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
       current = idx;
       slides[current].classList.add('active');
-      dots[current].classList.add('active');
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Cursor Follower
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
     document.addEventListener('mousemove', e => {
@@ -243,6 +246,86 @@
     function toggleMusic() {
       if (audio.paused) { audio.play(); document.getElementById('musicIcon').innerText = '🔊'; } 
       else { audio.pause(); document.getElementById('musicIcon').innerText = '🔇'; }
+    }
+
+    // --- UPDATED GAME LOGIC BY AIN ---
+    let eggInterval;
+    let gameTimer;
+    let score = 0;
+    let timeLeft = 20;
+
+    function startEggGame() {
+        playClick();
+        
+        // Reset state
+        score = 0;
+        timeLeft = 20;
+        document.getElementById('egg-score').innerText = score;
+        document.getElementById('game-timer-display').innerText = timeLeft;
+        
+        // UI transitions
+        document.getElementById('break-btn').style.display = 'none';
+        document.getElementById('egg-game-container').style.display = 'block';
+        
+        // Start spawning hearts
+        eggInterval = setInterval(spawnEgg, 1000);
+        
+        // Start 1 minute countdown
+        gameTimer = setInterval(() => {
+            timeLeft--;
+            document.getElementById('game-timer-display').innerText = timeLeft;
+            
+            if (timeLeft <= 0) {
+                stopEggGame(true); // End with alert
+            }
+        }, 1000);
+    }
+
+    function spawnEgg() {
+        const canvas = document.getElementById('game-canvas');
+        if(!canvas) return;
+
+        const heart = document.createElement('div');
+        heart.className = 'egg'; 
+        heart.innerHTML = '❤️'; 
+        
+        // Random position
+        const x = Math.random() * (canvas.clientWidth - 40);
+        const y = Math.random() * (canvas.clientHeight - 40);
+        
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        heart.style.position = 'absolute';
+        heart.style.fontSize = '30px';
+        heart.style.cursor = 'pointer';
+        
+        heart.onclick = function() {
+            score++;
+            document.getElementById('egg-score').innerText = score;
+            playClick();
+            heart.remove();
+        };
+        
+        canvas.appendChild(heart);
+
+        // Heart stays for 3 seconds (as requested: slower disappearance)
+        setTimeout(() => { 
+            if(heart.parentNode) heart.remove(); 
+        }, 3000); 
+    }
+
+    function stopEggGame(isTimeUp = false) {
+        playClick();
+        clearInterval(eggInterval);
+        clearInterval(gameTimer);
+        
+        document.getElementById('game-canvas').innerHTML = '';
+        document.getElementById('egg-game-container').style.display = 'none';
+        document.getElementById('break-btn').style.display = 'inline-block';
+
+        if (isTimeUp) {
+            alert("⏰ Time's up! \n\nCongrats! You have collected " + score + " hearts! ❤️");
+        }
     }
   </script>
 </body>
