@@ -230,12 +230,18 @@ footer {
 </head>
 <body>
 
+
 <video id="bgVideo" autoplay loop muted playsinline>
   <source src="bgvsection.mp4" type="video/mp4">
 </video>
 
 <audio id="bgSound" autoplay loop><source src="bgs2.mp3" type="audio/mpeg"></audio>
 <audio id="clickSound" preload="auto"><source src="pop.mp3" type="audio/mpeg"></audio>
+
+<!-- ===== MUTE BUTTON ===== -->
+<button id="muteBtn" style="position:fixed; top:90px; right:30px; z-index:2000; background:#E91E63; color:white; border:none; border-radius:50%; width:48px; height:48px; font-size:1.5em; box-shadow:0 2px 8px rgba(0,0,0,0.15); cursor:pointer; display:flex; align-items:center; justify-content:center;">
+  🔊
+</button>
 
 <div class="main-content">
   <nav>
@@ -263,10 +269,12 @@ footer {
 <!-- LILY'S POPUP -->
 <div class="job-popup" id="lilyPopup">
   <button class="close-btn" onclick="closePopup('lilyPopup')">CLOSE</button>
-  <h2 style="color:#E91E63; margin-bottom:20px;">Lily's Dashboard</h2>
+  <h2 style="color:#E91E63; margin-bottom:20px;">Lily's Section</h2>
 
   <div class="chapter">
     <h3>CHAPTER 1: HTML5 FOUNDATION</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn the basics of HTML to build web pages.</p>
+    <br><br>
     <div class="btn-grid">
       <button onclick="window.open('LAB1_HTML5.html','_blank')">JOBSHEET 1</button>
       <button onclick="window.open('LAB2_HTML5.html','_blank')">JOBSHEET 2</button>
@@ -276,6 +284,8 @@ footer {
 
   <div class="chapter">
     <h3>CHAPTER 2: CSS3 STYLING</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use CSS3 to enhance and style web pages.</p>
+    <br><br>
     <div class="btn-grid">
       <button onclick="window.open('Lab4.html','_blank')">JOBSHEET 4</button>
       <button onclick="window.open('Lab5.html','_blank')">JOBSHEET 5</button>
@@ -285,6 +295,8 @@ footer {
   
   <div class="chapter">
     <h3>CHAPTER 3: JAVASCRIPT LOGIC</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use JavaScript to add interactivity and logic to web pages.</p>
+    <br><br>
     <div class="btn-grid">
       <button onclick="window.open('Lab7lily.html','_blank')">JOBSHEET 7</button>
       <button onclick="window.open('Lab8lily.html','_blank')">JOBSHEET 8</button>
@@ -293,22 +305,29 @@ footer {
     </div>
   </div>
 
-  <!-- CHAPTER 4: JQUERY (3 jobsheets) -->
+  <!-- CHAPTER 4: JQUERY (6 jobsheets) -->
   <div class="chapter">
     <h3>CHAPTER 4: JQUERY</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use jQuery to simplify DOM manipulation and animations.</p>
+    <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('lily_jquery1.html','_blank')">JOBSHEET 10</button>
-      <button onclick="window.open('lily_jquery2.html','_blank')">JOBSHEET 11</button>
-      <button onclick="window.open('lily_jquery3.html','_blank')">JOBSHEET 12</button>
+      <button onclick="window.open('lily_jquery1.html','_blank')">JOBSHEET 10-Mouse Events</button>
+      <button onclick="window.open('lily_jquery2.html','_blank')">JOBSHEET 11-Slide</button>
+      <button onclick="window.open('lily_jquery3.html','_blank')">JOBSHEET 12-Directional</button>
+      <button onclick="window.open('lily_jquery4.html','_blank')">JOBSHEET 13-Animations</button>
+      <button onclick="window.open('lily_jquery5.html','_blank')">JOBSHEET 14-Heading</button>
+      <button onclick="window.open('lily_jquery6.html','_blank')">JOBSHEET 15-File</button>
     </div>
   </div>
 
-  <!-- CHAPTER 5: BOOTSTRAP (2 jobsheets) -->
+  <!-- CHAPTER 5: Local Storage (2 jobsheets) -->
   <div class="chapter">
-    <h3>CHAPTER 5: BOOTSTRAP</h3>
+    <h3>CHAPTER 5: Local Storage</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Local Storage allows data to be stored in the browser for use in web applications offline.</p>
+    <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('lily_bootstrap1.html','_blank')">JOBSHEET 13</button>
-      <button onclick="window.open('lily_bootstrap2.html','_blank')">JOBSHEET 14</button>
+      <button onclick="window.open('lily_localstorage1.html','_blank')">JOBSHEET 16</button>
+      <button onclick="window.open('lily_localstorage2.html','_blank')">JOBSHEET 17</button>
     </div>
   </div>
 </div>
@@ -316,10 +335,12 @@ footer {
 <!-- AIN'S POPUP -->
 <div class="job-popup" id="ainPopup">
   <button class="close-btn" onclick="closePopup('ainPopup')">CLOSE</button>
-  <h2 style="color:#E91E63; margin-bottom:20px;">Ain's Dashboard</h2>
+  <h2 style="color:#E91E63; margin-bottom:20px;">Ain's Section</h2>
 
   <div class="chapter">
     <h3>CHAPTER 1: HTML5 FOUNDATION</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn the basics of HTML to build web pages.</p>
+    <br><br>
     <div class="btn-grid">
       <button onclick="window.open('JS1.html','_blank')">JOBSHEET 1</button>
       <button onclick="window.open('JS 2.html','_blank')">JOBSHEET 2</button>
@@ -329,6 +350,8 @@ footer {
 
   <div class="chapter">
     <h3>CHAPTER 2: CSS3 STYLING</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use CSS3 to enhance and style web pages.</p>
+    <br><br>  
     <div class="btn-grid">
       <button onclick="window.open('JS4.html','_blank')">JOBSHEET 4</button>
       <button onclick="window.open('JS5Ain.html','_blank')">JOBSHEET 5</button>
@@ -338,6 +361,8 @@ footer {
 
   <div class="chapter">
     <h3>CHAPTER 3: JAVASCRIPT LOGIC</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use JavaScript to add interactivity and logic to web pages.</p>
+    <br><br>
     <div class="btn-grid">
       <button onclick="window.open('JS7Ain.html','_blank')">JOBSHEET 7</button>
       <button onclick="window.open('JS8Ain.html','_blank')">JOBSHEET 8</button>
@@ -346,22 +371,29 @@ footer {
     </div>
   </div>
 
-  <!-- CHAPTER 4: JQUERY (3 jobsheets) -->
+  <!-- CHAPTER 4: JQUERY (6 jobsheets) -->
   <div class="chapter">
     <h3>CHAPTER 4: JQUERY</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use jQuery to simplify DOM manipulation and animations.</p>
+    <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('jquery1ain.html')">JOBSHEET 10</button>
-      <button onclick="window.open('mouseeventain.html')">JOBSHEET 11</button>
-      <button onclick="window.open('tutorial jquery2ain.html')">JOBSHEET 12</button>
+      <button onclick="window.open('jquery1ain.html')">JOBSHEET 10-Mouse Events</button>
+      <button onclick="window.open('mouseeventain.html')">JOBSHEET 11-Slide</button>
+      <button onclick="window.open('tutorial jquery2ain.html')">JOBSHEET 12-Directional</button>
+      <button onclick="window.open('jquery4ain.html')">JOBSHEET 13-Animations</button>
+      <button onclick="window.open('jquery5ain.html')">JOBSHEET 14-Heading</button>
+      <button onclick="window.open('jquery6ain.html')">JOBSHEET 15-File</button>
     </div>
   </div>
 
-  <!-- CHAPTER 5: BOOTSTRAP (2 jobsheets) -->
+  <!-- CHAPTER 5: Local Storage (2 jobsheets) -->
   <div class="chapter">
-    <h3>CHAPTER 5: BOOTSTRAP</h3>
+    <h3>CHAPTER 5: Local Storage</h3>
+    <p style="margin:10px 0 0 0; color:#8B5A8B;">Local Storage allows data to be stored in the browser for use in web applications offline.</p>
+    <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('ain_bootstrap1.html','_blank')">JOBSHEET 13</button>
-      <button onclick="window.open('ain_bootstrap2.html','_blank')">JOBSHEET 14</button>
+      <button onclick="window.open('ain_localstorage1.html','_blank')">JOBSHEET 16</button>
+      <button onclick="window.open('ain_localstorage2.html','_blank')">JOBSHEET 17</button>
     </div>
   </div>
   
@@ -373,6 +405,25 @@ footer {
 
 <script>
 const clickSound = document.getElementById("clickSound");
+
+// ===== BACKGROUND AUDIO MUTE/UNMUTE =====
+const bgSound = document.getElementById('bgSound');
+const muteBtn = document.getElementById('muteBtn');
+let isMuted = false;
+
+// Ensure audio plays on user interaction (for browsers that block autoplay)
+window.addEventListener('click', function enableAudioOnce() {
+  if (bgSound.paused) {
+    bgSound.play().catch(()=>{});
+  }
+  window.removeEventListener('click', enableAudioOnce);
+});
+
+muteBtn.addEventListener('click', function() {
+  isMuted = !isMuted;
+  bgSound.muted = isMuted;
+  muteBtn.textContent = isMuted ? '🔇' : '🔊';
+});
 
 // BUKA & TUTUP POPUP
 document.getElementById("lily").onclick = () => { 
