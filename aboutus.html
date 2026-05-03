@@ -9,8 +9,23 @@
 </head>
 <body>
 
+  <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Animated Background Layer -->
+  <div class="bg-container">
+    <div id="particles-js"></div>
+    <div class="moving-mesh"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+  </div>
+
+  <!-- Real-time Clock & Greeting -->
+  <div class="time-widget">
+    <div id="digital-clock">00:00:00 AM</div>
+    <div id="greeting-msg">Welcome</div>
+  </div>
 
   <nav class="navbar">
     <div class="nav-logo">
@@ -30,7 +45,6 @@
   <audio id="bgMusic" loop>
     <source src="musicabt.mp3" type="audio/mpeg">
   </audio>
-
   <audio id="clickSound">
     <source src="soundeffectabt.mp3" type="audio/mpeg">
   </audio>
@@ -41,45 +55,40 @@
 
   <!-- ========== SLIDE 1 ========== -->
   <div class="slide active" id="slide1">
-    <div class="mesh"></div>
-    <div class="noise"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-    
     <div class="s1-content">
       <div class="s1-left">
         <div class="tag">About Us</div>
         <h1 class="s1-title">
-          We craft<br>
-          <span class="highlight">digital magic</span><br>
-          together.
+          We are the student of<br>
+          <span class="highlight">DIPLOMA IN COMPUTER TECHNOLOGY (BIG DATA)</span>
         </h1>
-        <p class="s1-desc">
-          A passionate team blending creativity with code to build modern,
-          impactful digital experiences.
-        </p>
         
-        <div class="stats-row">
-          <div class="stat">
+        <div class="stats-grid">
+          <div class="stat-card" onclick="showInfo('team')">
             <div class="stat-num">2</div>
-            <div class="stat-label">Creators</div>
+            <div class="stat-label">Team</div>
           </div>
-          <div class="stat">
-            <div class="stat-num">∞</div>
-            <div class="stat-label">Ideas</div>
+          <div class="stat-card" onclick="showInfo('modules')">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Modules</div>
           </div>
-          <div class="stat">
-            <div class="stat-num">1</div>
-            <div class="stat-label">Vision</div>
+          <div class="stat-card" onclick="showInfo('done')">
+            <div class="stat-num">15</div>
+            <div class="stat-label">Done</div>
+          </div>
+          <div class="stat-card" onclick="showInfo('next')">
+            <div class="stat-num">0</div>
+            <div class="stat-label">Next</div>
           </div>
         </div>
+        
+        <div id="game-info-display" class="info-box">Click the stats to explore!</div>
       </div>
 
       <div class="team-photo-wrap">
         <div class="photo-glow"></div>
         <img src="lilyain.jpeg" alt="Our Team" class="team-photo">
-        <div class="photo-badge">✨ Our Team ✨</div>
+        <div class="photo-badge">✨ OUR TEAM ✨</div>
       </div>
     </div>
 
@@ -105,7 +114,6 @@
             <div class="card-face card-front">
               <div class="card-img-wrap">
                 <img src="ainabt.jpeg" alt="Nur Ain Solehah">
-                <div class="img-overlay"></div>
               </div>
               <div class="card-info">
                 <div class="card-role">About Us Designer</div>
@@ -126,8 +134,7 @@
           <div class="card-inner">
             <div class="card-face card-front">
               <div class="card-img-wrap">
-                <img src="lilyabt.jpeg" alt="Lily Liyana">
-                <div class="img-overlay"></div>
+                <img src="lilyabt.jpeg" alt="Lily Liyana Lorraine">
               </div>
               <div class="card-info">
                 <div class="card-role">Jobsheet Page Designer</div>
@@ -137,7 +144,7 @@
             </div>
             <div class="card-face card-back">
               <img src="lilyabt.jpeg" class="back-avatar">
-              <div class="back-name">Lily Liyana</div>
+              <div class="back-name">Lily Liyana Lorraine</div>
               <a class="contact-btn" href="https://wa.me/601111512135" target="_blank">WhatsApp Me</a>
               <p class="back-quote">"Every pixel has a purpose."</p>
             </div>
@@ -145,7 +152,6 @@
         </div>
       </div>
       
-      <!-- Back button diletakkan di bawah content supaya tidak bertindih -->
       <button class="back-btn-custom" onclick="goTo(0)">
         <div class="arrow-circle reverse">
             <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
@@ -157,65 +163,87 @@
 
   <footer class="footer">© 2026 lilyainwebsite. All rights reserved.</footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
+    // Particle JS Initialization
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#38bdf8" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": true },
+        "size": { "value": 3, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
+      },
+      "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+      }
+    });
+
     const audio = document.getElementById('bgMusic');
-    const icon = document.getElementById('musicIcon');
     const clickSound = document.getElementById('clickSound');
 
     function playClick() {
       clickSound.currentTime = 0;
-      clickSound.play().catch(e => console.log("Sound effect blocked"));
+      clickSound.play().catch(e => {});
     }
 
-    function toggleMusic() {
-      if (audio.paused) {
-        audio.play();
-        icon.innerText = '🔊';
-      } else {
-        audio.pause();
-        icon.innerText = '🔇';
-      }
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('digital-clock').innerText = now.toLocaleTimeString();
+      const hours = now.getHours();
+      let g = "Welcome";
+      if (hours < 12) g = "Good Morning!";
+      else if (hours < 18) g = "Good Afternoon!";
+      else g = "Good Evening!";
+      document.getElementById('greeting-msg').innerText = g;
     }
+    setInterval(updateTime, 1000);
+    updateTime();
 
-    document.addEventListener('click', function() {
-      if (audio.paused) {
-        audio.play();
-        icon.innerText = '🔊';
-      }
-    }, { once: true });
-
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    document.addEventListener('mousemove', e => {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    });
+    function showInfo(type) {
+      playClick();
+      const display = document.getElementById('game-info-display');
+      display.style.opacity = 0;
+      setTimeout(() => {
+        const info = {
+          team: "OUR TEAM: Ain & Lily working together for perfection.",
+          modules: "5 Core Modules and 15 jobsheets explored in our Mobile Application Development journey.",
+          done: "15 Tasks Completed: All jobsheets finalized.",
+          next: "0 Next: Ready for submission!"
+        };
+        display.innerText = info[type];
+        display.style.opacity = 1;
+      }, 200);
+    }
 
     let current = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
-
     function goTo(idx) {
       if (idx === current) return;
       playClick();
-      
       slides[current].classList.remove('active');
       dots[current].classList.remove('active');
-      
       current = idx;
-      
       slides[current].classList.add('active');
       dots[current].classList.add('active');
-
-      // Memastikan skrin naik ke atas balik bila tukar slide
       window.scrollTo(0, 0);
     }
 
-    document.querySelectorAll('a, button, .member-card, .dot, .music-control').forEach(el => {
-      el.addEventListener('click', playClick);
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
     });
+
+    function toggleMusic() {
+      if (audio.paused) { audio.play(); document.getElementById('musicIcon').innerText = '🔊'; } 
+      else { audio.pause(); document.getElementById('musicIcon').innerText = '🔇'; }
+    }
   </script>
 </body>
 </html>
