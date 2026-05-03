@@ -148,3 +148,42 @@ body {
 .arrow-circle.reverse { 
     transform: rotate(180deg); /* Ini akan memusingkan ikon 180 darjah ke kiri */
 }
+
+.break-section {
+    margin: 50px auto;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+}
+
+#egg-game-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed var(--blush);
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
+}
+
+#game-canvas {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.egg {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+.egg:active {
+    transform: scale(1.5);
+}
+
