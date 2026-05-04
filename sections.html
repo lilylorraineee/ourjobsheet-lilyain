@@ -210,6 +210,61 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border-radius: 50px;
 }
 
+/* ===== VIDEO MODAL STYLE ===== */
+.video-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  max-width: 900px;
+  background: black;
+  z-index: 20000;
+  border-radius: 15px;
+  overflow: hidden;
+  display: none;
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+.video-modal video {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+}
+
+.video-modal .close-video {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 20001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-modal .close-video:hover {
+  background: darkred;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 19999;
+  display: none;
+}
+
 /* ===== FOOTER ===== */
 footer {
   background-color: #FFD1E8;
@@ -306,29 +361,29 @@ footer {
     </div>
   </div>
 
-  <!-- CHAPTER 4: JQUERY (6 jobsheets) -->
+  <!-- CHAPTER 4: JQUERY (6 jobsheets) - VIDEO -->
   <div class="chapter">
     <h3>CHAPTER 4: JQUERY</h3>
     <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use jQuery to simplify DOM manipulation and animations.</p>
     <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('lily_jquery1.html','_blank')">JOBSHEET 10-Mouse Events</button>
-      <button onclick="window.open('lily_jquery2.html','_blank')">JOBSHEET 11-Slide</button>
-      <button onclick="window.open('lily_jquery3.html','_blank')">JOBSHEET 12-Directional</button>
-      <button onclick="window.open('lily_jquery4.html','_blank')">JOBSHEET 13-Animations</button>
-      <button onclick="window.open('lily_jquery5.html','_blank')">JOBSHEET 14-Heading</button>
-      <button onclick="window.open('lily_jquery6.html','_blank')">JOBSHEET 15-File</button>
+      <button onclick="openVideo('jquery1.mp4')">JOBSHEET 10 - Mouse Events</button>
+      <button onclick="openVideo('jquery2.mp4')">JOBSHEET 11 - Slide</button>
+      <button onclick="openVideo('jquery3.mp4')">JOBSHEET 12 - Directional</button>
+      <button onclick="openVideo('jquery4.mp4')">JOBSHEET 13 - Animations</button>
+      <button onclick="openVideo('jquery5.mp4')">JOBSHEET 14 - Heading</button>
+      <button onclick="openVideo('jquery6.mp4')">JOBSHEET 15 - File</button>
     </div>
   </div>
 
-  <!-- CHAPTER 5: Local Storage (2 jobsheets) -->
+  <!-- CHAPTER 5: Local Storage (2 jobsheets) - VIDEO -->
   <div class="chapter">
     <h3>CHAPTER 5: Local Storage</h3>
     <p style="margin:10px 0 0 0; color:#8B5A8B;">Local Storage allows data to be stored in the browser for use in web applications offline.</p>
     <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('lily_localstorage1.html','_blank')">JOBSHEET 16</button>
-      <button onclick="window.open('lily_localstorage2.html','_blank')">JOBSHEET 17</button>
+      <button onclick="openVideo('localstorage1.mp4')">JOBSHEET 16</button>
+      <button onclick="openVideo('localstorage2.mp4')">JOBSHEET 17</button>
     </div>
   </div>
 </div>
@@ -372,32 +427,42 @@ footer {
     </div>
   </div>
 
-  <!-- CHAPTER 4: JQUERY (6 jobsheets) -->
+  <!-- CHAPTER 4: JQUERY (6 jobsheets) - VIDEO -->
   <div class="chapter">
     <h3>CHAPTER 4: JQUERY</h3>
     <p style="margin:10px 0 0 0; color:#8B5A8B;">Learn to use jQuery to simplify DOM manipulation and animations.</p>
     <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('jquery1ain.html')">JOBSHEET 10-Mouse Events</button>
-      <button onclick="window.open('mouseeventain.html')">JOBSHEET 11-Slide</button>
-      <button onclick="window.open('tutorial jquery2ain.html')">JOBSHEET 12-Directional</button>
-      <button onclick="window.open('jquery4ain.html')">JOBSHEET 13-Animations</button>
-      <button onclick="window.open('jquery5ain.html')">JOBSHEET 14-Heading</button>
-      <button onclick="window.open('jquery6ain.html')">JOBSHEET 15-File</button>
+      <button onclick="openVideo('ain_jquery1.mp4')">JOBSHEET 10 - Mouse Events</button>
+      <button onclick="openVideo('ain_jquery2.mp4')">JOBSHEET 11 - Slide</button>
+      <button onclick="openVideo('ain_jquery3.mp4')">JOBSHEET 12 - Directional</button>
+      <button onclick="openVideo('ain_jquery4.mp4')">JOBSHEET 13 - Animations</button>
+      <button onclick="openVideo('ain_jquery5.mp4')">JOBSHEET 14 - Heading</button>
+      <button onclick="openVideo('ain_jquery6.mp4')">JOBSHEET 15 - File</button>
     </div>
   </div>
 
-  <!-- CHAPTER 5: Local Storage (2 jobsheets) -->
+  <!-- CHAPTER 5: Local Storage (2 jobsheets) - VIDEO -->
   <div class="chapter">
     <h3>CHAPTER 5: Local Storage</h3>
     <p style="margin:10px 0 0 0; color:#8B5A8B;">Local Storage allows data to be stored in the browser for use in web applications offline.</p>
     <br><br>
     <div class="btn-grid">
-      <button onclick="window.open('ain_localstorage1.html','_blank')">JOBSHEET 16</button>
-      <button onclick="window.open('ain_localstorage2.html','_blank')">JOBSHEET 17</button>
+      <button onclick="openVideo('ain_localstorage1.mp4')">JOBSHEET 16</button>
+      <button onclick="openVideo('ain_localstorage2.mp4')">JOBSHEET 17</button>
     </div>
   </div>
   
+</div>
+
+<!-- Video Modal -->
+<div class="video-overlay" id="videoOverlay" onclick="closeVideo()"></div>
+<div class="video-modal" id="videoModal">
+  <button class="close-video" onclick="closeVideo()">✕</button>
+  <video id="videoPlayer" controls>
+    <source src="" type="video/mp4">
+    Your browser does not support video.
+  </video>
 </div>
 
 <footer>&copy; 2026 lilyain website. All rights reserved.</footer>
@@ -440,6 +505,45 @@ function closePopup(id) {
   clickSound.currentTime = 0; clickSound.play();
   document.getElementById(id).style.display = "none";
 }
+
+// ===== VIDEO PLAYER FUNCTIONS =====
+function openVideo(videoSrc) {
+  const videoModal = document.getElementById('videoModal');
+  const videoOverlay = document.getElementById('videoOverlay');
+  const videoPlayer = document.getElementById('videoPlayer');
+  const videoSource = videoPlayer.querySelector('source');
+  
+  videoSource.src = videoSrc;
+  videoPlayer.load();
+  videoModal.style.display = 'block';
+  videoOverlay.style.display = 'block';
+  
+  // Play video with sound
+  videoPlayer.play().catch(e => console.log('Auto-play prevented:', e));
+  
+  // Play click sound
+  if (clickSound) {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  }
+}
+
+function closeVideo() {
+  const videoModal = document.getElementById('videoModal');
+  const videoOverlay = document.getElementById('videoOverlay');
+  const videoPlayer = document.getElementById('videoPlayer');
+  
+  videoPlayer.pause();
+  videoModal.style.display = 'none';
+  videoOverlay.style.display = 'none';
+}
+
+// Close video with ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeVideo();
+  }
+});
 
 // MOUSE TRAIL & VIDEO RATE
 document.addEventListener('DOMContentLoaded', () => {
