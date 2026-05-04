@@ -198,6 +198,13 @@ footer {
 </footer>
 
 <script>
+
+const video = document.getElementById('bgVideo');
+video.addEventListener('error', (e) => {
+  console.log('Video error:', e);
+  console.log('Video src:', video.querySelector('source')?.src);
+});
+  
 const popSound = document.getElementById("popSound");
 const bgMusic = document.getElementById("bgMusic");
 const riserSound = document.getElementById("riserSound");
