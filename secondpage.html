@@ -6,37 +6,42 @@
 <title>Our Jobsheet Page</title>
 
 <style>
-/* ===== ASAS & SCROLL HALIMUNAN ===== */
+/* ===== ASAS & SCROLL ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
   font-family: Arial, sans-serif;
-  background-color: #000;
   width: 100%;
   min-height: 100vh;
-  /* Benarkan scroll tapi sorokkan bar kelabu */
   overflow-x: hidden;
   overflow-y: auto; 
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   text-align: center;
+  
+  /* ANIMATED GRADIENT BACKGROUND */
+  background: linear-gradient(270deg, #ff0066, #cc33ff, #ff66b3, #ff99cc);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
 }
 
-/* Sembunyikan Scrollbar Chrome/Safari/Edge */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body::-webkit-scrollbar {
   display: none;
   width: 0 !important;
 }
 
-/* Background Video */
+/* Sembunyikan video (tak guna) */
 #bgVideo {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  display: none;
 }
 
-/* Navigation - Melekat di atas */
+/* Navigation */
 nav {
   position: fixed;
   top: 0; width: 100%;
@@ -53,27 +58,27 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
 
 /* Homepage Content */
 .homepage {
-  padding: 130px 20px 50px 20px; /* Padding atas supaya tak kena tutup dengan nav */
+  padding: 130px 20px 50px 20px;
   position: relative;
   z-index: 1;
-  min-height: 80vh; /* Pastikan ada ruang untuk scroll */
+  min-height: 80vh;
 }
 
 .homepage h1 {
   font-size: 3em;
   margin-bottom: 30px;
-  color: #ff26ff;
+  color: #ffffff;
   text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 1px #ff0066;
 }
 
-/* Content Section (Gambar & Teks) */
+/* Content Section */
 .content-section {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap; /* Penting: Supaya gambar atas teks bawah dalam mobile */
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
@@ -83,10 +88,11 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   border: 4px solid #FFB6D9;
   border-radius: 15px;
   transition: all 0.3s ease;
+  background-color: white; /* backup kalau gambar tak load */
 }
 
 .content-text {
-  background-color: rgba(255, 209, 232, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 25px;
   border-radius: 15px;
   color: #000;
@@ -112,7 +118,7 @@ nav a { color: #8B5A8B; text-decoration: none; font-size: 1.1em; font-weight: bo
   transform: scale(1.1);
 }
 
-/* FOOTER - DIPERBAIKI (Tidak lagi FIXED) */
+/* Footer */
 footer {
   background-color: #FFD1E8;
   color: #8B5A8B;
@@ -120,7 +126,7 @@ footer {
   padding: 20px;
   width: 100%;
   z-index: 10;
-  position: relative; /* Ini akan buat dia duduk di paling bawah kandungan */
+  position: relative;
   margin-top: 50px;
   border-top: 2px solid #FFB6D9;
 }
@@ -140,20 +146,20 @@ footer {
   cursor: pointer;
 }
 
-/* ===== KHUSUS MOBILE ===== */
 @media(max-width: 600px) {
   .homepage h1 { font-size: 2em; }
   nav img { height: 45px; }
   nav a { font-size: 0.9em; }
-  .btn { width: 90%; } /* Butang besar sikit untuk senang tekan kat phone */
+  .btn { width: 90%; }
 }
 </style>
 </head>
-
 <body>
-<video id="bgVideo" autoplay muted loop playsinline>
+
+<!-- Video disabled - using animated gradient instead -->
+<!-- <video id="bgVideo" autoplay muted loop playsinline>
   <source src="gb.webp" type="image/webp">
-</video>
+</video> -->
   
 <audio id="bgMusic" autoplay loop>
   <source src="bgs1.mp3" type="audio/mpeg">
@@ -197,13 +203,6 @@ footer {
 </footer>
 
 <script>
-
-const video = document.getElementById('bgVideo');
-video.addEventListener('error', (e) => {
-  console.log('Video error:', e);
-  console.log('Video src:', video.querySelector('source')?.src);
-});
-  
 const popSound = document.getElementById("popSound");
 const bgMusic = document.getElementById("bgMusic");
 const riserSound = document.getElementById("riserSound");
@@ -215,13 +214,11 @@ bgMusic.volume = 0.5;
 
 document.addEventListener("click", () => { bgMusic.play(); }, { once: true });
 
-// Button click & redirect
 startBtn.addEventListener("click", () => {
   if(soundOn){ popSound.currentTime = 0; popSound.play(); }
   setTimeout(() => { window.location.href = "sections.html"; }, 350);
 });
 
-// Hover sounds
 startBtn.addEventListener("mouseenter", () => { if(soundOn){ riserSound.currentTime = 0; riserSound.play(); } });
 startBtn.addEventListener("mouseleave", () => { riserSound.pause(); riserSound.currentTime = 0; });
 
@@ -252,8 +249,6 @@ document.addEventListener("mousemove", (e) => {
     p.style.opacity = i / numberOfParticles;
   });
 });
-
-document.getElementById("bgVideo").playbackRate = 0.3;
 
 soundToggle.addEventListener("click", () => {
   soundOn = !soundOn;
